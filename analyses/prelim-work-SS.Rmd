@@ -1,0 +1,45 @@
+---
+title: "NCME_TextAnalysis"
+author: "Sondra Stegenga"
+date: "7/20/2018"
+output: html_document
+---
+#Examining science constructs through structural topic modeling.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(stm)
+library(tm)
+library(readxl)
+```
+
+```{r load}
+sci <- read_excel("8gradescience.xlsx")
+```
+
+```{r processing}
+sciprocessed <- textProcessor(sci$`NGSS Standard`, metadata = sci) #reading in the data that are stored in a document called sci. We are also telling it to read in certain metadata
+```
+
+```{r prep}
+out <- prepDocuments(sciprocessed$documents, sciprocessed$vocab, sciprocessed$meta)
+docs <- out$documents
+vocab <- out$vocab
+meta <-out$meta
+```
+
+```{r run}
+First_STM <- stm(documents = out$documents, vocab = out$vocab,
+              K = 15,
+              max.em.its = 75, data = out$meta, #max number of iterations
+              init.type = "Spectral", verbose = TRUE) #dont spit out too much text -verbose
+```
+
+```{r plottopics}
+plot(First_STM)
+```
+
+```{r summary}
+summary(First_STM)
+```
