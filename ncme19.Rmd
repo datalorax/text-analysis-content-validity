@@ -1,0 +1,179 @@
+---
+title: "Evaluating Content-Related Validity Evidence Using Text Modeling"
+shorttitle: "Text Modeling Validity"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+
+author: 
+  - name          : "Daniel Anderson"
+    affiliation   : "1"
+    corresponding : yes
+    email         : "daniela@uoregon.edu"
+    address       : "5262 University of Oregon"
+  - name          : "Brock Rowley"
+    affiliation   : "1"
+    email         : "brockr@uoregon.edu"
+  - name          : "Sondra Stegenga"
+    affiliation   : "1"
+    email         : "sondras@uoregon.edu"
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Oregon"
+
+# bibliography      : refs.bib
+
+figsintext        : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : no
+mask              : no
+
+abstract: |
+  Topic modeling is applied with science content standards to
+  evaluate semantic clustering. The probability that each item from a statewide
+  assessment belongs to each cluster/topic is then estimated as a source of
+  content-related validity evidence. We also show how visualizations can map 
+  the content coverage of the test.
+class             : "doc"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+(800 Words)
+
+## Conceptual Framework
+
+The alignment of test items to content standards is critical to content validity. Generally, alignment studies are used to determine content validity for standards-based assessments.  Alignment studies are difficult to execute and design, even under ideal conditions, and present researchers with potential sources of error. The chosen methodology, number of participants, professional judgments, consensus through discussion or averaged by ratings, costs associated with travel, and time are elements for consideration. Text mining may be an additional source of content validity, used to match content standards to items for standards-based assessments. 
+
+## Methods and Results
+
+Data were analyzed using using R (R Core Team, 2017) with packages stm (Roberts, Stewart, Tingley, Benoit, 2018), and tm (Feinerer, 2018) for text mining and structural topic modeling. All plots were produced using R (R Core Team, 2017) with the ggplot2 (Wickham, 2016). All code for producing the different plots will be made available for the full conference paper, including publicly available data that can be used for fully reproducible examples.
+
+## Conclusions and Implications
+Overall, this paper will discuss a new and innovative proposed approach to establishing validity through analyzing and categorizing text data via modern data tools of R and RStudio text analysis and structural topic modeling. It does not replace current methods for establishing validity but demonstrates initial promise to add strength to the development design. In a world of constantly evolving and growing data and data sources it is imperative as educational researchers that we not only begin to explore new methods that hold promise for increasing efficiency and accuracy with data analysis but also ensure that methods engage an element of translatability. By increasing the accuracy of constructs and improved validity we provide the opportunity to increase utility and translatability over a range of consumers in the educational community. In addition, modern technology provides an array of methods and open source resources and tools, such as R and RStudio, that not only provide the ability to capture and categorize the data but also visualize the findings. Again, this is an imperative piece in a world that has seen vastly increased calls for the translation of data and research to practice and practice to research.
+
+
+##References
+
+Anderson, D. , Irvin, S. , Alonzo, J. and Tindal, G. A. (2015), Gauging Item Alignment Through Online Systems While Controlling for Rater Effects. Educational Measurement: Issues and Practice, 34: 22-33. doi:10.1111/emip.12038
+
+Meyer, David and Hornik, Kurt and Feinerer, Ingo (2008) Text Mining Infrastructure in R. Journal of Statistical Software, 25 (5). pp. 1-54. ISSN 1548-7660
+
+R Core Team (2017). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+
+Raudenbush, S. W., & Willms, J. (1995). The estimation of school effects. Journal of educational and behavioral statistics, 20(4), 307-335.
+
+USCB (2017). Geographic Terms and Concepts - Census Tract. Retrieved July 28, 2017 from https://www.census.gov/geo/reference/gtc/gtc_ct.html 
+
+Walker, K. (2017). tidycensus: Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 0.1.2.
+  https://CRAN.R-project.org/package=tidycensus
+
+Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+
+Wilke, C. O. (2017). ggjoy: Joyplots in 'ggplot2'. R package version 0.2.0. https://CRAN.R-project.org/package=ggjoy
+
+
+## Tables and Figures
+
+(No Limit)
+
+```{r modeling}
+library(tidyverse)
+library(rio)
+library(here)
+library(janitor)
+library(tidytext)
+library(topicmodels)
+#library(fmsb)
+
+standards <- import(here("data", "8gradescience.xlsx"), 
+                    setclass = "tbl_df") %>% 
+  clean_names()
+
+webbwords <- import(here("data", "stopwords-webb.xlsx"),
+                    setclass = "tbl_df")
+
+items <- import(here("data", "G8_Sci_Items.xlsx"),
+                setclass = "tbl_df") %>% 
+  clean_names()
+
+# Create the document term matrix
+dtm <- standards %>% 
+  select(domain, ngss_standard) %>% 
+  unnest_tokens(word, ngss_standard) %>% 
+  anti_join(stop_words) %>% 
+  anti_join(webbwords) %>% 
+  filter(word != "explanation", # Filter out any additional words we don't want in there
+         word != "results") %>% 
+  group_by(domain) %>% 
+  count(word) %>% 
+  ungroup() %>% 
+  cast_dtm(domain, word, n)
+
+# Code below produces the bar charts showing most important words within each 
+# topic 
+#
+# tm <- LDA(dtm, k = 7, control = list(seed = 1234)) %>% 
+#   tidy()
+# 
+# top_terms <- tm %>%
+#   group_by(topic) %>%
+#   top_n(5, beta) %>%
+#   ungroup() %>%
+#   arrange(topic, -beta)
+# 
+# top_terms %>%
+#   mutate(term = reorder(term, beta)) %>%
+#   ggplot(aes(term, beta, fill = factor(topic))) +
+#   geom_col(alpha = 0.8, show.legend = FALSE) +
+#   facet_wrap(~topic, scales = "free_y") +
+#   coord_flip()
+
+# Train the model
+tm_raw <- LDA(dtm, k = 7, control = list(seed = 1234))
+
+# Create a document term matrix for items 
+idtm <- items %>% 
+  select(item_id, prompt) %>% 
+  unnest_tokens(word, prompt) %>% 
+  anti_join(stop_words) %>% 
+  anti_join(webbwords) %>% 
+  group_by(item_id) %>% 
+  count(word) %>% 
+  ungroup() %>% 
+  cast_dtm(item_id, word, n)
+
+# Predict the topic for each item
+posteriors <- posterior(tm_raw, newdata = idtm)
+
+# NOTE: To create the radar charts, you may need to keep it in this format
+# I'm note sure. The below is a good ggplot format.
+
+probs <- posteriors$topics %>% 
+  as.data.frame() %>% 
+  mutate(item = rownames(.)) %>% 
+  tbl_df() %>% 
+  gather(topic, probability, -item)
+
+# Less than ideal ggplot solution with coord_polar
+theme_set(theme_minimal())
+probs %>% 
+  mutate(topic = as.numeric(topic),
+         level = str_extract(item, "L|M|H"),
+         level = factor(level, 
+                        levels = c("L", "M", "H"))) %>% 
+  ungroup() %>% 
+  ggplot(aes(topic, probability, group = item)) +
+    geom_line(lwd = 1.2, alpha = 0.2, color = "cornflowerblue") +
+    geom_point(color = "gray60", alpha = 0.2) +
+    coord_polar() +
+    scale_color_viridis_d() +
+    facet_wrap(~level) +
+    guides(color = "none")
+```
