@@ -15,7 +15,7 @@ library(readxl)
 ```
 
 ```{r load}
-sci <- read_excel("8gradescience.xlsx")
+sci <- import(here("data", "8gradescience.xlsx")
 ```
 
 ```{r processing}
@@ -37,7 +37,11 @@ First_STM <- stm(documents = out$documents, vocab = out$vocab,
 ```
 
 ```{r plottopics}
+
 plot(First_STM)
+
+cloud(First_STM, topic = NULL, type = c("model", "documents"), documents,
+      thresh = .9, max.words = 100)
 ```
 
 ```{r summary}

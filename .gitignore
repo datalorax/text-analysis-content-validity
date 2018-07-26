@@ -65,3 +65,4 @@ rsconnect/
 
 # item file
 data/G8_Sci_Items.xlsx
+.Rproj.user
