@@ -163,33 +163,81 @@ can map the content coverage of the test.}
 
 
 
-(800 Words)
+\hypertarget{conceptual-framework}{%
+\subsection{Conceptual Framework}\label{conceptual-framework}}
 
-\subsection{Conceptual Framework}\label{conceptual-framework}
+Content-related validity evidence is a critical component of the
+\enquote{overall evaluative judgment} (Messick, 1995, p. 741) of the
+validity of test scores for a given use, and is one of the five major
+sources of validity evidence outlined by the \emph{Standards for
+Educational and Psychological Testing} (A. E. R. Association,
+Association, Measurement in Education, \& others, 2014). Empirical
+evaluations of of content validity evidence for high-stakes tests
+generally come in the form of alignment studies, with panels of experts
+judging the alignment match between the content represented within the
+test items and the content represented in the corresponding standards
+(Sireci, 2007; Webb, 1997). In this presentation, we explore the use of
+text-mining procedures to evaluate the language used within the content
+standards and the corresponding language used in the test items (i.e.,
+the item stems and response options). We demonstrate that these
+procedures can be successfully applied to not only identify
+correspondence between items and standards, but also to evaluate the
+content coverage and standards representation across the items.
 
-The alignment of test items to content standards is critical to content
-validity. Generally, alignment studies are used to determine content
-validity for standards-based assessments. Alignment studies are
-difficult to execute and design, even under ideal conditions, and
-present researchers with potential sources of error. The chosen
-methodology, number of participants, professional judgments, consensus
-through discussion or averaged by ratings, costs associated with travel,
-and time are elements for consideration. Text mining may be an
-additional source of content validity, used to match content standards
-to items for standards-based assessments.
+\hypertarget{methods}{%
+\subsection{Methods}\label{methods}}
 
-\subsection{Methods and Results}\label{methods-and-results}
+Our particular application corresponds to evaluating the
+content-validity evidence for the statewide alternate assessment based
+on alternate achievement standards (AA-AAS) for student with the most
+significant cognitive disabilities (United States Department of
+Education, 2005) in one western state. We evaluate the concurrence
+between the text in the Grade 8 \emph{Next Generation Science Standards}
+(NGSS) and the text in the item stems and response options for the
+corresponding statewide AA-AAS. As Ysseldyke and Olsen (1997) note,
+\enquote{There is more variability in the skill levels and needs of this
+1\% of the students than there is in the rest of the total student
+population} (p.~16). Correspondingly, the development of items followed
+a staged process, where content standards were first identified, and
+then three versions of essentially the same item were developed to be
+of, theoretically, \emph{low}, \emph{medium}, and \emph{high}
+difficulty. In science, key vocabulary is a critical component of
+demonstrating knowledge and all \emph{high} items were written to
+include this vocabulary. However, this was not the case for the
+\emph{low} or \emph{medium} items and we therefore presumed, a priori,
+that the textual match of the \emph{high} items with the content
+standards would be greater than the \emph{low} or \emph{medium} items.
 
-Data were analyzed using using R (R Core Team, 2017) with packages stm
-(Roberts, Stewart, Tingley, Benoit, 2018), and tm (Feinerer, 2018) for
-text mining and structural topic modeling. All plots were produced using
-R (R Core Team, 2017) with the ggplot2 (Wickham, 2016). All code for
-producing the different plots will be made available for the full
-conference paper, including publicly available data that can be used for
-fully reproducible examples.
+In evaluating the concordance between the language used in the content
+standards and the language used in the test items, our approach is to
+use a text-based machine learning model, specifically topic modeling
+\textbf{(CITE)}, to mine the standards and evaluate the topics
+represented therein. Once this model is trained, we can estimate the
+probability that each item is represented by each topic. In other words,
+the model learns the patterns of words from the standards, and we can
+then evaluate whether the words used in the items correspond to those
+patterns.
 
+Topic modeling is akin to exploratory factor analysis, where word
+clusters (topics) are determined based on their semantic coherence
+\textbf{(CITE)}. Post-hoc investigations of the topics then provide
+substantive meaning. In our investigation, we expected seven topics to
+emerge, which generally correspond to the sub-domains represented in the
+Grade 8 NGSS standards.
+
+Latent Dirichlet Allocation (LDA) was used\ldots{} \textbf{(CITE)}. We
+removed stop words according to\ldots{} \textbf{(CITE)}.
+
+Data were analyzed using using R (R Core Team, 2018) with the
+\emph{textmodeling} package (Grün \& Hornik, 2011). All code used for
+the analyses will be made publicly available.
+
+\hypertarget{preliminary-results}{%
+\subsection{Preliminary Results}\label{preliminary-results}}
+
+\hypertarget{conclusions-and-implications}{%
 \subsection{Conclusions and
-Implications}\label{conclusions-and-implications}
+Implications}\label{conclusions-and-implications}}
 
 Overall, this paper will discuss a new and innovative proposed approach
 to establishing validity through analyzing and categorizing text data
@@ -210,49 +258,56 @@ visualize the findings. Again, this is an imperative piece in a world
 that has seen vastly increased calls for the translation of data and
 research to practice and practice to research.
 
-\subsection{References}\label{references}
+\newpage
 
-Anderson, D. , Irvin, S. , Alonzo, J. and Tindal, G. A. (2015), Gauging
-Item Alignment Through Online Systems While Controlling for Rater
-Effects. Educational Measurement: Issues and Practice, 34: 22-33.
-\url{doi:10.1111/emip.12038}
+\hypertarget{references}{%
+\section{References}\label{references}}
 
-Meyer, David and Hornik, Kurt and Feinerer, Ingo (2008) Text Mining
-Infrastructure in R. Journal of Statistical Software, 25 (5). pp.~1-54.
-ISSN 1548-7660
-
-R Core Team (2017). R: A language and environment for statistical
-computing. R Foundation for Statistical Computing, Vienna, Austria. URL
-\url{https://www.R-project.org/}.
-
-Raudenbush, S. W., \& Willms, J. (1995). The estimation of school
-effects. Journal of educational and behavioral statistics, 20(4),
-307-335.
-
-USCB (2017). Geographic Terms and Concepts - Census Tract. Retrieved
-July 28, 2017 from
-\url{https://www.census.gov/geo/reference/gtc/gtc_ct.html}
-
-Walker, K. (2017). tidycensus: Load US Census Boundary and Attribute
-Data as \enquote{tidyverse} and \enquote{sf}-Ready Data Frames. R
-package version 0.1.2.
-\url{https://CRAN.R-project.org/package=tidycensus}
-
-Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis.
-Springer-Verlag New York, 2016.
-
-Wilke, C. O. (2017). ggjoy: Joyplots in \enquote{ggplot2}. R package
-version 0.2.0. \url{https://CRAN.R-project.org/package=ggjoy}
-
-\subsection{Tables and Figures}\label{tables-and-figures}
-
-(No Limit)
-
-\begin{figure}
-\centering
 \includegraphics{ncme19_files/figure-latex/modeling-1.pdf}
-\caption{}
-\end{figure}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-standards14}{}%
+Association, A. E. R., Association, A. P., Measurement in Education, N.
+C. on, \& others. (2014). AERA, apa, \& ncme. \emph{Standards for
+Educational and Psychological Testing. Washington, DC: American
+Educational Research Association}.
+
+\leavevmode\hypertarget{ref-grun11}{}%
+Grün, B., \& Hornik, K. (2011). topicmodels: An R package for fitting
+topic models. \emph{Journal of Statistical Software}, \emph{40}(13),
+1--30.
+doi:\href{https://doi.org/10.18637/jss.v040.i13}{10.18637/jss.v040.i13}
+
+\leavevmode\hypertarget{ref-messick95}{}%
+Messick, S. (1995). Validity of psychological assessment: Validation of
+inferences from persons' responses and performances as scientific
+inquiry into score meaning. \emph{American Psychologist}, \emph{50}(9),
+741.
+
+\leavevmode\hypertarget{ref-r}{}%
+R Core Team. (2018). \emph{R: A language and environment for statistical
+computing}. Vienna, Austria: R Foundation for Statistical Computing.
+Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-sireci07}{}%
+Sireci, S. G. (2007). On validity theory and test validation.
+\emph{Educational Researcher}, \emph{36}(8), 477--481.
+
+\leavevmode\hypertarget{ref-usdoe05}{}%
+United States Department of Education. (2005). \emph{Alternate
+achievement standards for students with the most significant cognitive
+disabilities: Non-regulatory guidance}. Retrieved from
+\url{https://www2.ed.gov/policy/elsec/guid/altguidance.doc}
+
+\leavevmode\hypertarget{ref-webb97}{}%
+Webb, N. L. (1997). Criteria for alignment of expectations and
+assessments in mathematics and science education. Research monograph no.
+6.
+
+\leavevmode\hypertarget{ref-ysseldyke97}{}%
+Ysseldyke, J. E., \& Olsen, K. (1997). Putting alternate assessments
+into practice: What to measure and possible sources of data (nceo
+synthesis reports).
 
 
 

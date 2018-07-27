@@ -20,7 +20,7 @@ affiliation:
   - id            : "1"
     institution   : "University of Oregon"
 
-# bibliography      : refs.bib
+bibliography      : refs.bib
 
 figsintext        : no
 figurelist        : no
@@ -45,43 +45,81 @@ knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE)
 ```
 
-(800 Words)
 
 ## Conceptual Framework
+Content-related validity evidence is a critical component of the "overall
+evaluative judgment" [@messick95, p. 741] of the validity of test scores for a
+given use, and is one of the five major sources of validity evidence
+outlined by the *Standards for Educational and Psychological Testing* 
+[@standards14]. Empirical evaluations of of content validity evidence for
+high-stakes tests generally come in the form of alignment studies, with panels
+of experts judging the alignment match between the content represented
+within the test items and the content represented in the corresponding
+standards [@sireci07; @webb97]. In this presentation, we explore the use of
+text-mining procedures to evaluate the language used within the content
+standards and the corresponding language used in the test items (i.e., the item
+stems and response options). We demonstrate that these procedures can be
+successfully applied to not only identify correspondence between items and
+standards, but also to evaluate the content coverage and standards
+representation across the items. 
 
-The alignment of test items to content standards is critical to content validity. Generally, alignment studies are used to determine content validity for standards-based assessments.  Alignment studies are difficult to execute and design, even under ideal conditions, and present researchers with potential sources of error. The chosen methodology, number of participants, professional judgments, consensus through discussion or averaged by ratings, costs associated with travel, and time are elements for consideration. Text mining may be an additional source of content validity, used to match content standards to items for standards-based assessments. 
+<!-- 
+Archiving B-Rock's stuff because I like it and might want to integrate it back
+into the text above.
 
-## Methods and Results
+  The alignment of test items to content standards is critical to content validity. Generally, alignment studies are used to determine content validity for standards-based assessments.  Alignment studies are difficult to execute and design, even under ideal conditions, and present researchers with potential sources of error. The chosen methodology, number of participants, professional judgments, consensus through discussion or averaged by ratings, costs associated with travel, and time are elements for consideration. Text mining may be an additional source of content validity, used to match content standards to items for standards-based assessments.  -->
 
-Data were analyzed using using R (R Core Team, 2017) with packages stm (Roberts, Stewart, Tingley, Benoit, 2018), and tm (Feinerer, 2018) for text mining and structural topic modeling. All plots were produced using R (R Core Team, 2017) with the ggplot2 (Wickham, 2016). All code for producing the different plots will be made available for the full conference paper, including publicly available data that can be used for fully reproducible examples.
+## Methods 
+Our particular application corresponds to evaluating the content-validity
+evidence for the statewide alternate assessment based on alternate achievement
+standards (AA-AAS) for student with the most significant cognitive 
+disabilities [@usdoe05] in one western state. We evaluate the concurrence
+between the text in the Grade 8 *Next Generation Science Standards* (NGSS) and
+the text in the item stems and response options for the corresponding statewide
+AA-AAS. As @ysseldyke97 note, "There is more variability in the skill levels 
+and needs of this 1% of the students than there is in the rest of the total
+student population" (p. 16). Correspondingly, the development of items followed
+a staged process, where content standards were first identified, and then
+three versions of essentially the same item were developed to be of,
+theoretically, *low*, *medium*, and *high* difficulty. In science, key
+vocabulary is a critical component of demonstrating knowledge and all *high* items were written to include this vocabulary. However, this was not
+the case for the *low* or *medium* items and we therefore presumed, a priori,
+that the textual match of the *high* items with the content standards would be
+greater than the *low* or *medium* items.
+
+<!-- The above is probs too much detail for the proposal -->
+
+In evaluating the concordance between the language used in the content
+standards and the language used in the test items, our approach is to use a
+text-based machine learning model, specifically topic modeling **(CITE)**, to
+mine the standards and evaluate the topics represented therein. Once this model
+is trained, we can estimate the probability that each item is represented by
+each topic. In other words, the model learns the patterns of words from the
+standards, and we can then evaluate whether the words used in the items
+correspond to those patterns. 
+
+Topic modeling is akin to exploratory factor analysis, where word clusters 
+(topics) are determined based on their semantic coherence **(CITE)**. Post-hoc
+investigations of the topics then provide substantive meaning. In our
+investigation, we expected seven topics to emerge, which generally correspond 
+to the sub-domains represented in the Grade 8 NGSS standards.
+
+Latent Dirichlet Allocation (LDA) was used... **(CITE)**. We removed stop words
+according to... **(CITE)**.
+
+
+Data were analyzed using using R [@r] with the *textmodeling* package 
+[@grun11]. All code used for the analyses will be made publicly available.
+
+## Preliminary Results
 
 ## Conclusions and Implications
 Overall, this paper will discuss a new and innovative proposed approach to establishing validity through analyzing and categorizing text data via modern data tools of R and RStudio text analysis and structural topic modeling. It does not replace current methods for establishing validity but demonstrates initial promise to add strength to the development design. In a world of constantly evolving and growing data and data sources it is imperative as educational researchers that we not only begin to explore new methods that hold promise for increasing efficiency and accuracy with data analysis but also ensure that methods engage an element of translatability. By increasing the accuracy of constructs and improved validity we provide the opportunity to increase utility and translatability over a range of consumers in the educational community. In addition, modern technology provides an array of methods and open source resources and tools, such as R and RStudio, that not only provide the ability to capture and categorize the data but also visualize the findings. Again, this is an imperative piece in a world that has seen vastly increased calls for the translation of data and research to practice and practice to research.
 
 
-##References
+\newpage
 
-Anderson, D. , Irvin, S. , Alonzo, J. and Tindal, G. A. (2015), Gauging Item Alignment Through Online Systems While Controlling for Rater Effects. Educational Measurement: Issues and Practice, 34: 22-33. doi:10.1111/emip.12038
-
-Meyer, David and Hornik, Kurt and Feinerer, Ingo (2008) Text Mining Infrastructure in R. Journal of Statistical Software, 25 (5). pp. 1-54. ISSN 1548-7660
-
-R Core Team (2017). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
-
-Raudenbush, S. W., & Willms, J. (1995). The estimation of school effects. Journal of educational and behavioral statistics, 20(4), 307-335.
-
-USCB (2017). Geographic Terms and Concepts - Census Tract. Retrieved July 28, 2017 from https://www.census.gov/geo/reference/gtc/gtc_ct.html 
-
-Walker, K. (2017). tidycensus: Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 0.1.2.
-  https://CRAN.R-project.org/package=tidycensus
-
-Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
-
-Wilke, C. O. (2017). ggjoy: Joyplots in 'ggplot2'. R package version 0.2.0. https://CRAN.R-project.org/package=ggjoy
-
-
-## Tables and Figures
-
-(No Limit)
+# References
 
 ```{r modeling}
 library(tidyverse)
