@@ -291,9 +291,15 @@ preliminary. Before the conference, we plan to obtain feedback from content
 experts to verify or provide guidance on modifications to our trained model,
 given that the validity of the procedure depends on the validity of the trained
 model (i.e., all the topics make sense and sufficient topics are extracted to
-cover the content represented in the standards). For the conference paper, we
-also plan to provide much more detail about the modeling, its strengths and
-limitations, and a more in-depth illustrations the results of our application. 
+cover the content represented in the standards). From a bigger-picture
+perspective, however, because these models are based on the standards, rather
+than any individual items, the models themselves could be made public with 
+other provided the opportunity to provide input. Further, they could actually
+apply the model to their own data to evaluate content coverage or topic
+concurrence for individual items in a manner similar to that shown here. For 
+the conference paper, we plan to provide much more detail about the modeling,
+its strengths and limitations, and a more in-depth illustrations of the results
+of our application.
 
 <!-- Overall, this paper will discuss a new and innovative proposed approach to establishing validity through analyzing and categorizing text data via modern data tools of R and RStudio text analysis and structural topic modeling. It does not replace current methods for establishing validity but demonstrates initial promise to add strength to the development design. In a world of constantly evolving and growing data and data sources it is imperative as educational researchers that we not only begin to explore new methods that hold promise for increasing efficiency and accuracy with data analysis but also ensure that methods engage an element of translatability. By increasing the accuracy of constructs and improved validity we provide the opportunity to increase utility and translatability over a range of consumers in the educational community. In addition, modern technology provides an array of methods and open source resources and tools, such as R and RStudio, that not only provide the ability to capture and categorize the data but also visualize the findings. Again, this is an imperative piece in a world that has seen vastly increased calls for the translation of data and research to practice and practice to research. -->
 
