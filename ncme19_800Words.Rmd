@@ -1,0 +1,313 @@
+---
+title: "Evaluating Content-Related Validity Evidence Using Text Modeling"
+shorttitle: "Text Modeling Validity"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+
+author: 
+  - name          : "Daniel Anderson"
+    affiliation   : "1"
+    corresponding : yes
+    email         : "daniela@uoregon.edu"
+    address       : "5262 University of Oregon"
+  - name          : "Brock Rowley"
+    affiliation   : "1"
+    email         : "brockr@uoregon.edu"
+  - name          : "Sondra Stegenga"
+    affiliation   : "1"
+    email         : "sondras@uoregon.edu"
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Oregon"
+
+bibliography      : refs.bib
+
+figsintext        : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : no
+mask              : no
+
+abstract: |
+  Topic modeling is applied with science content standards to
+  evaluate semantic clustering. The probability that each item from a statewide
+  assessment belongs to each cluster/topic is then estimated as a source of
+  content-related validity evidence. We also show how visualizations can map 
+  the content coverage of the test.
+class             : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+
+## Conceptual Framework
+Content-related validity evidence is a critical component of the "overall
+evaluative judgment" [@messick95, p. 741] of the validity of test scores for a
+given use, and is one of the five major sources of validity evidence
+outlined by the *Standards for Educational and Psychological Testing* 
+[@standards14]. Empirical evaluations of content validity evidence generally
+come in the form of alignment studies, with panels
+of experts judging the alignment between the content represented in the
+standards and the content represented in the test items [@sireci07; @webb97].
+In this presentation, we adopt a similar theoretical framework, but apply 
+text-mining procedures to evaluate the correspondence between the language used
+in content standards and the language used in the test items (i.e., the item
+stems and response options). We demonstrate that these procedures can not
+only lead to an additional source of content-related validity evidence, but 
+also provide a method to evaluate content coverage. 
+
+<!-- 
+Archiving B-Rock's stuff because I like it and might want to integrate it back
+into the text above.
+
+  The alignment of test items to content standards is critical to content validity. Generally, alignment studies are used to determine content validity for standards-based assessments.  Alignment studies are difficult to execute and design, even under ideal conditions, and present researchers with potential sources of error. The chosen methodology, number of participants, professional judgments, consensus through discussion or averaged by ratings, costs associated with travel, and time are elements for consideration. Text mining may be an additional source of content validity, used to match content standards to items for standards-based assessments.  -->
+
+## Methods 
+Our particular application corresponds to evaluating the content-validity
+evidence for the statewide alternate assessment based on alternate achievement
+standards (AA-AAS) for student with the most significant cognitive 
+disabilities [@usdoe05] in one western state. We evaluate the concordance
+between the text in the Grade 8 *Next Generation Science Standards* (NGSS) and
+the text in the AA-AAS item stems and response options using a
+text-based machine learning model, specifically topic modeling 
+[see @mohr13], to mine the standards and evaluate the topics represented therein. 
+Once this model is trained, we can estimate the probability that each item is represented by
+each topic. In other words, the model learns the patterns of words from the
+standards, and we can then evaluate whether the words used in the items
+correspond to those patterns. 
+
+Topic modeling is akin to exploratory factor analysis, where latent variables 
+(topics) are estimated based on the probability that the words within the topic
+will co-occur. Topics were estimated using Latent Dirichlet Allocation (LDA) 
+[@blei03]. Topics were estimated using *textmodeling* package [@grun11] within the 
+R statistical computing environment [@r]. Data were prepared using the
+*tidyverse* suite of packages [@wickham17], with all plots produced using the
+*ggplot2* package [@wickham16]
+
+```{r modeling}
+library(tidyverse)
+library(rio)
+library(here)
+library(janitor)
+library(tidytext)
+library(topicmodels)
+theme_set(theme_minimal())
+
+standards <- import(here("data", "8gradescience.xlsx"), 
+                    setclass = "tbl_df") %>% 
+  clean_names()
+
+webbwords <- import(here("data", "stopwords-webb.xlsx"),
+                    setclass = "tbl_df")
+
+items <- import(here("data", "G8_Sci_Items.xlsx"),
+                setclass = "tbl_df") %>% 
+  clean_names()
+
+# Create the document term matrix
+dtm <- standards %>% 
+  select(domain, ngss_standard) %>% 
+  unnest_tokens(word, ngss_standard) %>% 
+  anti_join(stop_words) %>% 
+  anti_join(webbwords) %>% 
+  filter(word != "explanation", # Filter out any additional words we don't want in there
+         word != "results") %>% 
+  group_by(domain) %>% 
+  count(word) %>% 
+  ungroup() %>% 
+  cast_dtm(domain, word, n)
+
+# Code below produces the bar charts showing most important words within each 
+# topic 
+#
+# tm <- LDA(dtm, k = 7, control = list(seed = 1234)) %>% 
+#   tidy()
+# 
+# top_terms <- tm %>%
+#   group_by(topic) %>%
+#   top_n(5, beta) %>%
+#   ungroup() %>%
+#   arrange(topic, -beta)
+# 
+# top_terms %>%
+#   mutate(term = reorder(term, beta)) %>%
+#   ggplot(aes(term, beta, fill = factor(topic))) +
+#   geom_col(alpha = 0.8, show.legend = FALSE) +
+#   facet_wrap(~topic, scales = "free_y") +
+#   coord_flip()
+
+# Train the model
+tm_raw <- LDA(dtm, k = 7, control = list(seed = 1234))
+
+# Create a document term matrix for items 
+idtm <- items %>% 
+  select(item_id, prompt) %>% 
+  unnest_tokens(word, prompt) %>% 
+  anti_join(stop_words) %>% 
+  anti_join(webbwords) %>% 
+  group_by(item_id) %>% 
+  count(word) %>% 
+  ungroup() %>% 
+  cast_dtm(item_id, word, n)
+
+# Predict the topic for each item
+posteriors <- posterior(tm_raw, newdata = idtm)
+
+coord_radar <- function (theta = "x", start = 0, direction = 1) {
+ theta <- match.arg(theta, c("x", "y"))
+ r <- if (theta == "x") 
+        "y"
+      else "x"
+ ggproto("CoordRadar", CoordPolar, theta = theta, r = r, start = start, 
+      direction = sign(direction),
+      is_linear = function(coord) TRUE)
+}
+
+probs <- posteriors$topics %>% 
+  as.data.frame() %>% 
+  mutate(item = rownames(.)) %>% 
+  tbl_df() %>% 
+  gather(topic, probability, -item) %>% 
+  mutate(Level = str_extract(item, "L|M|H"),
+         Level = factor(Level, 
+                        levels = c("L", "M", "H"),
+                        labels = c("Low", "Medium", "High")),
+         topic = factor(topic,
+                        levels = 1:7,
+                        labels = c("Motion",
+                                   "Humans",
+                                   "Universe",
+                                   "Energy",
+                                   "Waves",
+                                   "ED",
+                                   "Heredithy")))
+
+```
+
+## Preliminary Results
+In the full proposal, we will discuss in greater detail our modeling process 
+and how we arrived upon our seven topics. Due to space limitations here, we
+share only our preliminary results from that model.
+
+Figure 1 displays the overall content coverage of the test, separated by items
+that were theoretically designed to be of *Low*, *Medium*, and *High* 
+difficulty. Essentially, the average probability of items representing each of
+the seven topics is displayed on the log scale, specifically 
+$log(p(x_i + 1))$. The thick gray band represents the expected probability, if
+all topics were equally represented. Items in the low category, for 
+example, are estimated as slightly under-representing the heredity and
+engineering design topics, while over-representing motion and humans activity
+with earth. The medium items are somewhat problematic, with the Motion 
+topically highly over-represented, and Engineering Design, Heredity, and Humans
+all highly under-represented. Across item types, Heredity and Engineering 
+Design were universally under-represented. 
+
+Figure 2 displays the probability of a random sample of nine items aligning
+with each of the seven topics. Random Item 2, 5, 6, and 8 all did not include
+any text that could be classified by our model, and the probability that the
+item aligned with each topic was equally spread. Note that this does not imply
+the items did not align with a given topic, but that the text represented in 
+the item was not represented by our topic model. Random Items 3, 4, and 7 all
+clearly aligned with a single topic, while Random Items 1 and 9 had their
+probability split between two topics. 
+
+
+```{r, fig.width = 6.5, fig.height = 12, fig.cap="Overall Content Coverage"}
+ref <- data_frame(x = c(1:7, 1.05), y = rep(0, 8))
+
+probs %>% 
+  group_by(topic, Level) %>% 
+  summarize(n = n(),
+            prob = sum(probability))  %>% 
+  mutate(prob = log((prob/n)*7)) %>% 
+  ungroup() %>% 
+ggplot(aes(x = topic, y = prob)) + 
+  geom_polygon(aes(group = Level, fill = Level, color = Level), alpha = 0.7) +
+  geom_path(aes(x, y), ref, color = "gray40", lwd = 1.2) +
+  # annotate("text",
+  #          x = rep(0, 15),
+  #          y = rep(seq(-1, 1, .5), 3),
+  #          label = as.character(round(rep(seq(-1, 1, .5), 3), 1))) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_fill_brewer(palette = "Dark2") +
+  facet_wrap(~Level) +
+  coord_radar() +
+  guides(fill = "none",
+         color = "none") +
+  labs(x = "",
+       y = "") +
+  theme(axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.text.x = element_text(size = 7))
+```
+
+## Conclusions and Implications
+Content validity is critical to the overall evaluative judgment of the validity
+of a test for a given use. This paper introduces a new method using text mining
+procedures to evaluate the concurrence between language used in the content
+standards and language used in the test items. From a cost-benefit perspective,
+it is much cheaper to conduct an analysis of data in-house than to conduct
+alignment studies. These analyses could even be conducted during item and test
+development to inform the developmental process. However, the analyses are not
+intended to *replace* the evidence gathered during alignment studies, but
+rather to *supplement*. Part of the benefit of the analytic approach, however,
+is that they could be conducted much more regularly to inform the iterative 
+test documentation/validation process. 
+
+It should also be noted that our analysis and results presented here are
+preliminary. For the conference paper, we plan to provide much more detail about the modeling,
+its strengths and limitations, and a more in-depth illustrations of the results
+of our application.
+
+<!-- Overall, this paper will discuss a new and innovative proposed approach to establishing validity through analyzing and categorizing text data via modern data tools of R and RStudio text analysis and structural topic modeling. It does not replace current methods for establishing validity but demonstrates initial promise to add strength to the development design. In a world of constantly evolving and growing data and data sources it is imperative as educational researchers that we not only begin to explore new methods that hold promise for increasing efficiency and accuracy with data analysis but also ensure that methods engage an element of translatability. By increasing the accuracy of constructs and improved validity we provide the opportunity to increase utility and translatability over a range of consumers in the educational community. In addition, modern technology provides an array of methods and open source resources and tools, such as R and RStudio, that not only provide the ability to capture and categorize the data but also visualize the findings. Again, this is an imperative piece in a world that has seen vastly increased calls for the translation of data and research to practice and practice to research. -->
+
+
+
+
+
+
+
+
+```{r, fig.width = 6.5, fig.height = 8, fig.cap = "Probability of topics by item: Random sample of nine items"}
+set.seed(11)
+samp <- probs %>% 
+  sample_n(9)
+
+probs %>% 
+  filter(item %in% samp$item) %>% 
+  mutate(item = as.numeric(as.factor(item)),
+         item = factor(item,
+                       levels = 1:9,
+                       labels = paste0("Random Item ", 1:9))) %>% 
+ggplot(aes(topic, probability, color = item)) +
+  geom_polygon(aes(group = Level, fill = item, color = item), alpha = 0.7,
+               lwd = 1.3) +
+  scale_color_brewer(palette = "Paired") +
+  scale_fill_brewer(palette = "Paired") +
+  facet_wrap(~item) +
+  coord_radar() +
+  guides(fill = "none",
+         color = "none") +
+  labs(x = "",
+       y = "") +
+  theme(axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.text.x = element_text(size = 7))
+```
+
+
+
+
+\newpage
+
+# References
+
+
+
+
