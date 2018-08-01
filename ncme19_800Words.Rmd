@@ -52,15 +52,11 @@ evaluative judgment" [@messick95, p. 741] of the validity of test scores for a
 given use, and is one of the five major sources of validity evidence
 outlined by the *Standards for Educational and Psychological Testing* 
 [@standards14]. Empirical evaluations of content validity evidence generally
-come in the form of alignment studies, with panels
-of experts judging the alignment between the content represented in the
-standards and the content represented in the test items [@sireci07; @webb97].
-In this presentation, we adopt a similar theoretical framework, but apply 
-text-mining procedures to evaluate the correspondence between the language used
-in content standards and the language used in the test items (i.e., the item
-stems and response options). We demonstrate that these procedures can not
-only lead to an additional source of content-related validity evidence, but 
-also provide a method to evaluate content coverage. 
+come in the form of alignment studies [@sireci07; @webb97].
+In this presentation, we explore the use of text-mining procedures to evaluate
+the correspondence between the language used in content standards and the
+language used in test items as an additional source of content-related validity
+evidence. 
 
 <!-- 
 Archiving B-Rock's stuff because I like it and might want to integrate it back
@@ -69,23 +65,23 @@ into the text above.
   The alignment of test items to content standards is critical to content validity. Generally, alignment studies are used to determine content validity for standards-based assessments.  Alignment studies are difficult to execute and design, even under ideal conditions, and present researchers with potential sources of error. The chosen methodology, number of participants, professional judgments, consensus through discussion or averaged by ratings, costs associated with travel, and time are elements for consideration. Text mining may be an additional source of content validity, used to match content standards to items for standards-based assessments.  -->
 
 ## Methods 
-Our particular application corresponds to evaluating the content-validity
-evidence for the statewide alternate assessment based on alternate achievement
-standards (AA-AAS) for student with the most significant cognitive 
-disabilities [@usdoe05] in one western state. We evaluate the concordance
-between the text in the Grade 8 *Next Generation Science Standards* (NGSS) and
-the text in the AA-AAS item stems and response options using a
-text-based machine learning model, specifically topic modeling 
-[see @mohr13], to mine the standards and evaluate the topics represented therein. 
-Once this model is trained, we can estimate the probability that each item is represented by
-each topic. In other words, the model learns the patterns of words from the
-standards, and we can then evaluate whether the words used in the items
-correspond to those patterns. 
+In our  application, we evaluated the concordance
+between the text used in the Grade 8 *Next Generation Science Standards* (NGSS)
+and the text used in items within a statewide alternate assessment for students
+with significant cognitive disabilities [@usdoe05]. We applied a
+text-based machine learning model known as topic modeling 
+[see @mohr13]. Topic modeling is akin to exploratory factor analysis with
+textual data, where clusters of words (topics) that are likely to co-occur are
+estimated through latent variables. We trained a topic model on the
+standards, arriving upon interpretable and meaningful topics, and then used 
+this model to estimate the probability that each item was represented by each
+topic. In other words, the trained model became the "machine" which classified
+items. In our investigation, we expected seven topics to emerge, which 
+generally correspond to the sub-domains represented by the standards. This
+number resulted in interpretable topics and was supported by the data. 
 
-Topic modeling is akin to exploratory factor analysis, where latent variables 
-(topics) are estimated based on the probability that the words within the topic
-will co-occur. Topics were estimated using Latent Dirichlet Allocation (LDA) 
-[@blei03]. Topics were estimated using *textmodeling* package [@grun11] within the 
+Topics were estimated using Latent Dirichlet Allocation (LDA)
+[@blei03] with the *textmodeling* package [@grun11] within the 
 R statistical computing environment [@r]. Data were prepared using the
 *tidyverse* suite of packages [@wickham17], with all plots produced using the
 *ggplot2* package [@wickham16]
@@ -191,32 +187,28 @@ probs <- posteriors$topics %>%
 ```
 
 ## Preliminary Results
-In the full proposal, we will discuss in greater detail our modeling process 
-and how we arrived upon our seven topics. Due to space limitations here, we
-share only our preliminary results from that model.
-
+In the conference paper, we will discuss in greater detail our modeling 
+process. Due to space limitations here, we share only our preliminary results.
 Figure 1 displays the overall content coverage of the test, separated by items
 that were theoretically designed to be of *Low*, *Medium*, and *High* 
 difficulty. Essentially, the average probability of items representing each of
 the seven topics is displayed on the log scale, specifically 
-$log(p(x_i + 1))$. The thick gray band represents the expected probability, if
-all topics were equally represented. Items in the low category, for 
-example, are estimated as slightly under-representing the heredity and
-engineering design topics, while over-representing motion and humans activity
-with earth. The medium items are somewhat problematic, with the Motion 
-topically highly over-represented, and Engineering Design, Heredity, and Humans
-all highly under-represented. Across item types, Heredity and Engineering 
-Design were universally under-represented. 
+$log(p(x_i + 1))$. The thick gray band represents the expected probability if
+all topics were equally represented by the items. Items in the low category,
+for example, were estimated as slightly under-representing the Heredity and
+Engineering Design (ED) topics, while over-representing Motion and Humans'
+Activity With Earth (Humans). The medium items were somewhat problematic, with
+the Motion topic highly over-represented, and ED, Heredity, and Humans
+all highly under-represented. Across item types, Heredity and ED were
+universally under-represented. 
 
 Figure 2 displays the probability of a random sample of nine items aligning
 with each of the seven topics. Random Item 2, 5, 6, and 8 all did not include
 any text that could be classified by our model, and the probability that the
-item aligned with each topic was equally spread. Note that this does not imply
-the items did not align with a given topic, but that the text represented in 
-the item was not represented by our topic model. Random Items 3, 4, and 7 all
+item aligned with each topic was spread equally.  Random Items 3, 4, and
+7 all
 clearly aligned with a single topic, while Random Items 1 and 9 had their
 probability split between two topics. 
-
 
 ```{r, fig.width = 6.5, fig.height = 12, fig.cap="Overall Content Coverage"}
 ref <- data_frame(x = c(1:7, 1.05), y = rep(0, 8))
@@ -249,28 +241,28 @@ ggplot(aes(x = topic, y = prob)) +
 
 ## Conclusions and Implications
 Content validity is critical to the overall evaluative judgment of the validity
-of a test for a given use. This paper introduces a new method using text mining
-procedures to evaluate the concurrence between language used in the content
-standards and language used in the test items. From a cost-benefit perspective,
-it is much cheaper to conduct an analysis of data in-house than to conduct
-alignment studies. These analyses could even be conducted during item and test
-development to inform the developmental process. However, the analyses are not
-intended to *replace* the evidence gathered during alignment studies, but
-rather to *supplement*. Part of the benefit of the analytic approach, however,
-is that they could be conducted much more regularly to inform the iterative 
-test documentation/validation process. 
+of a test for a given use. This paper introduces a new method, using text mining
+procedures, to evaluate the concurrence between language used in the content
+standards and language used in the test items. This method may be a
+valuable supplement to the evidence gathered during alignment studies. Part of
+the benefit of the analytic approach is that analyses could be conducted much
+more regularly to inform the iterative test development process, given the cost
+and labor-intensiveness associated with alignment studies.
 
-It should also be noted that our analysis and results presented here are
-preliminary. For the conference paper, we plan to provide much more detail about the modeling,
-its strengths and limitations, and a more in-depth illustrations of the results
-of our application.
+It should also be noted that our analysis and results are
+preliminary. Before the conference, we will obtain feedback from content
+experts to verify or provide guidance on our trained model,
+given that the validity of the procedure depends on the validity of the trained
+model. From a bigger-picture perspective, because these models are based on the
+standards, rather than any individual items, the models themselves could be 
+made public, with members of the field providing input. Further, other test
+developers could apply the trained model to their item data to evaluate
+content coverage against a common benchmark. For the conference paper, we plan
+to provide much more detail about the modeling, its strengths and limitations,
+and a more  in-depth illustrations of the results of our application.
+
 
 <!-- Overall, this paper will discuss a new and innovative proposed approach to establishing validity through analyzing and categorizing text data via modern data tools of R and RStudio text analysis and structural topic modeling. It does not replace current methods for establishing validity but demonstrates initial promise to add strength to the development design. In a world of constantly evolving and growing data and data sources it is imperative as educational researchers that we not only begin to explore new methods that hold promise for increasing efficiency and accuracy with data analysis but also ensure that methods engage an element of translatability. By increasing the accuracy of constructs and improved validity we provide the opportunity to increase utility and translatability over a range of consumers in the educational community. In addition, modern technology provides an array of methods and open source resources and tools, such as R and RStudio, that not only provide the ability to capture and categorize the data but also visualize the findings. Again, this is an imperative piece in a world that has seen vastly increased calls for the translation of data and research to practice and practice to research. -->
-
-
-
-
-
 
 
 
