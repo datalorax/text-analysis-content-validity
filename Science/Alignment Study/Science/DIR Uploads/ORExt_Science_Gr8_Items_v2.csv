@@ -1,0 +1,505 @@
+Item ID,Group,Standards,Item Information,Prompt,Option A,Option B,Option C,Correct
+S08PHS1.2LSAMPLE,8,S08PHS1.2,"L - Here are three objects. (Point to the objects.) Which object is the hardest: rock, flower, or cloud?",Which object is the hardest?,rock,flower,cloud,a
+S08PHS1.2L01,8,S08PHS1.2,"L - Here are three flowers. (Point to answer choices.) Which is tallest: A, B, or C? ",Which is tallest?,A,B,C,b
+S08PHS1.2L02,8,S08PHS1.2,"L - Here are three objects. (Point to answer choices.) Which is largest: house, paper clip, or brick?",Which is largest?,house,paper clip,brick,a
+S08PHS1.2M03,8,S08PHS1.2,"M - Here are three objects. (Point to answer choices.) Which can burn: metal pot, paper, or rock?",Which can burn?,pot,paper,rock,b
+S08PHS1.2M04,8,S08PHS1.2,"M - This is a pillow. (Point to pillow.) Which is harder than a pillow: cotton ball,  feather, or book?",Which is harder than a pillow?,cotton,feather,book,c
+S08PHS1.2H05,8,S08PHS1.2,"H - This is a log. (Point to prompt.) What is left after a log burns: log, ashes, or rocks?",Which is left after a log burns?,log,ashes,rocks,b
+S08PHS1.2L06,8,S08PHS1.2,"L - Here are three objects. (Point to answer choices.) Which is softest: rock, feather, wood?",Which is softest?,rock,feather,wood,b
+S08PHS1.2M07,8,S08PHS1.2,"M - Here are three objects. (Point to answer choices.) Which is heaviest: baseball bat, feather, or pencil? ",Which is heaviest?,baseball bat,feather,pencil,a
+S08PHS1.2M08,8,S08PHS1.2,"M - Here are three objects. (Point to answer choices.) Which could catch on fire: bowling ball, penny, or piece of wood?",Which could catch on fire?,bowling ball,penny,wood,c
+S08PHS1.2H09,8,S08PHS1.2,"H - Here are three objects. (Point to answer choices.) Density measures how solid something is. Which object is most dense: feather, rock, or beach ball? ",Density measures how solid something is. Which is most dense?,feather,rock,beach ball,b
+S08PHS1.2H10,8,S08PHS1.2,"H - Here are three pictures. (Point to answer choices.) Which shows water as a solid: ice cube, boiling water, or glass of water?",Which picture shows water as a solid?,ice cube,boiling water,glass of water,a
+S08PHS1.2L11,8,S08PHS1.2,"L - Here are three objects. (Point to the objects.)  Which is largest: squirrel, flower, or tree?",Which is largest?,squirrel,flower,tree,c
+S08PHS1.2L12,8,S08PHS1.2,"L - Here are three objects. (Point to the objects.) Which is round: pizza, box, or kite?",Which is round?,pizza,box,kite,a
+S08PHS1.2M13,8,S08PHS1.2,"M - Here are three objects. (Point to the objects.) Which is softest: pencil, pillow, or wood?",Which is softest?,pencil,pillow,wood,b
+S08PHS1.2M14,8,S08PHS1.2,"M - Here are three objects. (Point to the objects.) Which can burn: rock, cloud, or wood?",Which can burn?,rock,cloud,wood,c
+S08PHS1.2H15,8,S08PHS1.2,"H - Here are three objects. (Point to the objects.) Which object has burned forming a new substance: A, B or C?",Which object has burned forming a new substance?,A,B,C,a
+S08PHS1.2L16,8,S08PHS1.2,"L - Here are three objects. (Point to answer choices.) Which is smallest: a glass, coin or backpack? ",Which is smallest?,glass,coin,backpack,b
+S08PHS1.2M17,8,S08PHS1.2,"M - Here are three people. (Point to answer choices.) Which weighs the most: A, B or C?  ",Which weighs the most?,A,B,C,a
+S08PHS1.2M18,8,S08PHS1.2,"M - Here are three objects. (Point to answer choices.) Which can you burn: glass, brick or wood?",Which can you burn?,glass,brick,wood,c
+S08PHS1.2H19,8,S08PHS1.2,"H - Here are three pictures. (Point to answer choices.) A physical change affects the form of something, but not its composition. Which shows a physical change: ice melting, wood burning or spoon?","A physical change affects the form of something, but not its composition. Which shows a physical change?",ice melting,wood burning,spoon,c
+S08PHS1.2H20,8,S08PHS1.2,"H - Here are three pictures. (Point to answer choices.) A chemical change forms new substances. Which shows a chemical change: breaking glass, pencil sharpening, or wood burning?",A chemical change forms new substances. Which shows a chemical change?,breaking glass,pencil sharpening,wood burning,c
+S08PHS1.3MSAMPLE,8,S08PHS1.3,"M - Here are three objects. (Point to the objects.) Which object is made of rock: A, B or C? ",Which is made of rock?,tree,brick,apple,b
+S08PHS1.3L1,8,S08PHS1.3,"L - Here are three objects. (Point to answer choices.) Which is a key: A, B, or C? ",Which is a key? ,A,B,C,b
+S08PHS1.3M2,8,S08PHS1.3,"M - This is a bicycle. (Point to bicycle.) Which part is made of metal: tires, seat, or frame?",Which part is made of metal?,tires,seat,frame,c
+S08PHS1.3M3,8,S08PHS1.3,"M - Here are three objects. (Point to answer choices.) Which is made of metal: paperclip, book, or baseball?",Which is made of metal?,paperclip,book,baseball,a
+S08PHS1.3H4,8,S08PHS1.3,"H - This is a car. (Point to car.) What natural resource is a car made of: wood, metal, or water?",What natural resource is a car made of?,wood,metal,water,b
+S08PHS1.3H5,8,S08PHS1.3,"H - This is a book. (Point to book.) What are books made from: A, B, or C?",What are books made from?,A,B,C,a
+S08PHS1.3L6,8,S08PHS1.3,"L - Here are three pictures. (Point to the answer choices.) Which shows a glass jar: A, B, or C? ",Which shows a glass jar?,A,B,C,c
+S08PHS1.3L7,8,S08PHS1.3,"L - Here are three pictures. (Point to the answer choices.) Which shows a wooden table: A, B, or C?",Which shows a wooden table?,A,B,C,a
+S08PHS1.3M8,8,S08PHS1.3,"M - Here are three objects. (Point to the answer choices.) Which is made of glass: washing machine, window, or refrigerator?",Which is made of glass?,washing machine,window,refrigerator,b
+S08PHS1.3M9,8,S08PHS1.3,"M - Here are three objects. (Point to objects.) Which is made of metal: scissors, rock or soccer ball? ",Which is made of metal?,scissors,rock,soccer ball,a
+S08PHS1.3H10,8,S08PHS1.3,"H - Here is a penny. (Point to the penny.) Which shows what pennies are made of: copper, cotton, tree? ",Which shows what pennies are made of?,copper,cotton,tree,a
+S08PHS1.3L11,8,S08PHS1.3,"L - Here are three objects. (Point to the objects.) Which is a metal spoon: A, B or C?",Which is a metal spoon?,A,B,C,a
+S08PHS1.3M12,8,S08PHS1.3,"M - Here are three objects. (Point to the objects.) Which is made of wood: A, B or C? ",Which is made of wood?,A,B,C,b
+S08PHS1.3M13,8,S08PHS1.3,"M - Here are three objects. (Point to the objects.) Which is made of metal: a tree, a brick, or a car? ",Which is made of metal?,tree,brick,car,c
+S08PHS1.3H14,8,S08PHS1.3,"H - Here are three objects. (Point to the objects.) Which is made of a naturally occurring metal: penny, tree, or brick?",Which is made of a naturally occurring metal?,penny,tree,ball,a
+S08PHS1.3H15,8,S08PHS1.3,"H - Here is a wooden table. (Point to the table.) Which natural resource does the table come from: water, wood, or rock?",Which natural resource does the table come from?,water,wood,rock,b
+S08PHS1.3L16,8,S08PHS1.3,"L - Here are three objects. (Point to answer choices.) Which is a banana: A, B, or C?  ",Which is a banana?,A,B,C,c
+S08PHS1.3L17,8,S08PHS1.3,"L - Here are three objects. (Point to answer choices.) Which is a vegetable: ball, paper, or carrot?  ",Which is a vegetable?,ball,paper,carrot,c
+S08PHS1.3M18,8,S08PHS1.3,"M - Here are three objects. (Point to answer choices.) Which is made of glass: window, strawberry, or tree?",Which is made of glass?,window,strawberry,tree,a
+S08PHS1.3M19,8,S08PHS1.3,"M - Here are three objects. (Point to answer choices.) Which is made of wood: penny, scissors, or chair? ",Which is made of wood?,penny,scissors,chair,c
+S08PHS1.3H20,8,S08PHS1.3,"H - Here are three objects. (Point to answer choices.) Which comes from a tree: fork, paper, or car?",Which comes from a tree?,fork,paper,car,b
+S08PHS2.1HSAMPLE,8,S08PHS2.1,"H - Here is Dan. (Point the boy.) Which shows what will happen when Dan kicks the ball: A, B or C?",Which shows what will happen when Dan kicks the ball?,A,B,C,c
+S08PHS2.1L1,8,S08PHS2.1,"L - Here are three pictures. (Point to answer choices.) Which is a moving object: A, B, or C? ",Which is a moving object?,A ,B,C,c
+S08PHS2.1L2,8,S08PHS2.1,"L - Here are three pictures. (Point to answer choices.) Which is an object at rest: A, B, or C?",Which is an object at rest?,A,B,C,b
+S08PHS2.1M3,8,S08PHS2.1,"M - This boy has a ball. (Point to ball.) What will happen the boy pushes the ball: A, B, or C?",What will happen the boy pushes the ball?,A,B,C,a
+S08PHS2.1M4,8,S08PHS2.1,"M - This is a light switch. (Point to light switch.) What will happen if the light switch is flipped off: A, B, or C?",What will happen if the light switch is flipped off?,A,B,C,c
+S08PHS2.1H5,8,S08PHS2.1,"H - This plane is flying.  (Point to plane.) Where will the plane be if it keeps flying: A, B, or C?",Where will the plane be if it keeps flying?,A,B,C,b
+S08PHS2.1L6,8,S08PHS2.1,"L - Here are three pictures. (Point to answer choices.) Which shows a ball in motion: A, B, or C?",Which shows a ball in motion?,A,B,C,c
+S08PHS2.1M7,8,S08PHS2.1,"M - Here are three pictures. (Point to answer choices.) Which shows the girl moving a baseball bat: A, B, or C?",Which shows a moving baseball bat?,A,B,C,b
+S08PHS2.1M8,8,S08PHS2.1,"M - Here is Amy. (Point to girl.) Which will happen when Amy pushes the shopping cart: A, B, or C?",Which will happen when Amy pushes the shopping cart?,A,B,C,b
+S08PHS2.1H9,8,S08PHS2.1,"H - Here is Sara. (Point to the girl.) Which will happen when Sara hits the baseball: A, B, or C? ",Which will happen when Sara hits the baseball?,A,B,C,b
+S08PHS2.1H10,8,S08PHS2.1,"H - Here is Bill. (Point to boy.) Which will happen when Bill kicks the ball at the wall: A, B, or C? ",Which will happen when Bill kicks the ball at the wall?,A,B,C,c
+S08PHS2.1L11,8,S08PHS2.1,"L - This is a ball. (Point  to ball.) Which shows the ball moving down a ramp: A, B, or C?",Which shows the ball moving down a ramp?,A,B,C,c
+S08PHS2.1L12,8,S08PHS2.1,"L - This is a fish. (Point to fish in prompt.) Which shows the fish moving through water: A, B, or C? ",Which shows the fish moving through water?,A,B,C,a
+S08PHS2.1M13,8,S08PHS2.1,"M - This is Sarib. (Point to the boy.) How will the arrow move when Sarib lets go of the string: A, B, or C? ",How will the arrow move when Sarib lets go of the string?,A,B,C,b
+S08PHS2.1M14,8,S08PHS2.1,"M - Tameka has a wagon. (Point to the girl with a wagon.) What will happen when Tameka pulls the wagon: A, B, or C? ",What will happen when Tameka pulls the wagon?,A,B,C,a
+S08PHS2.1H15,8,S08PHS2.1,"H - Here is Maddy. (Point to girl.) Which will happen when Maddy throws the ball at the wall: A, B, or C? ",Which will happen when Maddy throws the ball at the wall?,A,B,C,c
+S08PHS2.1L16,8,S08PHS2.1,"L - Here are three objects. (Point to answer choices.) Which is moving through the air: house, chair, or bird?",Which is moving through the air?,house,chair,bird,c
+S08PHS2.1M17,8,S08PHS2.1,"M - Here is a marble.  (Point to marble.) What will happen if you push the marble: disappear, roll away, or stay at rest?",What will happen if you push the marble?,disappear,roll away,stay at rest,b
+S08PHS2.1M18,8,S08PHS2.1,"M - Here are three objects. (Point to answer choices.) Which can roll: bicycle, brick or computer?  ",Which can roll?,bicycle,brick ,computer,a
+S08PHS2.1H19,8,S08PHS2.1,"H - Ann is going to throw a ball.  (Point to prompt.) What will happen to the ball after Ann throws it: disappear, move away, or stay at rest?",What will happen to the ball after Ann throws it?,disappear,move away,stay at rest,b
+S08PHS2.1H20,8,S08PHS2.1,"H - Pedro is hitting a ball. (Point to prompt.) What will happen to the ball after Pedro hits it, will it: move, float, or disappear?",What will happen to the ball after Pedro hits it?,float,disappear,move,c
+S08PHS2.2LSAMPLE,8,S08PHS2.2,"L - Here are three animals. (Point each animal.) Which animal is the biggest: elephant, bird or rabbit?",Which animal is the biggest?,elephant,bird,rabbit,a
+S08PHS2.2L1,8,S08PHS2.2,"L - Here are three blocks. (Point to each block.) Mass is the amount of material in an object. Which block has the most mass: A, B, or C? ",Mass is the amount of material in an object. Which block has the most mass?,A,B,C,a
+S08PHS2.2M2,8,S08PHS2.2,"M - Here are three vehicles. (Point to answer choices.) Which would be the hardest to push: bicycle, scooter, or bus? ",Which would be the hardest to push?,bicycle,scooter,bus,c
+S08PHS2.2M3,8,S08PHS2.2,"M -  Here are three animals. (Point to each animal.) Mass is the amount of material in an object. Which animal has the most mass: kitten, elephant, or dog?",Mass is the amount of material in an object. Which animal has the most mass?,kitten,elephant,dog,b
+S08PHS2.2H4,8,S08PHS2.2,"H - This is an elephant. (Point to elephant.) Which block has the same mass as the elephant: A, B, or C?",Which block has the same mass as the elephant?,A,B,C,c
+S08PHS2.2H5,8,S08PHS2.2,"H - This rock is on top of a hill. (Point to rock.) What will happen if a force pushes the rock: A, B, or C?",What will happen if a force pushes the rock?,A,B,C,b
+S08PHS2.2L6,8,S08PHS2.2,"L - Here are three objects. (Point to answer choices.) Mass is the amount of material in an object. Which has the most mass: pencil, ruler, or chair?",Mass is the amount of material in an object. Which has the most mass?,pencil,ruler,chair,c
+S08PHS2.2L7,8,S08PHS2.2,"L - Here are three animals. (Point to answer choices.) Mass is the amount of material in an object. Which has the most mass: mouse, deer, or squirrel?",Mass is the amount of material in an object. Which has the most mass?,mouse,deer,squirrel,b
+S08PHS2.2M8,8,S08PHS2.2,"M - Here are three balls rolling down a hill. (Point to prompt.) Which ball has the most force: bowling ball, tennis ball, basketball? ",Which ball has the most force?,bowling ball,tennis ball,basketball,a
+S08PHS2.2M9,8,S08PHS2.2,"M - Here are three objects falling. (Point to prompt.) Which has the most force when it hits the ground: feather, brick, or crayon?",Which has the most force when it hits the ground?,feather,brick,crayon,b
+S08PHS2.2H10,8,S08PHS2.2,"H - Here are three pictures. (Point to prompt.) Which shows people applying the most force on the car: A, B, or C?  ",Which shows people applying the most force on the car?,A,B,C,b
+S08PHS2.2L11,8,S08PHS2.2,"L - Here are three objects. (Point to each answer.) Which is the biggest: skateboard, pencil or ship? ",Which is the biggest?,skateboard,pencil,ship,c
+S08PHS2.2M12,8,S08PHS2.2,"M - Here are three objects. (Point to answer choices.) Objects with more mass take more force to move. Which would be the most difficult to move: skateboard, scooter, or a dump truck? ",Objects with more mass take more force to move. Which would be the most difficult to move?,skateboard,scooter,dump truck,c
+S08PHS2.2M13,8,S08PHS2.2,"M - Here are three objects. (Point to the choices.) Objects with less mass take less force to move. Which would be the easiest to move: a jet plane, row boat or a soccer ball?",Objects with less mass take less force to move. Which would be the easiest to move?,jet plane,row boat,soccer ball,c
+S08PHS2.2H14,8,S08PHS2.2,"H - Here are the paths a ball can take when thrown with different amounts of force. (Point to the picture.) Which shows the ball thrown with the most force: A, B, or C?",Which shows the ball thrown with the greatest force?,A,B,C,a
+S08PHS2.2H15,8,S08PHS2.2,"H - Here are the paths a ball can take when kicked with different amounts of force. (Point to the picture.) Which shows the ball kicked with the least force: A, B, or C?",Which shows the ball kicked with the least force?,A,B,C,c
+S08PHS2.2L16,8,S08PHS2.2,"L - Here are three rocks. (Point to answer choices.) Which rock is largest:  A, B, or C?",Which rock is largest?,A,B,C,b
+S08PHS2.2L17,8,S08PHS2.2,"L - Here are three fruits.  (Point to answer choices.) Which fruit is the biggest: cherry, banana, or watermelon?  ",Which fruit is the biggest?,cherry,banana,watermelon,c
+S08PHS2.2M18,8,S08PHS2.2,"M - Here are three objects. (Point to answer choices.) Which would be the most difficult to push: pencil, table, or cup?",Which would be the most difficult to push?,pencil,table,mug,b
+S08PHS2.2M19,8,S08PHS2.2,"M - Here are three objects. (Point to answer choices.) Mass is the amount of material in an object. Which has the greatest mass: book, table, or elephant?",Mass is the amount of material in an object. Which has the greatest mass?,book,table,elephant,c
+S08PHS2.2H20,8,S08PHS2.2,"H - Here is a massive camping trailer. (Point to the trailer.) Which vehicle has enough force to pull the trailer: skateboard bicycle, or truck? ",Which vehicle has enough force to pull the trailer?,skateboard,bicycle,truck,c
+S08PHS3.4MSAMPLE,8,S08PHS3.4,"M - Here is a graph with temperature and forms of water. (Point to graph.) Which form of water has the coldest temperature: liquid, ice or steam?",Which form of water has the coldest temperature?,liquid,ice,steam,b
+S08PHS3.4L1,8,S08PHS3.4,"L - Here are three objects. (Point to answer choices.) Which is colder: ice, water, or soup?",Which is colder?,ice,water,soup,a
+S08PHS3.4L2,8,S08PHS3.4,"L - Here are three pictures. (Point to answer choices.) Which is hottest: ocean, ice, or fire?",Which is hottest?,ocean,ice,fire,c
+S08PHS3.4M3,8,S08PHS3.4,"M - Here is a graph. (Point to bar graph.) Which form of water has the hottest temperature: liquid, ice or steam?",Which form of water has the hottest temperature?,liquid,ice,steam,c
+S08PHS3.4M4,8,S08PHS3.4,"M - Here is a graph. (Point to prompt.) Which drink has the coldest temperature: glass of milk, cup of coffee, or milkshake?  ",Which drink has the coldest temperature?,glass of milk,cup of coffee,milkshake,c
+S08PHS3.4H5,8,S08PHS3.4,"H - This girl is cold. (Point to girl in prompt.) What can she use to warm herself: coat, chair or book?",What can she use to warm herself?,coat,chair,book,a
+S08PHS3.4L6,8,S08PHS3.4,"L - Here are three pictures. (Point to answer choices.) Which is hot: campfire, plant, or glass jar?",Which is hot?,campfire,plant,ice cream,a
+S08PHS3.4M7,8,S08PHS3.4,"M - Here are three pictures. (Point to answer choices.) Which day had the coldest temperature: A, B, or C?",Which day had the coldest temperature? ,A,B,C,c
+S08PHS3.4M8,8,S08PHS3.4,"M - Here is a graph showing the temperature of three objects. (Point to bar graph.) Which object has the coldest temperature: milk, peanut butter or soup? ",Which object has the coldest temperature?,milk,peanut butter,soup,a
+S08PHS3.4H9,8,S08PHS3.4,"H - Here are three pictures. (Point to prompt.) What could the boy wear on a cold day to stay warm: t-shirt, sunglasses, or coat?",What could the boy wear on a cold day to stay warm?,t-shirt,sunglasses,coat,c
+S08PHS3.4H10,8,S08PHS3.4,"H - This is a pot of water. (Point to prompt.) Which would transfer heat to the water: stove, refrigerator, or washing machine? ",Which would transfer heat to the water?,stove,refrigerator,washing machine,a
+S08PHS3.4L11,8,S08PHS3.4,"L - Here are three objects. (Point to the choices.) Which is cold: ice cream, fire, or a tree? ",Which is cold?,ice cream,fire,tree,a
+S08PHS3.4L12,8,S08PHS3.4,"L - Here are three objects. (Point to the choices.) Which is hot: ice cream, fire, or a tree?",Which is hot?,ice cream,fire,tree,b
+S08PHS3.4M13,8,S08PHS3.4,"M - Here is a graph of temperature and forms of water. (Point to bar graph.) Which form of water has the highest temperature: liquid, ice or steam?",Which form of water has the highest temperature?,liquid,ice,steam,c
+S08PHS3.4M14,8,S08PHS3.4,"M - Dan has an ice cream cone. (Point to the picture.) On which day will his ice cream melt the fastest: A, B or C?",On which day will his ice cream melt the fastest?,A,B ,C,a
+S08PHS3.4H15,8,S08PHS3.4,"H - Julie is sleeping. (Point to the prompt) How will the blanket help Julie, will it keep her: cold, warm, or cool?  ",How will the blanket help Julie? ,cold,warm,cool,b
+S08PHS3.4L16,8,S08PHS3.4,"L - Here are three pictures. (Point to answer choices.) Which shows that it is cold outside: A, B, or C?  ",Which shows that it is cold outside?,A,B,C,c
+S08PHS3.4M17,8,S08PHS3.4,"M - Here is a graph showing temperature.  (Point to graph.) Which day was hottest: Monday, Tuesday, or Wednesday?",Which day was hottest?,Monday,Tuesday,Wednesday,b
+S08PHS3.4M18,8,S08PHS3.4,"M - Here is a graph showing temperature.  (Point to graph.) Which day was coldest: Monday, Tuesday, or Wednesday?",Which day was coldest?,Monday,Tuesday,Wednesday,a
+S08PHS3.4H19,8,S08PHS3.4,"H - Here are three pictures of outside. (Point to prompt.) Which shows the girl staying warm: A, B, or C?  ",Which shows the girl staying warm?,A,B,C,c
+S08PHS3.4H20,8,S08PHS3.4,"H - This soup is too hot. (Point to prompt.) What would cool the temperature of soup: spoon, ice, or hot water?  ",What would cool the temperature of soup?,spoon,ice,hot water,b
+S08PHS4.2HSAMPLE,8,S08PHS4.2,"H - Here are three different waves. (Point answer options.)  Which shows a wave being reflected: A, B, or C?",Which shows a wave being reflected?,A,B,C,c
+S08PHS4.2L1,8,S08PHS4.2,"L - Here are three objects. (Point to answer choices.) Which is a wave: A, B, or C? ",Which is a wave?,A,B,C,b
+S08PHS4.2M2,8,S08PHS4.2,"M - This is a wave. (Point to wave.) Which is shorter than the wave: house, mountain, or tree? ",Which is shorter than the wave?,house,mountain,tree,c
+S08PHS4.2M3,8,S08PHS4.2,"M - Wavelength measures how long a wave is. (Point to diagram in prompt.) Which wave has the longest wavelength: A, B, or C? ",Wavelength measures how long a wave is. Which wave has the longest wavelength?,A,B,C,a
+S08PHS4.2H4,8,S08PHS4.2,"H - Here are three pictures. (Point to answer choices.) Which shows two waves that are the same size: A, B, or C? ",Which shows two waves that are the same size?,A,B,C,c
+S08PHS4.2H5,8,S08PHS4.2,"H - Here are three waves. (Point to answer choices.) Which wave is the tallest: A, B, or C? ",Which wave is the tallest?,A,B,C,a
+S08PHS4.2L6,8,S08PHS4.2,"L - Here are three pictures. (Point to answer choices.) Which shows sound waves: A, B, or C?",Which shows sound waves?,A,B,C,b
+S08PHS4.2L7,8,S08PHS4.2,"L - Here are three pictures. (Point to answer choices.) Which shows light waves: A, B, or C? ",Which shows light waves?,A,B,C,c
+S08PHS4.2M8,8,S08PHS4.2,"M - Here is a drum. (Point to answer choices.) Which type of wave is made when the drum is hit: light, ocean, or sound?",Which type of wave is made when the drum is hit?,light,ocean,sound,c
+S08PHS4.2M9,8,S08PHS4.2,"M - Here is a lamp. (Point to answer choices.) Which type of wave is made when the lamp is turned on: A, B, or C?",Which type of wave is made when the lamp is turned on?,ocean,light,sound,b
+S08PHS4.2H10,8,S08PHS4.2,"H - Here are three pictures. (Point to answer choices.) Which shows a wave being transmitted through something: A, B, or C?",Which shows a wave being transmitted through something?,A,B,C,b
+S08PHS4.2L11,8,S08PHS4.2,"L - Here are three items. (Point to the answer options.) Which is a wave: A, B, or C?",Which is a wave?,A,B,C,c
+S08PHS4.2M12,8,S08PHS4.2,"M - This diagram shows the amplitude, or height, of a wave. (Point to diagram in prompt.) Which wave has the smallest amplitude: A, B, or C? ","This diagram shows the amplitude, or height, of a wave. Which wave has the smallest amplitude?",A,B,C,b
+S08PHS4.2M13,8,S08PHS4.2,"M - This diagram shows the wavelength, or length, of a wave. (Point to diagram in prompt.) Which wave has the longest wavelength: A, B, or C? ","This diagram shows the wavelength, or length, of a wave. Which wave has the longest wavelength?",A,B,C,a
+S08PHS4.2H14,8,S08PHS4.2,"H - This is a wave. (Point to wave in prompt.) Which shows a wave being absorbed by something: A, B, or C?",Which shows a wave being absorbed by something?,A,B,C,a
+S08PHS4.2H15,8,S08PHS4.2,"H - This is a wave.  (Point to wave in prompt.) Which shows a wave being reflected by something: A, B, or C?",Which shows a wave being reflected by something?,A,B,C,c
+S08PHS4.2L16,8,S08PHS4.2,"L - Here are three pictures. (Point to answer choices.) Which shows a wave: A, B, or C?",Which shows a type of wave?,A,B,C,a
+S08PHS4.2L17,8,S08PHS4.2,"L - This is a wave. (Point to prompt.) Which also shows waves: A, B, or C?",Which is also a wave?,A,B,C,c
+S08PHS4.2M18,8,S08PHS4.2,"M - Here are three different waves. (Point to answer choices.) Which wave is biggest: A, B or C? ",Which wave is biggest?,A,B,C,b
+S08PHS4.2M19,8,S08PHS4.2,"M - Here is the Sun. (Point to prompt.) Which type of waves does the Sun make: light, sound, or hand?",Which type of waves does the Sun make?,light,sound,hand,a
+S08PHS4.2H20,8,S08PHS4.2,"H - Here are three different waves. (Point to prompt.) A wave with higher frequency has more waves per second. Which wave has the highest frequency: A, B, or C?",A wave with higher frequency has more waves per second. Which wave has the highest frequency?,A,B,C,c
+S08LFS1.3LSAMPLE,8,S08LFS1.3,"L - Here is Emma. (Point to picture of girl.)  Which is Emma's head: A, B or C?",Which is Emma's head?,A,B,C,a
+S08LFS1.3L1,8,S08LFS1.3,"L - This is a boy. (Point to picture of boy.)  Which is his foot: A, B, or C? ",Which is his foot?,A,B,C,b
+S08LFS1.3L2,8,S08LFS1.3,"L - Here is Julio. (Point to Julio.) Which is his ear: A, B, or C? ",Which is his ear?,A,B,C,c
+S08LFS1.3M3,8,S08LFS1.3,"M - Here is a boy's insides. (Point to the diagram of the boy's insides.) Which body part is circled: lungs, foot, or stomach?",Which body part is circled?,lungs,foot,stomach,c
+S08LFS1.3M4,8,S08LFS1.3,"M - Here is a girl's lungs for breathing. (Point to the diagram of the girl.) Which are the girl's lungs: A, B or C?",Which are the girl's lungs?,A,B,C,4
+S08LFS1.3H5,8,S08LFS1.3,"H - This is a girl's skeleton. (Point to picture of skeletal system.)  How does the skeleton help the body: smell, support, or digestion? ",How does the skeleton help the body?,smell,support,digestion,b
+S08LFS1.3L6,8,S08LFS1.3,"L - Here is Laura. (Point to picture of girl.) Which is Laura's hand: A, B, or C? ",Which is Laura's hand?,A,B,C,c
+S08LFS1.3M7,8,S08LFS1.3,"M - Here are three bodies. (Point to prompt.) Which shows the inside of a body: A, B, or C?",Which shows the inside of a body?,A,B,C,a
+S08LFS1.3M8,8,S08LFS1.3,"M - Here are three body parts. (Point to prompt.) Which is a brain: A, B, or C? ",Which is a brain?,A,B,C,b
+S08LFS1.3H9,8,S08LFS1.3,"H - Here is the inside of a body. (Point to prompt.) Which body produces thinking: brain, skeleton, or liver? ",Which body produces thinking?,lung,stomach,brain,c
+S08LFS1.3H10,8,S08LFS1.3,"H - Here is the inside of a body. (Point to prompt.) Which body part is used for breathing: skeleton, liver, or lungs? ",Which body part is used for breathing?,stomach,lung,heart,b
+S08LFS1.3L11,8,S08LFS1.3,"L - This is Tiko. (Point to picture of boy.) Which is Tiko's foot: A, B or C? ",Which is Tiko's foot?,A,B,C,c
+S08LFS1.3L12,8,S08LFS1.3,"L - This is Steff. (Point to picture of girl.) Which is Steff's hand: A, B or C? ",Which is Steff's hand?,A,B,C,b
+S08LFS1.3M13,8,S08LFS1.3,"M - This is Junior. (Point to the picture of the boy.) Which is Junior's heart: A, B, or C? ",Which is Junior's heart?,A,B,C,a
+S08LFS1.3M14,8,S08LFS1.3,"M - This is Bella. (Point to the picture of the girl.) Which is Bella's stomach: A, B, or C?",Which is Bella's stomach?,A,B,C,c
+S08LFS1.3H15,8,S08LFS1.3,"H - This is María. (Point to the picture of the girl.) Which body part digests the food María eats: heart, stomach, or brain?",Which body part digests the food María eats?,heart,stomach,brain,b
+S08LFS1.3L16,8,S08LFS1.3,"L - Here is James. (Point to prompt.) Which is his head: A, B or C?  ",Which is his hand?,A,B,C,b
+S08LFS1.3M17,8,S08LFS1.3,"M - Here is a body. (Point to body.) Which is the heart: A, B or C?",Which is the heart?,A,B,C,a
+S08LFS1.3M18,8,S08LFS1.3,"M - Here is a body. (Point to body.) Which is the brain: A, B or C?",Which is the brain?,A,B,C,b
+S08LFS1.3H19,8,S08LFS1.3,"H - Here are three different body parts. (Point to answers.) Which carries blood through your body: eyes, bones or veins?  ",Which carries blood through your body?,eyes,bones,veins,c
+S08LFS1.3H20,8,S08LFS1.3,"H - Here are three different body parts. (Point to answers.) Which body part helps us see: eyes, bones or veins?  ",Which body part helps us see,eyes,bones,veins,a
+S08LFS1.4MSAMPLE,8,S08LFS1.4,"M - Here is a wolf. (Point to wolf.)  Which body part is the teeth: A, B, or C?",Which body part is the teeth?,A,B,C,b
+S08LFS1.4L1,8,S08LFS1.4,"L - Here are three objects. (Point to answer choices.) Which is a plant: rock, tree, or worm?  ",Which is a plant?,rock,tree,worm,b
+S08LFS1.4M2,8,S08LFS1.4,"M - Here is a plant. (Point to plant.) Which  is a leaf: A, B, or C?  ",Which is a leaf?,A,B,C,c
+S08LFS1.4M3,8,S08LFS1.4,"M - Here are three pictures. (Point to answer choices.) Which shows the fin of a fish: A, B, or C?  ",Which shows the fin of a fish?,A,B,C,b
+S08LFS1.4H4,8,S08LFS1.4,"H - This is an elephant.  (Point to elephant.) What body part helps an elephant reach and hold food to eat: ears, legs, or trunk? ",What body part helps an elephant reach and hold food to eat?,ears,legs,trunk,c
+S08LFS1.4H5,8,S08LFS1.4,"H - This is an owl. (Point to owl.) What does an owl use to grab food: talons, feathers, or wings?",What does an owl use to grab food?,talons,feathers,wings,a
+S08LFS1.4L6,8,S08LFS1.4,"L - Here are three pictures. (Point to answer choices.) Which is an animal: robot, tree, or dog?",Which is an animal?,robot,tree,dog,c
+S08LFS1.4L7,8,S08LFS1.4,"L - Here are three pictures. (Point to answer choices.) Which is a plant: flower, crayon, or robot?",Which is a plant?,flower,crayon,robot,a
+S08LFS1.4M8,8,S08LFS1.4,"M - Here is a tree. (Point to tree.) Which part is a branch: A, B, or C? ",Which part is a branch?,A,B,C,b
+S08LFS1.4M9,8,S08LFS1.4,"M - Here is an elephant. (Point to elephant.) Which part is the trunk: A, B, or C?",Which part is the trunk?,A,B,C,c
+S08LFS1.4H10,8,S08LFS1.4,"H - Here is a horse. (Point to horse.) Which body part helps the horse run: A, B, or C? ",Which body part helps the horse run?,head,legs,tail,b
+S08LFS1.4L11,8,S08LFS1.4,"L - Here are three objects. (Point to the choices.) Which is an animal: tree, bird, or phone?",Which is an animal?,tree,bird,phone,b
+S08LFS1.4M12,8,S08LFS1.4,"M - Here is a flower. (Point to the prompt.) Which are the petals of this flower: A, B, or C? ",Which are the petals of this flower?,A,B,C,a
+S08LFS1.4M13,8,S08LFS1.4,"M - Here is a flower. (Point to the prompt.) Which are the roots of this flower: A, B, or C? ",Which are the roots of this flower?,A,B,C,c
+S08LFS1.4H14,8,S08LFS1.4,"H - Here is a flower.  (Point to the prompt.) Which part of this flower attracts bees: petals, stem, or roots? ",Which part of this flower attracts bees?,petals,stem,roots,a
+S08LFS1.4H15,8,S08LFS1.4,"H - Here is a flower. (Point to the prompt.) Which part of this flower takes in water from the soil: petals, stem, or roots? ",Which part of this flower takes in water from the soil?,petals,stem,roots,c
+S08LFS1.4L16,8,S08LFS1.4,"L - Here are three objects. (Point to answer choices.) Which is an animal: flower, ball, or dolphin?",Which is an animal?,flower,ball,dolphin,c
+S08LFS1.4L17,8,S08LFS1.4,"L - Here are three objects. (Point to answer choices.) Which is a plant: fern, duck, or pond?",Which is a plant?,fern,duck,pond,a
+S08LFS1.4M18,8,S08LFS1.4,"M - Here is a tiger. (Point to prompt.) Which shows the tiger's tail: A, B, or C?",Which shows the tiger's tail?,A,B,C,b
+S08LFS1.4M19,8,S08LFS1.4,"M - Here is a polar bear. (Point to prompt.) Which shows a polar bear hibernating during the winter: A, B, or C?",Which shows a polar bear hibernating during the winter?,A,B,C,c
+S08LFS1.4H20,8,S08LFS1.4,"H - Here is a porcupine. (Point to prompt.) Which body part helps the porcupine protect itself: feet, eye, or spines?",Which body part helps the porcupine protect itself?,feet,eye,spines,c
+S08LFS1.6HSAMPLE,8,S08LFS1.6,"H - Here are three trees.  (Point to answer choices.) Which tree is most able to use light from the Sun to grow: A, B or C? ",Which tree is better able to use light from the Sun to grow?,A,B,C,c
+S08LFS1.6L1,8,S08LFS1.6,"L -This is a tree. (Point to tree.) Which helps a tree grow: sunlight, potatoes, or rocks? ",Which helps a tree grow?,sunlight,potatoes,rocks,a
+S08LFS1.6L2,8,S08LFS1.6,"L - This flower is growing poorly. (Point to flower.) Which could help the flower grow better: glue, water, or soda? ",Which could help the flower grow better?,glue,water,soda,b
+S08LFS1.6M3,8,S08LFS1.6,"M - Here are two plants. (point to picture of plants.) What will happen if only one plant gets water and sunlight: A, B, or C?",What will happen if only one plant gets water and sunlight?,A,B,C,c
+S08LFS1.6M4,8,S08LFS1.6,"M - This is a plant. (Point to prompt.) Plants need water, sunlight, and air for photosynthesis. Which shows how the plant might get water: sunlight, grass, or water?","Plants need water, sunlight, and air for photosynthesis. Which shows how the plant might get water?",A,B,C,b
+S08LFS1.6H5,8,S08LFS1.6,"H - This is a plant. (Point to plant in diagram.) Where do plants get energy for photosynthesis: the Moon, wind, or the Sun? ",Where do plants get energy for photosynthesis?,Moon,wind,Sun,c
+S08LFS1.6L6,8,S08LFS1.6,"L - This is a plant. (Point to prompt.) Which does the plant need to grow: milk, water, or baseball? ",Which does the plant need to grow?,milk,water,baseball,b
+S08LFS1.6M7,8,S08LFS1.6,"M - Here are three plants. (Point to answer choices.) Which plant gets the most light to grow: A, B, or C?",Which plant gets the most light to grow?,A,B,C,c
+S08LFS1.6M8,8,S08LFS1.6,"M - Here are three flowers. (Point to answer choices.) Which flower gets the most water to grow: A, B, or C? ",Which flower gets the most water to grow?,A,B,C,a
+S08LFS1.6H9,8,S08LFS1.6,"H - This diagram shows photosynthesis. (Point to prompt.) During photosynthesis, plants use light energy, water and air to make food. Where does the plant get light to grow: flower, Sun or roots?","During photosynthesis, plants use light energy, water and air to make food. Where does the plant get light to grow?",flowers,Sun,roots,b
+S08LFS1.6H10,8,S08LFS1.6,"H - This diagram shows photosynthesis. (Point to prompt.) During photosynthesis, plants use light energy, water and air to make food. Which part of the plant takes in water to grow: flower, leaves or roots?","During photosynthesis, plants use light energy, water and air to make food. Which part of the plant takes in water to grow?",flowers,leaves,roots,c
+S08LFS1.6L11,8,S08LFS1.6,"L - Here is a tree. (Point to the prompt.) Which does a tree need to grow: sunlight, car, or fish? ",Which does a tree need to grow?,sunlight,car,fish,a
+S08LFS1.6L12,8,S08LFS1.6,"L - Here is a tree. (Point to the prompt.) Which does a tree need to grow: car, water, or fish? ",Which does a tree need to grow?,car,water,fish,b
+S08LFS1.6M13,8,S08LFS1.6,"M - Here are three plants. (Point to the answer choices.) Which plant would likely grow the best, the plant given: water only, sunlight only, or water and sunlight.",Which plant would likely grow the best?,water only,sunlight only,water and sunlight,c
+S08LFS1.6M14,8,S08LFS1.6,"M - This is a diagram of photosynthesis. (Point to the prompt.) Which part of the plant takes in sunlight: flower, leaves, or roots?",Which part of the plant takes in sunlight?,flower,leaves,roots,b
+S08LFS1.6H15,8,S08LFS1.6,"H - This is a diagram of photosynthesis. (Point to the prompt.) What gas does the plant's leaves release into the air: water, oxygen, or soil? ",What gas does the plant's leaves release into the air?,water,soil,oxygen,c
+S08LFS1.6L16,8,S08LFS1.6,"L - Here is a sunflower. (Point to the plant.) What helps a sunflower grow: sunlight, truck, or soda?",What helps a sunflower grow?,sunlight,truck,soda,a
+S08LFS1.6M17,8,S08LFS1.6,"M - Here is a fern plant getting watered in the Sun. (Point to prompt.) What else does the fern need to grow: soda, electricity, or air?  ",What else does the plant need to grow if you water it?,soda,electricity,air,c
+S08LFS1.6M18,8,S08LFS1.6,"M - This plant is in a bag. (Point to prompt.) Which would help this plant grow: magnets, air, or candy? ",Which would help this plant grow?,magnets,air,candy,b
+S08LFS1.6H19,8,S08LFS1.6,"H - This is a diagram of photosynthesis. (Point to prompt.) During photosynthesis, plants use light, air and water to grow. Which is needed for photosynthesis: water, candy or rocks?","During photosynthesis, plants use light, air and water to grow. Which is not needed for photosynthesis? ",water,candy,electricity,a
+S08LFS1.6H20,8,S08LFS1.6,"H - This is a diagram of photosynthesis. (Point to prompt.) During photosynthesis, plants use light, air and water to grow. Which could be used in photosynthesis: gravel, mountain, or water?","During photosynthesis, plants use light, air and water to grow. Which could be used in photosynthesis?",electricity,soda,sunlight,c
+S08LFS1.7LSAMPLE,8,S08LFS1.7,"L - Here are three pictures. (Point to student materials.) Which would you eat to grow: rocks, grass or fruit?",Which would you eat to grow?,rocks,grass,fruit,c
+S08LFS1.7L1,8,S08LFS1.7,"L - This is a puppy. (Point to puppy.) Which could help a puppy grow: a brick, grass, or food?",Which could help a puppy grow?,brick,grass,food,c
+S08LFS1.7M2,8,S08LFS1.7,"M - This is a boy. (Point to prompt.) What does the boy eat for energy to grow: vegetables, money, or the Moon? ",What does the boy eat for energy to grow?,vegetables,money,Moon,a
+S08LFS1.7M3,8,S08LFS1.7,"M -This is a monkey. (Point to monkey.) What does a monkey eat for energy: sticks, bananas, or rocks?",What does a monkey eat for energy?,sticks,bananas,rocks,b
+S08LFS1.7H4,8,S08LFS1.7,"H - Here is a graph.  (Point to prompt.) Which dog will grow the most: A, B, or C? ",Which dog will grow the most?,A,B,C,c
+S08LFS1.7H5,8,S08LFS1.7,"H -  Lucy likes basketball. (Point to girl in prompt.) What should Lucy do to have energy to play basketball: read a book, fly a kite, or eat a snack?",What should Lucy do to get energy to play basketball? ,read a book,fly a kite,eat a snack,c
+S08LFS1.7L6,8,S08LFS1.7,"L - Here is a cow. (Point to the cow.) Which does the cow eat to grow: air, grass, or rock? ",Which does the cow eat to grow?,air,grass,rock,b
+S08LFS1.7L7,8,S08LFS1.7,"L - Here is a girl. (Point to prompt.) Which could she eat to grow: bark, shoelaces or carrots?",Which could she eat to grow?,bark,shoelaces,carrots,c
+S08LFS1.7M8,8,S08LFS1.7,"M - This is Tom. (Point to boy.) Which gives Tom energy to ride his bike: bananas, pencil, or glasses?",Which gives Tom energy to ride his bike?,bananas,pencil,glasses,a
+S08LFS1.7M9,8,S08LFS1.7,"M - Here is a shark. (Point to shark.) Which does the shark hunt for energy: flower, hamburgers, or fish? ",Which does the shark hunt for energy?,flower,hamburger,fish,c
+S08LFS1.7H10,8,S08LFS1.7,"H - Here is a graph showing how many cups of food each dog ate last week. (Point to graph.) Which dog likely grew the most: A, B, or C? ",Which dog likely grew the most?,A,B,C,b
+S08LFS1.7L11,8,S08LFS1.7,"L - Here is a horse (Point to the prompt.) Which would a horse eat to grow: rocks, hay or table?",Which would a horse eat to grow?,rocks,hay,table,b
+S08LFS1.7M12,8,S08LFS1.7,"M - Here is Cara. (Point to girl in prompt.) Which could Cara eat for energy: rocks, hay or fruit? ",Which could Cara eat for energy?,rocks,hay,fruit,c
+S08LFS1.7M13,8,S08LFS1.7,"M - Here is a bear. (Point to the prompt.) Which could a bear eat for energy: rocks, fish, or pencils?",Which could a bear eat for energy?,rocks,fish,pencils,b
+S08LFS1.7H14,8,S08LFS1.7,"H - Here is a bear. (Point to the prompt.) Which would the bear eat for the most energy: no fish, a few fish, or many fish?",Which would the bear eat for the most energy?,no fish,few fish,many fish,c
+S08LFS1.7H15,8,S08LFS1.7,"H - Here is Ray. (Point to the girl.) Ray needs energy for running. Which should she eat to get the most energy: fruit, water, or dirt?",Ray needs energy for running. Which should she eat to get the most energy?,fruit,water,dirt,a
+S08LFS1.7L16,8,S08LFS1.7,"L - Here is a cat. (Point to prompt.) Which does a cat need to grow: food, ball, or tree? ",Which does a cat need to grow?,food,toy,tree,a
+S08LFS1.7L17,8,S08LFS1.7,"L - Here are two children. (Point to prompt.) Which helps children grow: phone, table, or vegetables?",Which helps children grow?,phone,table,vegetables,c
+S08LFS1.7M18,8,S08LFS1.7,"M - Here is a girl. (Point to prompt.) Which gives you energy to grow: calculator, fruit, or tree? ",Which gives you energy to grow?,calculator,fruit,tree,b
+S08LFS1.7M19,8,S08LFS1.7,"M - Here is a dog. (Point to prompt.) Which gives a dog energy to grow: candy, ball, or food?  ",Which gives a dog energy to grow?,candy,ball,food,c
+S08LFS1.7H20,8,S08LFS1.7,"H - Here is a graph about food. (Point to grph in prompt.) Which food has the most nutrition to help you grow: candy, soda, or fruit?",Which food has the most nutrition to help you grow?,chips,fruit,soda,b
+S08LFS2.1LSAMPLE,8,S08LFS2.1,"L - Here are three pictures. (Point to student materials.) Which shows a group of animals: fish, bear, or hawk?",Which shows a group of animals?,fish,bear,hawk,a
+S08LFS2.1L1,8,S08LFS2.1,"L - Here are three pictures. (Point to answer choices.) Which is a group of animals: dog, owl, or wolf pack?",Which is a group of animals?,A,B,C,c
+S08LFS2.1L2,8,S08LFS2.1,"L - Here are three pictures. (Point to answer choices.) Which is alive: paper clip, worm, or rock?",Which is alive?,paper clip,worm,rock,b
+S08LFS2.1M3,8,S08LFS2.1,"M - This is a herd of cows. (Point to herd of cows.) What do cows eat to grow: dirt, sticks, or grass?",What do cows eat to grow?,dirt,sticks,grass,c
+S08LFS2.1M4,8,S08LFS2.1,"M - This is a dog. (Point to dog.) What does a dog need to survive: water, shoes, or grass? ",What does a dog need to survive?,water,shoes,grass,a
+S08LFS2.1H5,8,S08LFS2.1,"H - This is a flock of birds. (Point to birds.) What will happen if  the birds' food runs out, will there be: more birds, fewer birds, or the same amount of birds? ",What will happen if  the birds' food runs out?,more birds,fewer birds,same amount of birds,b
+S08LFS2.1L6,8,S08LFS2.1,"L - Here are three pictures. (Point to answer choices.) Which shows a group of living animals: A, B, or C? ",Which shows a group of living animals?,A,B,C,b
+S08LFS2.1M7,8,S08LFS2.1,"M - Here is a group of deer. (Point to deer.) What do these deer need to grow: A, B, or C? ",What do these deer need to grow?,rocks,berries,candy,b
+S08LFS2.1M8,8,S08LFS2.1,"M - Here is a horse. (Point to horse.) What does the horse need to grow: hay, stump or toothbrush?",What does the horse need to grow?,hay,stump,toothbrush,a
+S08LFS2.1H9,8,S08LFS2.1,"H - Here is a food chain. (Point to prompt picture.) What would happen to the deer if the berries they eat died, would there be: more deer, the same deer, or less deer? ",What would happen to the deer if the berries they eat died?,more deer,same deer,less deer,c
+S08LFS2.1H10,8,S08LFS2.1,"H -  This is a river. (Point to prompt picture.) What would happen to the fish if the river dried up: A, B, or C? ",What would happen to the fish if the river dried up?,A,B,C,c
+S08LFS2.1L11,8,S08LFS2.1,"L - Here is a bee. (Point to beehive.) Which shows a group of bees:  A, B, or C? ",Which shows a group of bees?,A,B,C,b
+S08LFS2.1L12,8,S08LFS2.1,"L - Here is a group of flowers.  (Point to flowers.) Which shows one flower: A, B, or C? ",Which shows one flower?,A,B,C,c
+S08LFS2.1M13,8,S08LFS2.1,"M - Here is a group of fish. (Point to the prompt.) Which shows where the group of fish live: river, sky, or forest? ",Which shows where the group of fish live?,river,sky,forest,a
+S08LFS2.1M14,8,S08LFS2.1,"M - Here is a flock of geese. (Point to the prompt.) Which shows where a flock of geese live: house, pond, or forest? ",Which shows where a flock of geese live?,house,pond,forest,b
+S08LFS2.1H15,8,S08LFS2.1,"H - These fish live in a pond that is drying up. (Point to the prompt.) Which could help the pond: rain, sand, or leaves? ",These fish live in a pond that is drying up. Which could help the pond?,rain,sand,leaves,a
+S08LFS2.1L16,8,S08LFS2.1,"L -  Here are three objects. (Point to answer choices.) Which is alive: toy, pond, or duck?",Which is alive?,toy,pond,duck,c
+S08LFS2.1M17,8,S08LFS2.1,"M - Here are some fish. (Point to the fish.)  Which do they need to live: tree, water, or rock?",Which do they need to live?,tree,water,rock,b
+S08LFS2.1M18,8,S08LFS2.1,"M - Here is a pack of wolves. (Point to wolves.) Which might these wolves eat to grow: rabbits, trees, or pencils? ",Which might these wolves eat to grow?,rabbits,trees,pencils,a
+S08LFS2.1H19,8,S08LFS2.1,"H - Here is a pond with fish. (Point to the pond wish fish.) What would happen to the number of fish if the pond was badly polluted: stay the same, decrease, or increase? ",What would happen to the number of fish if the pond was badly polluted?,same,decrease,increase,b
+S08LFS2.1H20,8,S08LFS2.1,"H - Here is a food chain. (Point to prompt picture.) What would happen to the bear if the berries they eat died, would there be: more bear, the same bear, or less bear ",What would happen to the bear if the berries they eat died?,more bear,same bear,less bear,c
+S08LFS2.2MSAMPLE,8,S08LFS2.2,"M - Here are some frogs. (Point to frogs in prompt.) Which provides a home for the frogs: storks, pond, or insects?",Which provides habitat for the frogs?,stork,pond,insects,b
+S08LFS2.2L1,8,S08LFS2.2,"L - This is a desert. (Point to desert.) What is alive in this desert: rocks, sand, or cactus?",What is alive in this desert?,rocks,sand,cactus,c
+S08LFS2.2M2,8,S08LFS2.2,"M - This is a desert. (Point to desert.) What can a lizard drink to survive: clouds, water, or a rock?  ",What can a lizard drink to survive?,clouds,water,rock,c
+S08LFS2.2M3,8,S08LFS2.2,"M - This is a cougar. (Point to tiger.) What does a cougar need to survive: water, dirt, or branches?",What does a cougar need to survive?,water,dirt,branches,a
+S08LFS2.2H4,8,S08LFS2.2,"H -  This is a mouse. (Point to prompt.) Predators eat other animals. Which is a predator of the mouse: cat, worm, or ant?",Predators eat other animals. Which is a predator of the mouse?,cat,worm,ant,a
+S08LFS2.2H5,8,S08LFS2.2,"H - This is a cougar. (Point to cat.) Which could compete with the cougar for food: grass, ant, or wolf?",Which could compete with the cougar for food?,grass,ant,wolf,c
+S08LFS2.2L6,8,S08LFS2.2,"L - Here are three pictures. (Point to answer choices.) Which one is alive: A, B, or C?",Which one is alive?,A,B,C,b
+S08LFS2.2L7,8,S08LFS2.2,"L - Here are three pictures. (Point to answer choices.) Which shows a living tree: A, B, or C?",Which shows a living tree?,A,B,C,c
+S08LFS2.2M8,8,S08LFS2.2,"M - Here is a beaver. (Point to beaver.) Which provides shelter for the beaver: fish, dam, or boat?",Which provides shelter for the beaver?,fish,dam,boat,b
+S08LFS2.2M9,8,S08LFS2.2,"M - Here is a dolphin. (Point to dolphin.) Where is the dolphin's home: boat, forest, or ocean?",Where is the dolphin's home?,boat,forest,ocean,c
+S08LFS2.2H10,8,S08LFS2.2,"H - Here are some frogs and insects. (Point to prompt picture.) How do frogs and insects relate to each other: frogs eat insects, insects eat frogs, or no relation? ",How do frogs and insects relate to each other?,frogs eat insects,insects eat frogs,no relation,a
+S08LFS2.2L11,8,S08LFS2.2,"L - Here are three objects. (Point to answer choices.) Which is alive: a phone, brick or ant? ",Which is alive?,phone,brick,ant,c
+S08LFS2.2M12,8,S08LFS2.2,"M - Here are three objects. (Point to answer choices.) Which provides oxygen: plants, phones, or clouds?",Which provides oxygen?,plants,phones,clouds,a
+S08LFS2.2M13,8,S08LFS2.2,"M - Here are some monkeys. (Point to prompt.) Which is a monkey's habitat: banana, forest, or insect? ",Which is a monkey's habitat? ,banana,forest,insect,b
+S08LFS2.2H14,8,S08LFS2.2,"H - Here are some foxes and mice. (Point to prompt picture.) How do the mice and fox relate to each other: mice eat fox, fox eat mice, or no relation?",How do the mice and fox relate to each other?,mice eat fox,fox eat mice,no relation,b
+S08LFS2.2H15,8,S08LFS2.2,"H - Here are three pictures. (Point to answer choices.) Which shows a predator hunting prey: A, B, or C? ",Which shows a predator hunting prey?,A,B,C,a
+S08LFS2.2L16,8,S08LFS2.2,"L - Here are three objects. (Point to answer choices.) Which shows a mountain: A, B or C?  ",Which shows a mountain? ,A,B,C,c
+S08LFS2.2L17,8,S08LFS2.2,"L - Here are three objects. (Point to answer choices.) Which shows a volcano: A, B or C?  ",Which shows a volcano? ,A,B,C,c
+S08LFS2.2M18,8,S08LFS2.2,"M - Here is a fox and her babies. (Point prompt.) Which could give the fox and her pups shelter: den, lake, or ocean?",Which could give the fox and her pups shelter?,den,lake,nest,a
+S08LFS2.2M19,8,S08LFS2.2,"M - Here is an ocean. (Point to prompt.) Which animal lives in this habitat: bear, camel or whale?",Which animal lives in this habitat?,bear,camel,whale,c
+S08LFS2.2H20,8,S08LFS2.2,"H - Here are three pictures. (Point to answer choices.) Predators eat other animals. Which shows a predator and its prey: A, B, or C? ",Predators eat other animals. Which shows a predator and its prey?,A,B,C,a
+S08LFS3.2HSAMPLE,8,S08LFS3.2,"H - Here are two dogs.  (Point to dogs in prompt.) Which is the likely offspring of these dogs: A, B or C?",Which is the likely offspring of these dogs?,A,B,C,c
+S08LFS3.2L1,8,S08LFS3.2,"L - This is a young plant. (Point to plant.) Which are the parents of this plant: A, B, or C?",Which are the parents of this plant?,A,B,C,b
+S08LFS3.2L2,8,S08LFS3.2,"L - This is a mouse. (Point to mouse.) Which are the parents of this mouse: A, B, or C?  ",Which are the parents of this mouse?,A,B,C,c
+S08LFS3.2M3,8,S08LFS3.2,"M - This is a cat. (Point to cat.) Which are likely the parents of this cat: A, B, or C?",Which are likely the parents of this cat?,A,B,C,a
+S08LFS3.2M4,8,S08LFS3.2,"M - This is a horse. (Point to horse.) Which are the parents of this horse: A, B, or C?",Which are the parents of this horse?,A,B,C,b
+S08LFS3.2H5,8,S08LFS3.2,"H - Here is a fish. (Point to fish in prompt.)  Which are the parents of this fish: A, B or C?",Which are the parents of this fish?,A,B,C,c
+S08LFS3.2L6,8,S08LFS3.2,"L - Here are two adult cows. (Point to cows.) Which is a baby cow: A, B, or C? ",Which is a baby cow?,A,B,C,a
+S08LFS3.2M7,8,S08LFS3.2,"M - Here are two adult eagles. (Point to eagles.) Which is their baby eaglet: A, B, or C?",Which is their baby eaglet?,A,B,C,c
+S08LFS3.2M8,8,S08LFS3.2,"M - Here are two bears. (Point to bears.) Which is their baby bear cub: A, B, or C? ",Which is their baby bear cub?,A,B,C,b
+S08LFS3.2H9,8,S08LFS3.2,"H - Here are two horses. (Point to horses.) Which is likely their offspring: A, B, or C? ",Which is likely their offspring?,A,B,C,a
+S08LFS3.2H10,8,S08LFS3.2,"H - Here is a kitten. (Point to kitten.) Which are the kitten's parents: A, B, or C? ",Which are the kitten's parents?,A,B,C,c
+S08LFS3.2L11,8,S08LFS3.2,"L- Here are two people. (Point to the prompt.) Which is the child of the two people: A, B, or C?",Which is the child of the two people?,A,B,C,b
+S08LFS3.2L12,8,S08LFS3.2,"L- Here is a baby fish. (Point to the prompt.) Which are the parents of the baby fish: A, B, or C?",Which are the parents of the baby fish?,A,B,C,a
+S08LFS3.2M13,8,S08LFS3.2,"M - Here is a baby horse. (Point to the prompt.) Which are the parents of this baby horse: A, B or C?",Which are the parents of this baby horse?,A,B,C,b
+S08LFS3.2M14,8,S08LFS3.2,"M - Here is a baby bird.  (Point to the prompt.)  Which are the parents of this baby bird: A, B or C? ",Which are the parents of this baby bird?,A,B,C,c
+S08LFS3.2H15,8,S08LFS3.2,"H - Here are two rabbits.  (Point to the prompt.)  Which is the likely offspring of these rabbits: A, B or C?",Which is the likely offspring of these rabbits?,A,B,C,c
+S08LFS3.2L16,8,S08LFS3.2,"L - Here is a man and a woman. (Point to prompt.)  Which is their child: A, B or C?",Which is their child?,A,B,C,c
+S08LFS3.2M17,8,S08LFS3.2,"M - Here is a baby tiger.  (Point to prompt.) Which are the parents: A, B or C?",Which are the parents?,A,B,C,b
+S08LFS3.2M18,8,S08LFS3.2,"M - Here are two large rose bushes. (Point to prompt.) Which is the seedling of the rose bushes:  A, B or C?",Which is the seedling of the rose bushes?,A,B,C,a
+S08LFS3.2H19,8,S08LFS3.2,"H - Here are two cats.  (Point to prompt.)  Which is likely their offspring: A, B or C?",Which is likely their offspring?,A,B,C,c
+S08LFS3.2H20,8,S08LFS3.2,"H - Here are two cows. (Point to prompt.) Which is likely the cows' calf: A, B or C?",Which is likely the cows' calf?,A,B,C,b
+S08LFS4.2LSAMPLE,8,S08LFS4.2,"L - Here is a cat. (Point to cat in prompt.) Which animal is also a cat: A, B or C.",Which animal is also a cat?,A,B,C,a
+S08LFS4.2L1,8,S08LFS4.2,"L - This is a bird. (Point to bird in prompt.) Which animal is also a bird: A, B, or C.",Which animal is also a bird?,A,B,C,b
+S08LFS4.2M2,8,S08LFS4.2,"M - This is a dog. (Point to dog.) Which animal is most similar to a dog: elephant, mouse or wolf?",Which animal is most similar to a dog?,elephant,mouse,wolf,c
+S08LFS4.2M3,8,S08LFS4.2,"M - This is a turkey. (Point to turkey.) Which animal is most similar to a turkey: peacock, dog or cow? ",Which animal is most similar to a turkey?,peacock,dog,cow,a
+S08LFS4.2H4,8,S08LFS4.2,"H - This is a fossilized footprint of a dinosaur.  (Point to footprint.) Which footprint is most similar to the dinosaur: dog, person, or lizard? ",Which footprint is most similar to a dinosaur?,dog,person,lizard,c
+S08LFS4.2H5,8,S08LFS4.2,"H - This is a fossilized wooly mammoth. (Point to mammoth fossil) Which animal is most similar to the fossilized mammoth: A, B, or C? ",Which animal is most similar to the fossilized mammoth?,tiger,elephant,monkey,b
+S08LFS4.2L6,8,S08LFS4.2,"L - Here is a rabbit. (Point to prompt.) Which is also a rabbit: A, B, or C?",Which is also a rabbit?,A,B,C,b
+S08LFS4.2L7,8,S08LFS4.2,"L - Here is a lizard. (Point to prompt.) Which is also a lizard: A, B, or C?",Which is also a lizard?,A,B,C,c
+S08LFS4.2M8,8,S08LFS4.2,"M - Here is a tiger. Point to prompt.) Which is also a tiger: A, B, or C?",Which is also a tiger?,A,B,C,a
+S08LFS4.2M9,8,S08LFS4.2,"M - Here is a zebra. (Point to prompt.) Which is also a zebra: A, B, or C?",Which is also a zebra?,A,B,C,b
+S08LFS4.2H10,8,S08LFS4.2,"H - Here are some fossils. (Point to prompt.) Which did this fossil come from: dog, cougar, or mammoth?",Which did this fossil come from?,dog,lion,mammoth,c
+S08LFS4.2L11,8,S08LFS4.2,"L - Here is a butterfly. (Point to the prompt.) Which is also a butterfly: A, B or C? ",Which is also a butterfly?,A,B,C,b
+S08LFS4.2M12,8,S08LFS4.2,"M - Here is a horse. (Point to cat in prompt.) Which animal is also a horse: A, B or C?",Which animal is also a horse?,A,B,C,c
+S08LFS4.2M13,8,S08LFS4.2,"M - Here is a butterfly. (Point to prompt.) Which is also a butterfly: A, B or C? ",Which is also a butterfly?,A,B,C,b
+S08LFS4.2H14,8,S08LFS4.2,"H - Here is an extinct dinosaur. (Point to the prompt.) Which is also an extinct dinosaur: A, B or C? ",Which animal is also a dinosaur?,A,B,C,b
+S08LFS4.2H15,8,S08LFS4.2,"H - Here is a fossil. (Point to prompt.) Which did this fossil come from: fish, mouse, or bird? ",Which did this fossil come from?,fish,mouse,bird,a
+S08LFS4.2L16,8,S08LFS4.2,"L - Here is a dog. (Point to prompt.) Which is also a dog: A, B, or C? ",Which is also a dog?,A,B,C,c
+S08LFS4.2L17,8,S08LFS4.2,"L - Here is an elephant.  (Point to prompt.) Which is also an elephant: A, B, or C?",Which is also an elephant?,A,B,C,b
+S08LFS4.2M18,8,S08LFS4.2,"M - Here is a dog. (Point to prompt.) Which is most like the dog: bird, frog, or wolf?  ",Which is most like the dog?,bird,frog,wolf,c
+S08LFS4.2M19,8,S08LFS4.2,"M - Here is a horse. (Point to prompt.) Which is most like a horse: zebra, tiger, or bear?",Which is most like a horse?,zebra,tiger,bear,a
+S08LFS4.2H20,8,S08LFS4.2,"H - Here is a snail. (Point to prompt.) Which is likely related to the snail: A, B or C?",Which is likely related to the snail?,A,B,C,a
+S08LFS4.4MSAMPLE,8,S08LFS4.4,"M - Here is a Tiger. (Point to tiger in prompt.) Which is a trait that helps the tiger chew its prey: wings, teeth, or trunk?",Which is a trait that helps the tiger chew its prey? ,wings,teeth,trunk,b
+S08LFS4.4L1,8,S08LFS4.4,"L - This is an elephant. (Point to prompt.) Which shows an elephant's trunk: A, B, or C? ",Which shows an elephant's trunk?,A,B,C,c
+S08LFS4.4L2,8,S08LFS4.4,"L - This is a giraffe. (Point to giraffe.) Which shows a giraffe's neck: A, B, or C? ",Which shows a giraffe's neck?,A,B,C,b
+S08LFS4.4M3,8,S08LFS4.4,"M - This is a leopard. (Point to leopard.) What trait helps a leopard chase its prey: legs, hand or tail? ",What trait helps a leopard chase its prey?,legs,hand,tail,a
+S08LFS4.4M4,8,S08LFS4.4,"M - This is an eagle. (Point to eagle.)  What trait does an eagle use to grab its prey: wings, trunk, or talons?",What trait does an eagle use to grab its prey?,wings,trunk,talon,c
+S08LFS4.4H5,8,S08LFS4.4,"H - This is a leopard. (Point to leopard.) What trait helps a leopard hide: spots, teeth, or tail?",What trait helps a leopard hide?,spots,teeth,tail,a
+S08LFS4.4L6,8,S08LFS4.4,"L - Here is a duck. (Point to duck.) Which helps the duck swim: webbed feet, plants, or insects? ",Which helps the duck swim? ,webbed feet,plants,insects,a
+S08LFS4.4M7,8,S08LFS4.4,"M - Here is an elephant. (Point to elephant.) Which helps the elephant drink water: wings, hooves, or trunk?",Which helps the elephant drink water?,wings,hooves,trunk,c
+S08LFS4.4M8,8,S08LFS4.4,"M - Here is a whale. (Point to whale.) Which helps the whale swim in the ocean: beak, tail, or neck?",Which helps the whale swim in the ocean?,beak,tail,neck,b
+S08LFS4.4H9,8,S08LFS4.4,"H - Here is a cheetah. (Point to cheetah.) Which trait helps the cheetah run fast to catch prey: legs, tail, or ears? ",Which trait helps the cheetah run fast to catch prey?,legs,tail,ears,a
+S08LFS4.4H10,8,S08LFS4.4,"H - Here is a pig. (Point to giraffe.) Which trait helps the pig root and smell food: tail, ears or snout? ",Which trait helps the pig root and smell food?,tail,ears,snout,c
+S08LFS4.4L11,8,S08LFS4.4,"L - Here is a bird. (Point to the prompt.) Which does a bird have: car, leaves or feathers?",Which does a bird have?,car,leaves,feathers,c
+S08LFS4.4L12,8,S08LFS4.4,"L - Here is an eagle. (Point to the prompt.) Which does an eagle have: talons, hat, or leaves?",Which does an eagle have?,talons,hat,leaves,a
+S08LFS4.4M13,8,S08LFS4.4,"M - Here is an elk. (Point to the prompt.) Which trait helps the elk survive: wings, antlers or trunk?",Which trait helps the elk survive?,wings,antlers,trunk,b
+S08LFS4.4M14,8,S08LFS4.4,"M - Here is a turtle. (Point to the prompt.) Which trait helps the turtle hide: wings, antlers, or shell? ",Which trait helps the turtle hide?,wings,antlers,shell,c
+S08LFS4.4H15,8,S08LFS4.4,"H - Here is an elephant. (Point to the prompt.) Which trait helps the elephant drink water: tusks, ears, or trunk? ",Which trait helps the elephant drink water?,tusks,ears,trunk,c
+S08LFS4.4L16,8,S08LFS4.4,"L - Here is a fish. (Point to fish.) What helps fish breathe underwater: spoon, cup, or gills?",What helps fish breathe underwater?,spoon,cup,gills,c
+S08LFS4.4M17,8,S08LFS4.4,"M - Here is a lizard. (Point to lizard.) Which trait helps a lizard stay alive: a sticky tongue, fur, or wings?  ",Which trait helps a lizard stay alive?,tongue,fur,wings,a
+S08LFS4.4M18,8,S08LFS4.4,"M - Here is a turtle.  (Point to turtle.) Which trait helps the turtle survive: fur, shell, or feathers?  ",Which trait helps the turtle survive?,fur,shell,feathers,b
+S08LFS4.4H19,8,S08LFS4.4,"H - Here is a skunk. (Point to skunk.) Which trait protects the skunk from predators: trunk, claws, or spray? ",Which trait protects the skunk from predators? ,trunk,wings,spray,c
+S08LFS4.4H20,8,S08LFS4.4,"H - Here is an alligator.  (Point to prompt.)  Which trait helps alligators catch and eat prey: teeth, skin, or tail?",Which trait helps the alligators catch and eat prey?,teeth,skin,tail,a
+S08ESS1.2HSAMPLE,8,S08ESS1.2,"H - Here is our Solar System.  (Point to diagram of solar system.)  Which force makes planets orbit around the Sun: electric, magnetic or gravity?",Which force makes planets orbit around the Sun?,electrical,magnetic,gravity,c
+S08ESS1.2L1,8,S08ESS1.2,"L - This boy has a ball. (Point to ball in boy's hand.) If the boy drops the ball, where will it go: up, down, or to the side? ","If the boy drops the ball, where will it go?",up,down,side,b
+S08ESS1.2M2,8,S08ESS1.2,"M - Here is the Earth and the Sun. (Point to diagram of Earth and Sun.) What force causes the Earth to orbit the Sun: air, speed, or gravity? ",What force causes the Earth to orbit the Sun?,air,speed,gravity,c
+S08ESS1.2M3,8,S08ESS1.2,"M - Here is the Earth and the Moon. (Point to diagram of Earth and Moon) What force causes the Moon to orbit the Earth: air, speed, or gravity? ",What force causes the Moon to orbit the Earth?,air,speed,gravity,c
+S08ESS1.2H4,8,S08ESS1.2,"H - Here is Jupiter and four moons. (Point to diagram of Jupiter and its moons.) What does gravity do to Jupiter's moons: holds them in orbit, pushes them far away, or stops them from moving? ",What does gravity do to Jupiter's moons?,holds them in orbit,pushes them far away,stops them from moving,a
+S08ESS1.2H5,8,S08ESS1.2,"H - Here is our Solar System. (Point to diagram of solar system.) What does gravity force the planets to do: orbit the Sun, stop moving, or orbit the Earth?",What does gravity force the planets to do?,orbit the Sun,stop moving,orbit the Earth,a
+S08ESS1.2L6,8,S08ESS1.2,"L - Here is a backpack. (Point to student materials.) Which way does the backpack go when dropped: down, up, or sideways?",Which way does the backpack go when dropped?,down,up,sideways,a
+S08ESS1.2L7,8,S08ESS1.2,"L - Here is a pair of shoes. (Point to student materials.) Which way do the shoes go when dropped: up, down, or sideways?",Which way do the shoes go when dropped?,up,down,sideways,b
+S08ESS1.2M8,8,S08ESS1.2,"M - Here are the Earth, the Moon, and the Sun (Point to prompt.) Larger objects have more gravity. Which has the strongest gravity: Earth, Moon, or Sun?",Larger objects have more gravity. Which has the strongest gravity?,Earth,Moon ,Sun,c
+S08ESS1.2M9,8,S08ESS1.2,"M - Here are the Earth, the Moon, and the Sun (Point to prompt.) Larger objects have more gravity. Which has the weakest gravity: Earth, Moon, or Sun?",Which has the weakest gravity?,Earth,Moon ,Sun,b
+S08ESS1.2H10,8,S08ESS1.2,"H - This astronaut is walking on the moon. (Point to prompt.) What force keeps astronauts on the Moon: wind, glue, or gravity? ",What force keeps astronauts on the Moon?,wind,glue,gravity,c
+S08ESS1.2L11,8,S08ESS1.2,"L - Here is an apple. (Point to the prompt.) Which direction will the apple fall: up, down, or sideways?",Which direction will the apple fall?,up ,down,sideways,b
+S08ESS1.2M12,8,S08ESS1.2,"M - Here is the Earth and the Moon. (Point to the prompt.) Which force does the Earth put on the Moon: magnetic, wind, or gravity? ",Which force does the Earth put on the Moon?,magnetic,wind,gravity,c
+S08ESS1.2M13,8,S08ESS1.2,"M - Here is the Earth and Sun. (Point to the prompt.) Which force does the Sun put on the Earth: gravity, electricity, or wind? ",Which force does the Sun put on the Earth?,gravity,electricity,wind,a
+S08ESS1.2H14,8,S08ESS1.2,"H - Here is a comet, Earth and the Sun. (Point to the prompt.) Which forces comets to orbit the Sun: electricity, magnets, or gravity?",Which forces comets to orbit the Sun?,electricity,wind,gravity,c
+S08ESS1.2H15,8,S08ESS1.2,"H - Here is the planet Saturn. Saturn has rings made of ice and dust. (Point to the prompt.) Which force keeps Saturn's rings in orbit: electricity, magnets, or gravity?",Saturn has rings made of ice and dust. Which force keeps Saturn's rings in orbit?,magnetic,gravity,wind,b
+S08ESS1.2L16,8,S08ESS1.2,"L - Frank drops a ball. (Point to prompt.) Which direction will the ball go: up, down, or to the right?  ",Which direction will the ball go?,up,down,right,b
+S08ESS1.2L17,8,S08ESS1.2,"L - Here is an orange tree. (Point to prompt.) Which direction will the orange go when it falls from the tree: down, up or sideways?  ",Which direction will the orange go when it falls from the tree?,down,up,sideways,a
+S08ESS1.2M18,8,S08ESS1.2,"M - Here is the Earth and Sun. (Point to solar system.) What force keeps the Earth in orbit around the Sun: glue, gravity or magnetic?",What force keeps the Earth in orbit around the Sun?,glue,gravity,magnetic,b
+S08ESS1.2M19,8,S08ESS1.2,"M - Here is the Earth and Sun. (Point to solar system.) What force keeps the Earth close to the Sun: glue, electricity, or gravity?",What force keeps the Earth close to the Sun?,glue,electricity,gravity,c
+S08ESS1.2H20,8,S08ESS1.2,"H - Here is the solar system. (Point to a prompt.) What force keeps the planets in orbit around the Sun: gravity, electricity or magnetic? ",What force keeps the planets in orbit around the Sun?,gravity,electricity,magnetic,a
+S08ESS1.3LSAMPLE,8,S08ESS1.3,"L - Here are three objects. (Point to objects.) Which is the Earth: A, B, or C?",Which is the Earth?,A,B,C,a
+S08ESS1.3L1,8,S08ESS1.3,"L - Here are three objects. (Point to objects.) Which is the Sun: A, B, or C? ",Which is the Sun?,A,B,C,c
+S08ESS1.3L2,8,S08ESS1.3,"L - Here are three objects. (Point to objects.) Which is the Earth: A, B, or C? ",Which is the Earth?,A,B,C,b
+S08ESS1.3M3,8,S08ESS1.3,"M - Here are three objects. (Point to objects.) Which is the Earth: A, B, or C? ",Which is the Earth?,A,B,C,a
+S08ESS1.3M4,8,S08ESS1.3,"M - Here are three objects. (Point to objects.) Which is the Sun: A, B, or C? ",Which is the Sun?,A,B,C,c
+S08ESS1.3H5,8,S08ESS1.3,"H - Here is a bar graph. (Point to graph.) Which planet is largest: Jupiter, Earth, or Mars? ",Which planet is largest?,Jupiter,Earth,Mars,a
+S08ESS1.3L6,8,S08ESS1.3,"L - Here are three pictures. (Point to student materials.) Which is the Sun: A, B, or C?",Which is the Sun?,A,B,C,a
+S08ESS1.3M7,8,S08ESS1.3,"M - Here are three pictures. (Point to student materials.) Which is the Earth: A, B, or C?",Which is the Earth?,A,B,C,a
+S08ESS1.3M8,8,S08ESS1.3,"M - Here are three pictures. (Point to student materials.) Which is the Moon: A, B, or C?",Which picture is the Moon?,A,B,C,b
+S08ESS1.3H9,8,S08ESS1.3,"H - Here are the Earth,  Moon, and Sun. (Point to student materials.) Which is the smallest: A, B, or C?",Which is the smallest?,A,B,C,b
+S08ESS1.3H10,8,S08ESS1.3,"H - Here are the Earth,  Moon, and Sun. (Point to student materials.) Which is the largest: A, B, or C?",Which is the largest?,A,B,C,c
+S08ESS1.3L11,8,S08ESS1.3,"L - Here are three objects. (Point to answer choices.) Which is the Sun: A, B, or C?",Which is the Sun?,A,B,C,b
+S08ESS1.3L12,8,S08ESS1.3,"L - Here are three objects. (Point to answer choices.) Which is the Earth: A, B, or C?",Which is the Earth?,A,B,C,c
+S08ESS1.3M13,8,S08ESS1.3,"M - Here are three objects in space. (Point to answer choices.) Which is the Sun: A, B, or C?",Which is the Sun?,A,B,C,b
+S08ESS1.3M14,8,S08ESS1.3,"M - Here are three objects in space. (Point to answer choices.) Which is the Earth: A, B, or C?",Which is the Earth?,A,B,C,c
+S08ESS1.3H15,8,S08ESS1.3,"H - Here is a graph showing the size of planets. (Point to the graph.) Which planet is the largest: Mercury, Jupiter, or Neptune? ",Which planet is largest?,Jupiter,Saturn,Uranus,c
+S08ESS1.3L16,8,S08ESS1.3,"L - Here are three objects. (Point to objects.) Which is the Sun: A, B or C?",Which is the Sun?,A,B,C,b
+S08ESS1.3M17,8,S08ESS1.3,"M - Here are three objects in outer space. (Point to objects.) Which is the Earth: A, B or C?",Which is the Earth?,A,B,C,a
+S08ESS1.3M18,8,S08ESS1.3,"M - Here are three objects in outer space. (Point to objects.) Which is the Moon: A, B or C?",Which is the Moon?,A,B,C,c
+S08ESS1.3H19,8,S08ESS1.3,"H - Here are the inner planets. (Point to solar system.) Which planet is the smallest: Mercury, Venus or Earth?",Which planet is the smallest?,Merucury,Venus,Earth,a
+S08ESS1.3H20,8,S08ESS1.3,"H - Here are the inner planets. (Point to solar system.) Which planet is the biggest: Mercury, Venus or Earth?",Which planet is the biggest?,Merucury,Venus,Earth,c
+S08ESS2.2MSAMPLE,8,S08ESS2.2,"M - Here is a picture of a snowy mountain. (Point to student materials.) As temperatures warm, boulders fall from the cliffs. What is the likely cause of this erosion: magnetism, ice, or wind?","As temperatures warm, boulders fall from the cliffs. What is the likely cause of this erosion?",magnetism,ice,wind,b
+S08ESS2.2L1,8,S08ESS2.2,"L - This is a beach.  (Point to picture of beach.) Which wears away the beach: waves, a tree, or a bird?",Which wears away the beach?,waves,tree,bird,a
+S08ESS2.2M2,8,S08ESS2.2,"M - Here are shells on a beach. (Point to student materials.) What brought the shells onto the beach: a rake, waves, or a volcano? ",What brought the shells onto the beach?,rake,waves,volcano,b
+S08ESS2.2M3,8,S08ESS2.2,"M - This is a sand dune.  (Point to sand dune.)  Which created this sand dune: wind, hoe or a volcano?",Which created this sand dune?,wind,hoe,volcano,a
+S08ESS2.2H4,8,S08ESS2.2,"H - This building and street are cracked. (Point to student materials.) Which likely caused the cracks: an earthquake, the Sun, or a motorcycle?",Which likely caused the cracks?,earthquake,Sun,motorcycle,a
+S08ESS2.2H5,8,S08ESS2.2,"H - This is a crater. (Point to prompt.) Which could have formed this crater: waves, meteorite, or a volcano?",Which could have formed this crater?,waves,meteorite,volcano,b
+S08ESS2.2L6,8,S08ESS2.2,"L - Here is a canyon. (Point to student materials.) What formed the canyon: river, clouds, or birds?",What formed the canyon?,river,clouds,birds,a
+S08ESS2.2L7,8,S08ESS2.2,"L - Here is a picture of a sand dune. (Point to student materials.) What formed the dune: birds, rain, or wind?",What formed the dune?,birds,rain,wind,c
+S08ESS2.2M8,8,S08ESS2.2,"M - Here is a picture of a mountain. (Point to student materials.) Which shows the mountain after a volcanic eruption: A, B, or C?",Which shows the mountain after a volcanic eruption?,A,B,C,b
+S08ESS2.2M9,8,S08ESS2.2,"M -This is a road. (Point to student materials.) What shows the road after an earthquake: A, B, or C? ",What shows the road after an earthquake?,A,B,C,c
+S08ESS2.2H10,8,S08ESS2.2,"H - Meteorites are  rocks from outer space that come to Earth. (Point to picture in prompt.) What is formed when a meteorite hits the ground: river, forest or crater?",What is formed when a meteorite hits the ground?,river,forest,crater,c
+S08ESS2.2L11,8,S08ESS2.2,"L - Here is a canyon. (Point to the prompt.) Which can make a canyon: tree, river, or dog? ",Which can make a canyon?,tree,river,dog,b
+S08ESS2.2M12,8,S08ESS2.2,"M - Here is a canyon. (Point to the prompt.) Which type of erosion formed a canyon: wind, electricity or river?",Which type of erosion formed a canyon?,wind,electricity,river,c
+S08ESS2.2M13,8,S08ESS2.2,"M - Here is a rocky desert. (Point to the prompt.) Which type of erosion carves rocks in the desert: wind, water, or ice?",Which type of erosion carves rocks in the desert?,wind,waves,ice,a
+S08ESS2.2H14,8,S08ESS2.2,"H - Here is an island in the ocean. (Point to the prompt.) Which of these created the island: tornado, volcano, or meteor? ",Which of these created the island?,tornado,volcano,meteorite,b
+S08ESS2.2H15,8,S08ESS2.2,"H - Here is a crater in the Earth. (Point to the prompt.) Which made this crater: hurricane volcano, or meteorite? ",Which made this crater?,hurricane,volcano,meteorite,c
+S08ESS2.2L16,8,S08ESS2.2,"L - Here is a river. (Point to the river.) Which adds water to the river: rain, phone, or rabbit?",Which adds water to the river?,rain,phone,rabbit,a
+S08ESS2.2L17,8,S08ESS2.2,"L - Here is a lake. (Point to picture of lake.) Which could dry up the water in the lake: bird, Sun, or car?",Which could dry up the water in the lake?,bird,Sun,car,b
+S08ESS2.2M18,8,S08ESS2.2,"M - Here is a rock with small holes in it. (Point to prompt.) Which could cause this erosion: wind, frogs, or rain?",Which could cause this erosion?,wind,frogs,raindrops,c
+S08ESS2.2M19,8,S08ESS2.2,"M - Here is a mountain valley. (Point to prompt.) Which of these created the valley: ice, trees, or bears?  ",Which of these created the valley?,ice,trees,bears,a
+S08ESS2.2H20,8,S08ESS2.2,"H - Here is a large crack in the Earth. (Point to the crack.) Which process formed this large crack: Sun, rain or an earthquake?",Which process formed this large crack?,Sun,rain,earthquake,c
+S08ESS2.4HSAMPLE,8,S08ESS2.4,"H - Here is a diagram showing water evaporating. (Point to diagram in prompt.) Which state is water in when it evaporates: ice, liquid or vapor?",Which state is water in when it evaporates? ,ice,liquid,vapor,c
+S08ESS2.4L1,8,S08ESS2.4,"L - Here are three pictures. (Point to answer choices.) Which is a form of water: A, B, or C? ",Which is a form of water?,A,B,C,b
+S08ESS2.4L2,8,S08ESS2.4,"L - Here are three places. (Point to answer choices.) Which is made of water: A, B, or C?",Which is made of water?,A,B,C,a
+S08ESS2.4M3,8,S08ESS2.4,"M - Here are three pictures. (Point to answer choices.) Which is a solid form of water: A, B, or C?",Which is a solid form of water?,A,B,C,c
+S08ESS2.4M4,8,S08ESS2.4,"M - Here are three pictures. (Point to answer choices.) Which shows water as a liquid: A, B, or C?",Which shows water as a liquid?,A,B,C,b
+S08ESS2.4H5,8,S08ESS2.4,"H - Here is a glacier made of ice. (Point to diagram in prompt.)  Which state of water is ice: solid, liquid or gas?",Which state of water is ice?,solid,liquid,gas,b
+S08ESS2.4L6,8,S08ESS2.4,"L - Here are three pictures. (Point to answer choices.) Which shows water in solid form: A, B, or C?",Which shows water in solid form?,A,B,C,c
+S08ESS2.4M7,8,S08ESS2.4,"M - Here are three pictures. (Point to answer choices.) Which shows water in solid form: A, B, or C?",Which shows water in solid form? ,A,B,C,b
+S08ESS2.4M8,8,S08ESS2.4,"M - Here are three pictures. (Point to answer choices.) Which shows water in gas form: A, B, or C?",Which shows water in gas form? ,A,B,C,a
+S08ESS2.4H9,8,S08ESS2.4,"H - Here is a mountain covered with snow. (Point to student materials.) What will happen to the snow in the hot summer, will there be: more snow, the same snow, or will the snow melt?",What will happen to the snow in the hot summer?,more snow,same snow,snow melt,c
+S08ESS2.4H10,8,S08ESS2.4,"H - Here is an ocean with water evaporating into the air. (Point to student materials.) What does the water vapor do when it rises and gets cold: turn into clouds, go to outer space, or turn into wind?",What does the water vapor do when it rises and gets cold?,turn into clouds,go to outer space,turn into wind,a
+S08ESS2.4L11,8,S08ESS2.4,"L - Here are three objects. (Point to answer choices.) Which is a form of ice: A, B, or C? ",Which is a form of ice?,A,B,C,b
+S08ESS2.4L12,8,S08ESS2.4,"L - Here are three pictures. (Point to answer choices.) Which is a form of water: A, B, or C? ",Which is a form of water?,A,B,C,a
+S08ESS2.4M13,8,S08ESS2.4,"M - Here are three pictures. (Point to answer choices.) Which shows both liquid water and ice: A, B, or C? ",Which shows both liquid water and ice?,A,B,C,c
+S08ESS2.4M14,8,S08ESS2.4,"M - Here are three objects. (Point to answer choices.) Which shows liquid water: A, B, or C?",Which shows liquid water?,A,B,C,a
+S08ESS2.4H15,8,S08ESS2.4,"H - Here is rain forming a puddle. (Point to the prompt.) Which form of water is a puddle: solid, liquid, or vapor? ",What form of water is a puddle?,solid,liquid,vapor,b
+S08ESS2.4L16,8,S08ESS2.4,"L - Here are three objects. (Point to answer choices.) Which is ice: A, B, or C? ",Which is ice?,A,B,C,b
+S08ESS2.4M17,8,S08ESS2.4,"M - Here are three forms of water. (Point to answer choices.) Which shows water as a liquid: A, B, or C?",Which shows water as a liquid?,A,B,C,c
+S08ESS2.4M18,8,S08ESS2.4,"M - Here are three forms of water. (Point to answer choices.) Which shows water as a solid: A, B, or C?",Which shows water as a solid?,A,B,C,a
+S08ESS2.4H19,8,S08ESS2.4,"H - Here is a picture of the water cycle. (Point to prompt.) At which point is water a vapor or gas: precipitation, collection, or evaporation?",Here is a picture of the water cycle. At which point is water a vapor or gas?,precipitation,collection,evaporation,c
+S08ESS2.4H20,8,S08ESS2.4,"H - Here is a picture of the water cycle. (Point to prompt.) What causes evaporation: Sun,  clouds, or rain?",Here is a picture of the water cycle. What causes evaporation?,Sun,cloud,rain,a
+S08ESS2.5LSAMPLE,8,S08ESS2.5,"L - Here are three pictures. (Point to answer choices.) Which shows rainy weather: A, B, or C? ",Which shows rainy weather?,A,B,C,a
+S08ESS2.5L1,8,S08ESS2.5,"L - Here are three pictures. (Point to answer choices.) Which shows rainy weather: A, B, or C?  ",Which shows rainy weather?,A,B,C,b
+S08ESS2.5M2,8,S08ESS2.5,"M - Here are three pictures. (Point to answer choices.) Which shows rainy weather: A, B, or C?  ",Which shows rainy weather?,A,B,C,c
+S08ESS2.5M3,8,S08ESS2.5,"M - Here are three pictures. (Point to answer choices.) Which shows snowy weather: A, B, or C?  ",Which shows snowy weather?,A,B,C,b
+S08ESS2.5H4,8,S08ESS2.5,"H - Here are three pictures. (Point to answer choices.) Which shows wet weather: A, B, or C? ",Which shows wet weather?,A,B,C,c
+S08ESS2.5H5,8,S08ESS2.5,"H - Here are three pictures. (Point to answer choices.) Which shows cold weather: A, B, or C? ",Which shows cold weather?,A,B,C,a
+S08ESS2.5L6,8,S08ESS2.5,"L - Here are three pictures. (Point to student materials.) Which shows rain: A, B, or C?",Which shows rain?,A,B,C,c
+S08ESS2.5L7,8,S08ESS2.5,"L - Here are three pictures. (Point to student materials.) Which shows sunny weather: A, B, or C?",Which shows sunny weather?,A,B,C,a
+S08ESS2.5M8,8,S08ESS2.5,"M - Here are three pictures. (Point to student materials.) Which shows sunny weather: A, B, or C?",Which shows sunny weather?,A,B,C,a
+S08ESS2.5M9,8,S08ESS2.5,"M - Here are three pictures. (Point to student materials.) Which shows rainy weather: A, B, or C? ",Which shows rainy weather?,A,B,C,c
+S08ESS2.5H10,8,S08ESS2.5,"H - Here are three pictures. (Point to student materials.) When could you get wet outside: A, B, or C?",When could you get wet outside?,A,B,C,b
+S08ESS2.5L11,8,S08ESS2.5,"L - Here are three pictures. (Point to answer choices.) Which shows sunny weather: A, B, or C?",Which shows sunny weather?,A,B,C,b
+S08ESS2.5M12,8,S08ESS2.5,"M - Here are three types of weather. (Point to answer choices.) Which shows sunny weather: A, B, or C?",Which shows sunny weather?,A,B,C,c
+S08ESS2.5M13,8,S08ESS2.5,"M - Here are three types of weather. (Point to answer choices.) Which shows stormy weather: A, B, or C? ",Which shows stormy weather?,A,B,C,a
+S08ESS2.5H14,8,S08ESS2.5,"H - Here is a desert. (Point to the prompt.) Which type of weather happens mostly in the desert: rainy, sunny, or snowy?",Which type of weather happens mostly in the desert?,rainy,sunny,snowy,b
+S08ESS2.5H15,8,S08ESS2.5,"H - Here is a puddle. (Point to the prompt.) Which type of weather formed the puddle: sunny, windy, or rainy? ",Which type of weather formed the puddle?,sunny,windy,rainy,c
+S08ESS2.5L16,8,S08ESS2.5,"L - Here are three pictures. (Point to answer choices.) Which shows sunny weather:  A, B, or C?  ",Which shows sunny weather?,A,B,C,c
+S08ESS2.5L17,8,S08ESS2.5,"L - Here are three pictures. (Point to answer choices.) Which shows cloudy weather:  A, B, or C?  ",Which shows cloudy weather?,A,B,C,a
+S08ESS2.5M18,8,S08ESS2.5,"M - Here are three pictures. (Point to answer choices.) Which shows sunny weather:  A, B, or C?  ",Which shows sunny weather?,A,B,C,c
+S08ESS2.5M19,8,S08ESS2.5,"M - Here are three pictures. (Point to answer choices.) Which shows snowy weather:  A, B, or C?  ",Which picture shows snowy weather?,A,B,C,b
+S08ESS2.5H20,8,S08ESS2.5,"H - Here are three types of weather. (Point to answer choices.) In which weather would you wear a raincoat to stay dry:  A, B, or C?",Where would you wear a raincoat to stay dry?,A,B,C,a
+S08ESS3.3MSAMPLE,8,S08ESS3.3,"M - Emma wants to protect the Earth. (Point to girl in prompt.) How could Emma help the Earth: throw trash on ground, plant a tree, or leave lights on?",How could Emma help the Earth?,throw trash on ground,plant trees at the park,leave lights on at home,b
+S08ESS3.3L1,8,S08ESS3.3,"L - Paul wants to protect the Earth. (Point to boy in prompt.) How could Paul help the Earth: throw a football, pile up rocks, or clean up trash?",How could Paul help the Earth?,throw a football,pile some rocks,clean up trash,c
+S08ESS3.3L2,8,S08ESS3.3,"L - This is Jorgé. (Point to boy in prompt.) Which shows Jorgé  protecting the Earth: pick up litter, dance, or play Frisbee? ",Which shows Jorgé  protecting the Earth?,A,B,C,a
+S08ESS3.3M3,8,S08ESS3.3,"M -  Here are three pictures. (Point to answer choices.) Which shows one way to protect the Earth: A, B, or C? ",Which is a way to protect the Earth?,A,B,C,b
+S08ESS3.3M4,8,S08ESS3.3,"M - Mabel is finished drinking her water. (Point to girl with water bottle.) Where should she Mabel put her bottle to protect the Earth: A, B, or C? ",Where should Mabel put her bottle to protect the Earth?,A,B,C,c
+S08ESS3.3H5,8,S08ESS3.3,"H - Here is a graph. (Point to graph.) Which city recycles the most: A, B, or C? ",Which city recycles the most?,A,B,C,a
+S08ESS3.3L6,8,S08ESS3.3,"L - Here are three activities. (Point to materials.) Which shows someone helping the Earth: A, B, or C?",Which shows someone helping the Earth?,A,B,C,b
+S08ESS3.3M7,8,S08ESS3.3,"M - Here are three activities. (Point to materials.) Which shows someone protecting the planet: littering, playing, or recycling?",Which shows someone protecting the planet?,littering,playing,recycling,c
+S08ESS3.3M8,8,S08ESS3.3,"M - Here are three activities. (Point to materials.) Which shows someone protecting the planet: recycling, littering, or polluting?",Which shows someone protecting the planet?,recycling,littering,polluting,a
+S08ESS3.3H9,8,S08ESS3.3,"H - Here is a garbage dump. (Point to student materials.) What is one way to reduce the amount of garbage we make: use more bottles, re-use bottles, or use more cups?",What is one way to reduce the amount of garbage we make?,use more bottles,reuse bottles,use more cups,b
+S08ESS3.3H10,8,S08ESS3.3,"H - Here is a garbage dump. (Point to student materials.) What is one way to reduce the number of cans in the dump: throw cans away, recycle cans, or litter cans?",What is one way to reduce the number of cans in the dump?,throw cans away,recycle cans,litter cans,b
+S08ESS3.3L11,8,S08ESS3.3,"L - Here are three pictures. (Point to prompt.) Which shows a way to protect the Earth: A, B, or C?",Which shows a way to protect the Earth?,A,B,C,a
+S08ESS3.3L12,8,S08ESS3.3,"L - Here are three pictures. (Point to answer choices.) Which shows a way to protect the Earth: playing football, recycling, or drinking soda?",Which shows a way to protect the Earth?,football,recycling,soda,b
+S08ESS3.3M13,8,S08ESS3.3,"M - Here are three activities. (Point to prompt.) Which shows a way to protect the Earth: turning off lights, driving an old car, or polluting a stream?",Which shows a way to protect the Earth?,turning off lights,driving an old car,polluting a stream,a
+S08ESS3.3M14,8,S08ESS3.3,"M - Here are three activities. (Point to answer choices.) Which shows a way to protect the Earth: driving an old car, recycling empty cans, or polluting a stream? ",Which shows a way to protect the Earth?,driving an old car,recycling empty cans,polluting a stream,b
+S08ESS3.3H15,8,S08ESS3.3,"H - Here is a graph showing the amount of trash produced by three towns. (Point to the graph in the prompt.) Which town produces the most trash: A, B, or C? ",Here is a graph showing the amount of trash produced by three towns. Which town produces the most trash?,Town A,Town B,Town C,c
+S08ESS3.3L16,8,S08ESS3.3,"L - Here are three pictures. (Point to answer choices.) Which boy is helping the Earth: A, B or C?  ",Which boy is helping the Earth?,A,B,C,c
+S08ESS3.3M17,8,S08ESS3.3,"M - Here are three pictures. (Point to answer choices.) Which boy is helping the Earth: A, B, or C?",Which boy is helping the Earth?,A,B,C,b
+S08ESS3.3M18,8,S08ESS3.3,"M - Here are three activities. (Point to answer choices.) Which helps protect the Earth:  littering trash, bike riding, or polluting air. ",Which helps protect the Earth?,littering trash,bike riding,smoking,b
+S08ESS3.3H19,8,S08ESS3.3,"H - Here is a bar graph showing the amount of trash recycled by three schools. (Point to graph.) Which school recycled the most: A, B, or C?",Here is a bar graph showing the amount of trash recycled by three schools. Which school recycled the most?,School A,School B,School C,a
+S08ESS3.3H20,8,S08ESS3.3,"H - Here is a bar graph showing the amount of water used by three schools. (Point to graph.) Which school used the least amount of water: A, B, or C?",Here is a bar graph showing the amount of water used by three schools. Which school used the least amount of water?,School A,School B,School C,c
+S08ESS3.4HSAMPLE,8,S08ESS3.4,"H - Here is a graph. (Point to graph in prompt.)  Which country uses the most electricity: India, USA or China?",Which country uses the most electricity? ,India,USA,China,c
+S08ESS3.4L1,8,S08ESS3.4,"L - Here are three pictures. (Point to answer choices.) A natural resource is something useful found in nature. Which is a natural resource: tree, car or pen?",A natural resource is something useful found in nature. Which is a natural resource,tree,car,pen,a
+S08ESS3.4M2,8,S08ESS3.4,"M - Here are three pictures. (Point to answer choices.) A natural resource is something useful found in nature. Which natural resource can be used for food: rocks, plants, or lightning? ",A natural resource is something useful found in nature. Which natural resource can be used for food?,rocks,plants,lightning,b
+S08ESS3.4M3,8,S08ESS3.4,"M - Here is a fire. (Point to fire in prompt.) Which natural resource can you burn for fire: wood, rock, or bicycle? ",Which natural resource can you burn for a fire?,wood,rock,bicycle,a
+S08ESS3.4H4,8,S08ESS3.4,"H - Here is a graph. (Point to graph in prompt.)  Which city uses the most water: A, B, or C? ",Which city uses the most water?,A,B,C,c
+S08ESS3.4H5,8,S08ESS3.4,"H - Here is a graph. (Point to graph in prompt.) Which country uses the most food: A, B, or C? ",Which country uses the most food? ,A,B,C,b
+S08ESS3.4L6,8,S08ESS3.4,"L - Here are three objects. (Point to answer choices.) Which of these is found in nature: banana, cell phone, or computer?",Which of these is found in nature?,banana,cell phone,computer,a
+S08ESS3.4L7,8,S08ESS3.4,"L - Here are three objects. (Point to answer choices.) Which of these is found in nature: car, grapes, or train?",Which of these is found in nature?,car,grapes,bottle,b
+S08ESS3.4M8,8,S08ESS3.4,"M - Here are three objects. (Point to student materials.) A natural resource is something useful found in nature. Which is a natural resource we can eat: gold, wind, or pear?",A natural resource is something useful found in nature. Which is a natural resource we can eat?,gold,wind,pear,c
+S08ESS3.4M9,8,S08ESS3.4,"M - Here are three objects. (Point to student materials.) A natural resource is something useful found in nature. Which is a natural resource we can use to build a house: wood, wind, or water?",A natural resource is something useful found in nature. Which is a natural resource we can use to build a house?,wood,wind,water,a
+S08ESS3.4H10,8,S08ESS3.4,"H - Here are three groups of friends. (Point to answer choices.) If each friend makes one pound of trash per day, which group makes the most trash: A, B, or C?","If each friend makes one pound of trash per day, which group makes the most trash?",A,B,C,c
+S08ESS3.4L11,8,S08ESS3.4,"L - Here are three objects. (Point to answer choices.) A natural resource is something useful that comes from nature. Which is a natural resource: skateboard, ball or wood?",A natural resource is something useful that comes from nature. Which is a natural resource?,skateboard,ball,wood,c
+S08ESS3.4M12,8,S08ESS3.4,"M - Here are three objects. (Point to answer choices.) Which natural resource is burned for energy: coal, water, or wind? ",Which natural resource is burned for energy?,coal,water,wind,a
+S08ESS3.4M13,8,S08ESS3.4,"M - Here is a windmill. (Point to prompt.) Which natural resource does a windmill use to make energy: sunlight, wind, or wood? ",Which natural resource does a windmill use to make energy?,sunlight,wind,wood,b
+S08ESS3.4H14,8,S08ESS3.4,"H - Here is a logger. (Point to the prompt.) Which natural resource is used for logging: trees, coal, or water? ",Which natural resource is used for logging?,trees,coal,water,a
+S08ESS3.4H15,8,S08ESS3.4,"H - Here is a graph showing coal use by country. (Point to graph in prompt.) Which country uses the most coal: USA, China, or Russia?",Which country uses the most coal? ,USA,China,Russia,b
+S08ESS3.4L16,8,S08ESS3.4,"L - Here are three objects. (Point to answer choices.) A natural resource is something useful that comes from nature. Which is a natural resource: basketball, oil, or phone?",A natural resource is something useful that comes from nature. Which is a natural resource?,basketball,oil,phone,b
+S08ESS3.4L17,8,S08ESS3.4," L - Here are three objects. (Point to answer choices.) A natural resource is something useful that comes from nature. Which is a natural resource: radio, book, or water?",A natural resource is something useful that comes from nature. Which is a natural resource?,radio,book,water,c
+S08ESS3.4M18,8,S08ESS3.4,"M - Here are three natural resources. (Point to answer choices.) A natural resource is something useful that comes from nature. Which resource can you burn for heat: wood, aluminum, or water?",A natural resource is something useful that comes from nature. Which resource can you burn for heat?,wood,aluminum,water,a
+S08ESS3.4M19,8,S08ESS3.4,"M - Here are three natural resources. (Point to answer choices.) Which resource can you melt to build cars: wood, aluminum, or water?",Which resource can you melt to build cars?,wood,aluminum,water,b
+S08ESS3.4H20,8,S08ESS3.4,"H - Here is a graph showing the amount of corn produced by three farmers. (Point to graph.) Which farmer produced the most corn: A, B, or C?",Here is a graph showing the amount of corn produced by three farmers. Which farmer produced the most corn?,Farmer A,Farmer B,Farmer C,c
+S08ETS1.1LSAMPLE,8,S08ETS1.1,"L - Here are three pictures. (Point to answer choices.) Which shows an environmental design problem: A, B or C? ",Which shows an environmental design problem?,A,B,C,a
+S08ETS1.1L1,8,S08ETS1.1,"L - Here are three pictures. (Point to answer choices.) Which shows a problem: A, B, or C?",Which shows a problem?,A,B,C,b
+S08ETS1.1L2,8,S08ETS1.1,"L - This is an airplane. (Point to airplane.) Which is a problem for an airplane: A, B, or C?",Which shows a problem for an airplane?,A,B,C,c
+S08ETS1.1M3,8,S08ETS1.1,"M - Here are three cars. (Point to answer choices.) Which car has a design problem: A, B, or C?",Which car has a design problem?,A,B,C,b
+S08ETS1.1M4,8,S08ETS1.1,"M - Here are three planes. (Point to answer choices.) Which plane has a design problem: A, B, or C?",Which plane has a design problem?,A,B,C,a
+S08ETS1.1H5,8,S08ETS1.1,"H - Here is a graph. (Point to answer choices.) Which object is likely to break first: rod, brick, or plate?",Which is likely to break first? ,rod,brick,plate,c
+S08ETS1.1L6,8,S08ETS1.1,"L - Sometimes things get broken and that is a problem. Here are three objects. (Point to student materials.) Which is broken: A, B, or C? ",Which is broken?,A,B,C,a
+S08ETS1.1M7,8,S08ETS1.1,"M - Here are three pictures. (Point to answer choices.) Which picture shows someone with a problem: A, B, or C? ",Which picture shows someone with a problem?,A,B,C,b
+S08ETS1.1M8,8,S08ETS1.1,"M - Here are three pictures. (Point to answer choices.) Which picture shows someone with a problem: A, B, or C? ",Which picture shows someone with a problem?,A,B,C,c
+S08ETS1.1H9,8,S08ETS1.1,"H - Sammy needs a strong leash so his big dog does not break it. (Point to answer choices.) Which type of leash is the strongest: A, B, or C? ",Which type of leash is the strongest?,cotton,nylon,hemp,b
+S08ETS1.1H10,8,S08ETS1.1,"H - Beth is building a fort and want the strongest material. (Point to answer choices.) Which type of material is the strongest: A, B, or C? ",Beth is building a fort and want the strongest material. Which type of material is the strongest?,straw,sticks,bricks,c
+S08ETS1.1L11,8,S08ETS1.1,"L - Here are three pictures. (Point to answer choices.) Which shows a problem: A, B, or C?",Which shows a problem?,A,B,C,b
+S08ETS1.1L12,8,S08ETS1.1,"L - Here are three pictures. (Point to answer choices.) Which shows a problem: A, B, or C? ",Which shows a problem?,A,B,C,c
+S08ETS1.1M13,8,S08ETS1.1,"M - Here is a bicycle. (Point to the prompt.) Which shows a design problem: A, B, or C? ",Which shows a design problem?,A,B,C,c
+S08ETS1.1M14,8,S08ETS1.1,"M - Here is an airplane. (Point to prompt.) Which shows a design problem: A, B, or C? ",Which shows a design problem?,A,B,C,a
+S08ETS1.1H15,8,S08ETS1.1,"H - Here is a bridge. (Point to the prompt.) Which material is the strongest for building the bridge: paper, metal, or straw?",Which material is the strongest for building the bridge?,paper,metal,hay,b
+S08ETS1.1L16,8,S08ETS1.1,"L - Here are three pictures. (Point to answer choices.) Which shows a problem: A, B, or C?",Which shows a problem?,A,B,C,c
+S08ETS1.1M17,8,S08ETS1.1,"M - Here are three pictures. (Point to answer choices.) Which shows a design problem to solve: A, B, or C?",Which shows a design problem to solve?,A,B,C,a
+S08ETS1.1M18,8,S08ETS1.1,"M - Here is a car. (Point to answer choices.) Which car part has a design problem to solve: A, B, or C?",Which car part has a design problem to solve?,A,B,C,b
+S08ETS1.1H19,8,S08ETS1.1,"H - Here is a car. (Point to the prompt.) Which material is the strongest for building cars: paper, wood, or metal?",Which material is the strongest for building cars?,paper,wood,hay,c
+S08ETS1.1H20,8,S08ETS1.1,"H - Here is a graph. (Point to answer choices.) Which type of material is likely to break first: metal rod, wooden pencil, or cinder block?",Which type of material is likely to break first?,metal rod,wooden pencil,cinder block,b
+S08ETS1.2MSAMPLE,8,S08ETS1.2,"M - Shawn is going swimming. (Point to boy in prompt.) Which object could Shawn use to float in the pool: hat, raft, or chair?",Shawn is going swimming. Which object could Shawn use to float in the pool?,hat,raft,chair,b
+S08ETS1.2L1,8,S08ETS1.2,"L - These plants are dying. (Point to wilting plant.) Which could help save the plants A, B, or C?",These plants are dying. Which could help you save the plants?,brick,ball,sprinkler,c
+S08ETS1.2M2,8,S08ETS1.2,"M - This car has a flat tire. (Point to car.) Which person is solving the problem: wash the car, put air in the tire, or drive the car?",This car has a flat tire. Which person is solving the problem?,wash the car,put air in the tire,drive the car,b
+S08ETS1.2M3,8,S08ETS1.2,"M - The problem is a nail is sticking out of the floor. (Point to nail.) What tool can you use to solve this problem: hammer, mop, or vacuum?",The problem is a nail is sticking out of the floor. What tool can you use to solve this problem?,hammer,mop ,vacuum,a
+S08ETS1.2H4,8,S08ETS1.2,"H - Sally needs a strong bucket and is looking at a graph for help. (Point to girl and graph.) Which metal is the strongest for making a bucket: copper, aluminum or steel? ",Sally needs a strong bucket and is looking at a graph for help. Which metal is the strongest for making a bucket?,copper,aluminum,steel,c
+S08ETS1.2H5,8,S08ETS1.2,"H - Julio needs a new roof for his house and is looking at a graph for help. (Point to man standing by house.) Which roof will last longest: asphalt, metal, or rubber? ",Julio needs a new roof for his house and is looking at a graph for help. Which roof will last the longest?,asphalt,metal,rubber,b
+S08ETS1.2L6,8,S08ETS1.2,"L - Here is a pitcher of juice. (Point to materials.) Which could you use to drink the juice: cup, plate, or fork? ",Which could you use to drink the juice?,cup,baseball,fork,a
+S08ETS1.2L7,8,S08ETS1.2,"L - Here is a plate of spaghetti. (Point to materials.) Which could help you eat the spaghetti: hammer, crayon, or fork?",Which could help you eat the spaghetti?,hammer,crayon,fork,c
+S08ETS1.2M8,8,S08ETS1.2,"M - Nick needs to do his math homework. (Point to materials.) Which would help Nick add numbers: a book, a calculator, or a bicycle?",Nick needs to do his math homework. Which would help Nick add numbers?,book,calculator,bicycle,b
+S08ETS1.2M9,8,S08ETS1.2,"M - Jimmy is late for the bus sometimes. (Point to materials.) Which could help Jimmy be on time for his bus: calculator, candle, or bus schedule?",Jimmy is late for the bus sometimes. Which could help Jimmy be on time for his bus?,calculator,candle,schedule,c
+S08ETS1.2H10,8,S08ETS1.2,"H - Jay's paper grocery bag has broken. (Point to student materials.)  What is the best way to prevent this problem next time: double-bag, make two trips, or use your hands?",Jay's paper grocery bag has broken. What is the best way to prevent this problem next time?,use a reusable cloth bag,use lots of paper bags,carry groceries in your hands,a
+S08ETS1.2L11,8,S08ETS1.2,"L - Here is a box. (Point to the prompt.) Which can seal the box: teddy bear, tape, or hat? ",Which can seal the box?,bear,tape,hat,b
+S08ETS1.2M12,8,S08ETS1.2,"M - Here is a book with a torn page. (Point to the prompt.) Which can help fix the book: tape, pencil, or scissors?",Here is a book with a torn page. Which can help fix the book?,tape,pencil,scissors,a
+S08ETS1.2M13,8,S08ETS1.2,"M - Here is a car with a flat tire. (Point to the prompt.) Which can you use to keep driving: hammer, axe, or spare tire?",Here is a car with a flat tire. Which can you use to keep driving?,hammer,spare tire,axe,b
+S08ETS1.2H14,8,S08ETS1.2,"H - Here is a graph showing the strength of three metals. (Point to the prompt.) Which is the strongest metal: gold, steel, or tungsten? ",Which is the strongest metal?,gold,steel,tungsten,c
+S08ETS1.2H15,8,S08ETS1.2,"H - Julie's computer will not turn on. (Point to student materials.) Which shows a good first step to solve this problem: throw the computer away, break the computer, or check the power cord?",Julie's computer will not turn on. Which shows a good first step to solve this problem?,throw the computer away,break the computer,check the power cord,c
+S08ETS1.2L16,8,S08ETS1.2,"L - Here is a wilting plant. (Point to prompt.) Which could she solve this problem: A, B, or C?  ",Here is a wilting plant. What could she solve this problem?,A,B,C,c
+S08ETS1.2L17,8,S08ETS1.2,"L - Dave has a broken pencil.  Point to prompt.) How could Dave solve his problem: sharpen pencil, eat sandwich, or read a book? ",Dave has a broken pencil.  How could Dave solve his problem?,sharpen pencil,eat sandwich,read book,a
+S08ETS1.2M18,8,S08ETS1.2,"M - Jess's bike has a flat tire. (Point to prompt.)  Which action solves her problem: wash bike, raise seat, or change tire?",Jess's bike has a flat tire. Which could solve this problem?,wash bike,raise seat,change tire,c
+S08ETS1.2M19,8,S08ETS1.2,"M - Lori needs to write a paper. (Point to materials.) Which would help her type her paper: a hammer, a calculator, or a computer?",Lori needs to write a paper. Which would help her type her paper?,hammer,calculator,computer,c
+S08ETS1.2H20,8,S08ETS1.2,"H - Here is a bar graph comparing three types of pipe.  (Point to the chart.) Which is the strongest material to replace a pipe with: steel, copper, or pvc?  ",Here is a bar graph comparing three types of pipe. Which is the strongest material to replace a pipe with?,copper,steel,pvc,b

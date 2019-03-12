@@ -47,26 +47,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 
 ## Conceptual Framework
-Content-related validity evidence is a critical component of the "overall
-evaluative judgment" [@messick95, p. 741] of the validity of test scores for a
-given use, and is one of the five major sources of validity evidence
-outlined by the *Standards for Educational and Psychological Testing* 
-[@standards14]. Empirical evaluations of content validity evidence generally
-come in the form of alignment studies, with panels
-of experts judging the alignment between the content represented in the
-standards and the content represented in the test items [@sireci07; @webb97].
-In this presentation, we adopt a similar theoretical framework, but apply 
-text-mining procedures to evaluate the correspondence between the language used
-in content standards and the language used in the test items (i.e., the item
-stems and response options). We demonstrate that these procedures can not
-only lead to an additional source of content-related validity evidence, but 
-also provide a method to evaluate content coverage. 
-
-<!-- 
-Archiving B-Rock's stuff because I like it and might want to integrate it back
-into the text above.
-
-  The alignment of test items to content standards is critical to content validity. Generally, alignment studies are used to determine content validity for standards-based assessments.  Alignment studies are difficult to execute and design, even under ideal conditions, and present researchers with potential sources of error. The chosen methodology, number of participants, professional judgments, consensus through discussion or averaged by ratings, costs associated with travel, and time are elements for consideration. Text mining may be an additional source of content validity, used to match content standards to items for standards-based assessments.  -->
+The alignment of test items to content standards is imperative to content validity. Content-related validity evidence is a critical component of the "overall evaluative judgment" [@messick95, p. 741] of the validity of test scores for a given use, and is one of the five major sources of validity evidence outlined by the *Standards for Educational and Psychological Testing* [@standards14]. Commonly, alignment studies are used to determine content validity for standards-based assessments, with panels of experts judging the alliance between the content represented in the standards and the content represented in the test items [@sireci07; @webb97]. Alignment studies are difficult to execute and design, even under ideal conditions, and present researchers with potential sources of error. The chosen methodology, number of participants, professional judgments, consensus through discussion or averaged by ratings, costs associated with travel, and time are elements for consideration. According to Kane (2006) content validity is necessarily based on judgment, more subject to confirmation bias, and appears to lack the objectivity available in construct-related evidence. In this presentation, we adopt a similar theoretical framework, but apply text-mining (through topic modeling?) procedures to evaluate the correspondence between the language used in content standards and the language used in the test items (i.e., the item stems and response options). We demonstrate that these procedures can not only lead to an additional source of content-related validity evidence, but also provide a method to evaluate content coverage. 
 
 ## Methods 
 Our particular application corresponds to evaluating the content-validity
