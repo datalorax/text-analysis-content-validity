@@ -72,6 +72,7 @@ In this section, we describe the measures used for our specific application, as 
 
 ## Content Standards
 
+this is the section EarWig is going to write.
 Shawn writes
 
 ## Measures
