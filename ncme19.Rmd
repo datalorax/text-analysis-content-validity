@@ -30,11 +30,20 @@ lineno            : no
 mask              : no
 
 abstract: |
-  Topic modeling is applied with science content standards to
-  evaluate semantic clustering. The probability that each item from a statewide
-  assessment belongs to each cluster/topic is then estimated as a source of
-  content-related validity evidence. We also show how visualizations can map 
-  the content coverage of the test.
+  The alignment of test items with content standards is a critical source of
+  content-related validity evidence within high-stakes testing and
+  accountability frameworks. Typically, alignment studies are conducted with
+  panels of experts providing qualitative judgments on the degree of alignment
+  with each item in the test and the representative content standards. Various
+  summary statistics are then calculated from these judgments (e.g.,
+  categorical concurrence, balance of representation; [@Webb99]). In this
+  paper, we propose an alternative approach that capitalizes on text-based
+  machine learning procedures, specifically topic modeling, to identify
+  text-based clusters within the content standards. The probability that each
+  item from a statewide assessment aligns with each cluster/topic can then be
+  estimated as an additional source of content-related validity evidence. We
+  discuss this approach, and show how visualizations can be used to evaluate to
+  overall coverage of the content standards by the test items.
 class             : "man"
 output            : papaja::apa6_pdf
 ---
@@ -116,8 +125,7 @@ Porter [see reference section of my 2015 article]), but from a text-based
 machine learning perspective, which holds potential as a triangulated source of
 content-related validity evidence.
 
-
-## Methods 
+# Method
 Our particular application corresponds to evaluating the content-validity
 evidence for the statewide alternate assessment based on alternate achievement
 standards (AA-AAS) for student with the most significant cognitive disabilities
