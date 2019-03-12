@@ -15,6 +15,9 @@ author:
   - name          : "Sondra Stegenga"
     affiliation   : "1"
     email         : "sondras@uoregon.edu"
+  - name          : "P. Shawn Irvin"
+    affiliation   : "1"
+    email         : "pirvin@uoregon.edu"
 
 affiliation:
   - id            : "1"
@@ -72,7 +75,7 @@ In this section, we describe the measures used for our specific application, as 
 
 ## Content Standards
 
-brief description here
+this is the section Shawn is going to write.
 
 ## Measures
 Our  application utilizes the statewide alternate assessment based on alternate achievement standards (AA-AAS) for student with the most significant cognitive disabilities [@usdoe05] in one western state. We evaluate the concordance between the text in the Grade 8 *Next Generation Science Standards* (NGSS) and the text used in the AA-AAS item stems and response options. As @ysseldyke97 note, "There is more variability in the skill levels and needs of this 1% of the students than there is in the rest of the total student population" (p. 16). Correspondingly, the development of items followed a staged process, where content standards were first identified, and then three versions of essentially the same item were developed to be of, theoretically, *low*, *medium*, and *high* difficulty. In science, key vocabulary is a critical component of demonstrating knowledge and all *high* items were written to include this vocabulary. However, this was not the case for the *low* or *medium* items and we therefore presumed, a priori, that the textual match of the *high* items with the content standards would be greater than the *low* or *medium* items.
