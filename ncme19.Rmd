@@ -15,9 +15,6 @@ author:
   - name          : "Sondra Stegenga"
     affiliation   : "1"
     email         : "sondras@uoregon.edu"
-  - name          : "P. Shawn Irvin"
-    affiliation   : "1"
-    email         : "pirvin@uoregon.edu"
 
 affiliation:
   - id            : "1"
