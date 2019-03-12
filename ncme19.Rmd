@@ -72,6 +72,7 @@ In this section, we describe the measures used for our specific application, as 
 
 ## Content Standards
 
+Shawn to talk about NGSS here:
 The construct of science for Oregon’s alternate assessment is determined by Oregon's Science Standards and the NGSS, which include life science, physical science, Earth/space science, and engineering design, in the following areas in grades 5, 8, and 11: matter and its interactions, motion and stability: forces and interactions, energy, structure and processes of molecules and 
 
 ## Measures
