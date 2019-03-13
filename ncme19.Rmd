@@ -57,6 +57,59 @@ output            : papaja::apa6_pdf
 knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE,
                       message = FALSE)
+
+library(tidyverse)
+library(rio)
+library(here)
+library(janitor)
+library(tidytext)
+library(topicmodels)
+library(ldatuning)
+library(scales)
+library(patchwork)
+#devtools::install_github("dgrtwo/drlib")
+library(drlib)
+
+theme_set(theme_minimal(20))
+```
+
+```{r load_data}
+standards <- import(here("data", "8gradescience.xlsx"), 
+                    setclass = "tbl_df") %>% 
+  clean_names()
+
+webbwords <- import(here("data", "stopwords-webb.xlsx"),
+                    setclass = "tbl_df")
+
+items <- import(here("data", "G8_Sci_Items.xlsx"),
+                setclass = "tbl_df") %>% 
+  clean_names()
+```
+
+```{r doc_term_matrices}
+# Create the document term matrix for standards
+dtm <- standards %>% 
+  select(domain, ngss_standard) %>% 
+  unnest_tokens(word, ngss_standard) %>% 
+  anti_join(stop_words) %>% 
+  anti_join(webbwords) %>% 
+  filter(word != "explanation", # Filter out any additional words we don't want in there
+         word != "results") %>% 
+  group_by(domain) %>% 
+  count(word) %>% 
+  ungroup() %>% 
+  cast_dtm(domain, word, n)
+
+# Create a document term matrix for items 
+idtm <- items %>% 
+  select(item_id, prompt) %>% 
+  unnest_tokens(word, prompt) %>% 
+  anti_join(stop_words) %>% 
+  anti_join(webbwords) %>% 
+  group_by(item_id) %>% 
+  count(word) %>% 
+  ungroup() %>% 
+  cast_dtm(item_id, word, n)
 ```
 
 For the last two decades, the landscape of education has evolved through the passage of legislation aimed at improving student outcomes through standards driven accountability such as the No Child Left Behind Act [@nclb02] and its more recent renewal as the Every Student Succeeds Act [see @mcguinn16]. This has led to a vast increase in standardized educational assessment use. As part of this movement an intensive focus on alignment has also emerged due to the need for congruence between assessment, standards, curricula, and instruction in order to impact student outcomes (e.g. [@porter02]). Specifically, the goal of alignment is to “create a coherent educational system that conveys a clear and unified message about expectations and goals” [@vockley09, p.8].
@@ -86,70 +139,8 @@ In evaluating the concordance between the language used in the content standards
 Topic modeling is akin to exploratory factor analysis, where latent variables  (topics) are estimated based on the probability that the words within the topic will co-occur. In our investigation, we expected seven topics to emerge, which generally correspond to the sub-domains represented in the Grade 8 NGSS standards: (a) Heredity, (b) Earth and the Universe, (c) Earth and Humans, (d)  Motion and Stability, (e) Energy, (f) Waves, and (g) Engineering Design. Post-hoc explorations of the words represented within each topic confirmed this structure. Topics were estimated using Latent Dirichlet Allocation (LDA)  [@blei03]. We removed stop words (common words like of, a, the, and, is) from the onix, SMART, and snowball lexicons [@lewis04; @onix; @snowball], as implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02]. These  removals helped ensure the topics were clustered around content-related words, rather than specific verbs prevalent throughout the standards, or overly common words. Topics were estimated using *textmodeling* package [@grun11] within the  R statistical computing environment [@r]. Data were prepared using the *tidyverse* suite of packages [@wickham17], with all plots produced using the *ggplot2* package [@wickham16]
 
 ```{r modeling}
-library(tidyverse)
-library(rio)
-library(here)
-library(janitor)
-library(tidytext)
-library(topicmodels)
-theme_set(theme_minimal())
-
-standards <- import(here("data", "8gradescience.xlsx"), 
-                    setclass = "tbl_df") %>% 
-  clean_names()
-
-webbwords <- import(here("data", "stopwords-webb.xlsx"),
-                    setclass = "tbl_df")
-
-items <- import(here("data", "G8_Sci_Items.xlsx"),
-                setclass = "tbl_df") %>% 
-  clean_names()
-
-# Create the document term matrix
-dtm <- standards %>% 
-  select(domain, ngss_standard) %>% 
-  unnest_tokens(word, ngss_standard) %>% 
-  anti_join(stop_words) %>% 
-  anti_join(webbwords) %>% 
-  filter(word != "explanation", # Filter out any additional words we don't want in there
-         word != "results") %>% 
-  group_by(domain) %>% 
-  count(word) %>% 
-  ungroup() %>% 
-  cast_dtm(domain, word, n)
-
-# Code below produces the bar charts showing most important words within each 
-# topic 
-#
-# tm <- LDA(dtm, k = 7, control = list(seed = 1234)) %>% 
-#   tidy()
-# 
-# top_terms <- tm %>%
-#   group_by(topic) %>%
-#   top_n(5, beta) %>%
-#   ungroup() %>%
-#   arrange(topic, -beta)
-# 
-# top_terms %>%
-#   mutate(term = reorder(term, beta)) %>%
-#   ggplot(aes(term, beta, fill = factor(topic))) +
-#   geom_col(alpha = 0.8, show.legend = FALSE) +
-#   facet_wrap(~topic, scales = "free_y") +
-#   coord_flip()
-
-# Train the model
+# Fit finalized model
 tm_raw <- LDA(dtm, k = 7, control = list(seed = 1234))
-
-# Create a document term matrix for items 
-idtm <- items %>% 
-  select(item_id, prompt) %>% 
-  unnest_tokens(word, prompt) %>% 
-  anti_join(stop_words) %>% 
-  anti_join(webbwords) %>% 
-  group_by(item_id) %>% 
-  count(word) %>% 
-  ungroup() %>% 
-  cast_dtm(item_id, word, n)
 
 # Predict the topic for each item
 posteriors <- posterior(tm_raw, newdata = idtm)
