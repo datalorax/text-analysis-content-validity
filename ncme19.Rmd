@@ -128,10 +128,7 @@ In this section, we describe the measures used for our specific application, as 
 
 ## Content Standards
 
-**Shawn to talk about NGSS here:**
-The construct of science for Oregon’s alternate assessment is determined by Oregon's Science Standards and the NGSS, which include life science, physical science, Earth/space science, and engineering design, in the following areas in grades 5, 8, and 11: matter and its interactions, motion and stability: forces and interactions, energy, structure and processes of molecules and 
-
-We evaluate the textual congruence between the Grade 8 *Next Generation Science Standards* (NGSS) and the text used in the AA-AAS item stems and response options, as described in more detail below.
+Science instruction and assessment in Oregon are based on the *Next Generation Science Standards* (NGSS), which were adopted statewide in 2014. The NGSS are are based on the Framework for K-12 Science Education developed by the National Research Council (NRC) and are built around Performance Expectations, rather than more narrowly-defined standards of academic content knowledge, in each of grades K-5, and grade bands 6-8 (middle school) and 9-12 (high school). NGSS Performance Expectations are situated within one of four Domains (Physical [PS], Life [LS], Earth/Space [ESS] and Engineering Design [ED]) and organized into Arrangement Clusters (groups of interrelated Performance Expectations, e.g., Earth’s Place in the Universe [cluster ESS1]). Together, Performance Expectations unify three dimensions of science learning, requiring that students understand and apply *science and engineering practices* as they master *disciplinary core ideas* and engage *crosscutting concepts*, which span science (@NRC15). We evaluate the textual congruence between the text used in Oregon's grade 8 AA-AAS item stems (prompts) and response options and the middle school (grades 6-8) NGSS Performance Expectations, as described in greater detail below.
 
 ## Measures
 Our  application utilizes the statewide alternate assessment based on alternate achievement standards (AA-AAS) for student with the most significant cognitive disabilities [@usdoe05] in one western state.  
