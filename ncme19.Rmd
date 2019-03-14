@@ -50,6 +50,7 @@ class             : "man, fleqn, noextraspace"
 header-includes:
     - \raggedbottom
     - \setlength{\parskip}{0pt}
+    - \usepackage{xcolor}
 output            : papaja::apa6_pdf
 ---
 
@@ -127,16 +128,50 @@ In this section, we describe the measures used for our specific application, as 
 
 ## Content Standards
 
-Shawn to talk about NGSS here:
+**Shawn to talk about NGSS here:**
 The construct of science for Oregon’s alternate assessment is determined by Oregon's Science Standards and the NGSS, which include life science, physical science, Earth/space science, and engineering design, in the following areas in grades 5, 8, and 11: matter and its interactions, motion and stability: forces and interactions, energy, structure and processes of molecules and 
 
+We evaluate the textual congruence between the Grade 8 *Next Generation Science Standards* (NGSS) and the text used in the AA-AAS item stems and response options, as described in more detail below.
+
 ## Measures
-Our  application utilizes the statewide alternate assessment based on alternate achievement standards (AA-AAS) for student with the most significant cognitive disabilities [@usdoe05] in one western state. We evaluate the concordance between the text in the Grade 8 *Next Generation Science Standards* (NGSS) and the text used in the AA-AAS item stems and response options. As @ysseldyke97 note, "There is more variability in the skill levels and needs of this 1% of the students than there is in the rest of the total student population" (p. 16). Correspondingly, the development of items followed a staged process, where content standards were first identified, and then three versions of essentially the same item were developed to be of, theoretically, *low*, *medium*, and *high* difficulty. In science, key vocabulary is a critical component of demonstrating knowledge and all *high* items were written to include this vocabulary. However, this was not the case for the *low* or *medium* items and we therefore presumed, a priori, that the textual match of the *high* items with the content standards would be greater than the *low* or *medium* items.
+Our  application utilizes the statewide alternate assessment based on alternate achievement standards (AA-AAS) for student with the most significant cognitive disabilities [@usdoe05] in one western state.  
+
+\color{red}
+As @ysseldyke97 note, "There is more variability in the skill levels and needs of this 1% of the students than there is in the rest of the total student population" (p. 16). 
+\color{black}
+<!-- I don't think the above quote is really relevant and I would cut -->
+
+Correspondingly, the development of items followed a staged process, where content standards were first identified, and then three versions of essentially the same item were developed to be of, theoretically, *low*, *medium*, and *high* difficulty. In science, key vocabulary is a critical component of demonstrating knowledge and all *high* items were written to include this vocabulary. However, this was not the case for the *low* or *medium* items and we therefore presumed, a priori, that the textual match of the *high* items with the content standards would be greater than the *low* or *medium* items.
+
+**Things to note in this section**
+* General look/feel and purpose of the test
+  + Accountability measure for SWSCD
+  + Number of items
+  + Item format
+* Target population
+* Key ways this test differs from the general statewide accountability measure, specifically related to alignment
+* Administration procedures
+  + QA's
+  + One on one
+* Maybe briefly note developmental process and/or some technical adequacy info.
 
 ## Analyses
-In evaluating the concordance between the language used in the content standards and the language used in the test items, our approach is to use a text-based machine learning model, specifically topic modeling [see @mohr13], to mine the standards and evaluate the topics represented therein. Once this model is trained, we can estimate the probability that each item is represented by each topic. In other words, the model learns the patterns of words from the standards, and we can then evaluate whether the words used in the items correspond to those patterns.
+Our proposed approach consists of (a) modeling and identifying key sub-domains/topics within the statewide content standards based on frequency of word co-occurrence; (b) applying the model to new text, in the form of words represented in the test items through either the stem/prompt or the answer options; and (c) evaluating the overall mapping of items within the test to the modeled sub-domains/topics, including the relative representativeness of each sub-domain/topic within the test. We consider the evidence gained from these analyses as supplemental to formal alignment studies, and potentially useful as a diagnostic tool during test development.
 
-Topic modeling is akin to exploratory factor analysis, where latent variables  (topics) are estimated based on the probability that the words within the topic will co-occur. In our investigation, we expected seven topics to emerge, which generally correspond to the sub-domains represented in the Grade 8 NGSS standards: (a) Heredity, (b) Earth and the Universe, (c) Earth and Humans, (d)  Motion and Stability, (e) Energy, (f) Waves, and (g) Engineering Design. Post-hoc explorations of the words represented within each topic confirmed this structure. Topics were estimated using Latent Dirichlet Allocation (LDA)  [@blei03]. We removed stop words (common words like of, a, the, and, is) from the onix, SMART, and snowball lexicons [@lewis04; @onix; @snowball], as implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02]. These  removals helped ensure the topics were clustered around content-related words, rather than specific verbs prevalent throughout the standards, or overly common words. Topics were estimated using *textmodeling* package [@grun11] within the  R statistical computing environment [@r]. Data were prepared using the *tidyverse* suite of packages [@wickham17], with all plots produced using the *ggplot2* package [@wickham16]
+### Topic modeling
+Topic modeling is akin to exploratory factor analysis (EFA), where latent variables  (topics) are estimated based on the probability that the words within the topic will co-occur [see @mohr13]. As with EFA, perhaps the most difficult aspect of topic modeling is determining the number of topics (factors) to extract. Models with different numbers of topics can provide different results and different conclusions about the underlying text. In our application, we relied on a combination of statistical evidence with expert judgment[^1]. From a statistical point of view, we relied upon four tests: 
+
+\color{red} **DA to start here tomorrow** \color{black}
+
+[^1]: It is important to note that we consider the topic model preliminary, and we welcome feedback from the field. All code used to estimate the models (and produce this manuscript) are publicly available at the following link: https://github.com/datalorax/text-analysis-content-validity
+
+
+
+Once this model is trained, we can estimate the probability that each item is represented by each topic. In other words, the model learns the patterns of words from the standards, and we can then evaluate whether the words used in the items correspond to those patterns.
+
+
+
+In our investigation, we expected seven topics to emerge, which generally correspond to the sub-domains represented in the Grade 8 NGSS standards: (a) Heredity, (b) Earth and the Universe, (c) Earth and Humans, (d)  Motion and Stability, (e) Energy, (f) Waves, and (g) Engineering Design. Post-hoc explorations of the words represented within each topic confirmed this structure. Topics were estimated using Latent Dirichlet Allocation (LDA)  [@blei03]. We removed stop words (common words like of, a, the, and, is) from the onix, SMART, and snowball lexicons [@lewis04; @onix; @snowball], as implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02]. These  removals helped ensure the topics were clustered around content-related words, rather than specific verbs prevalent throughout the standards, or overly common words. Topics were estimated using *textmodeling* package [@grun11] within the  R statistical computing environment [@r]. Data were prepared using the *tidyverse* suite of packages [@wickham17], with all plots produced using the *ggplot2* package [@wickham16]
 
 ```{r modeling}
 # Fit finalized model
