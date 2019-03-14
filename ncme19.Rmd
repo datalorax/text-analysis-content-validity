@@ -131,30 +131,42 @@ In this section, we describe the measures used for our specific application, as 
 **Shawn to talk about NGSS here:**
 The construct of science for Oregon’s alternate assessment is determined by Oregon's Science Standards and the NGSS, which include life science, physical science, Earth/space science, and engineering design, in the following areas in grades 5, 8, and 11: matter and its interactions, motion and stability: forces and interactions, energy, structure and processes of molecules and 
 
+Science Grade 8:
+Domain	
+LFS	= 9
+PHS	= 7
+ESS	= 6
+ETS	= 2
+TOTAL = 24
+Note. LFS = Life Science Standards. PHS = Physical Sciences. ESS = Earth and Space Sciences. ETS = Engineering, Technology, and Applications.
+
+The representation ratios (above) can be calculated by dividing the standards by the total within each respective column. For example, in Grade 8 Science, approximately 25% of the items are in the Earth and Space Sciences domain, as that domain has 6 written Essentialized Standards (EsSt) out of the total of 24 (6/24 = 25%).
+
 We evaluate the textual congruence between the Grade 8 *Next Generation Science Standards* (NGSS) and the text used in the AA-AAS item stems and response options, as described in more detail below.
 
 ## Measures
-Our  application utilizes the statewide alternate assessment based on alternate achievement standards (AA-AAS) for student with the most significant cognitive disabilities [@usdoe05] in one western state.  
-
-\color{red}
-As @ysseldyke97 note, "There is more variability in the skill levels and needs of this 1% of the students than there is in the rest of the total student population" (p. 16). 
-\color{black}
-<!-- I don't think the above quote is really relevant and I would cut -->
-
+Our application utilizes the statewide alternate assessment based on alternate academic achievement standards (AA-AAAS) designed for students with the most significant cognitive disabilities (SWSCDs)[@usdoe05]in one western state. Students with the most significant cognitive disabilities are typically characterized by significantly below average general cognitive functioning.  This commonly includes a student with intelligence test scores two or more standard deviations below the mean on a standardized individually administered intelligence test, occurring with commensurate deficits in adaptive behavior that are frequently also evident in early childhood. Further, the cognitive disability must significantly impact the child's educational performance and ability to generalize learning from one setting to another. Students with the most significant cognitive disabilities in general, require highly specialized education and/or social, psychological, and medical services to access an educational program. These students may also rely on adults for personal care and have medical conditions that require physical/verbal supports, and assistive technology devices. These intensive and on-going supports and services are typically provided directly by educators and are delivered across all educational settings.
+In the state sampled, any student with an IEP whose team decides that this is the most appropriate assessment for the student’s needs, given the eligibility guidelines established by their Department of Education, may take the alternate assessment.
+Due to the Title 1 Federal Regulations published on December 9, 2003 (USED), steps were taken to increase the cognitive accessibility of all items on this alternate assessment, both in terms of test design as well as reducing the depth, breadth, and complexity (RDBC) of the test items.
+The essentialization process involves RDBC of the Common Core State Standards (CCSS), State Science Standards, and the Next Generation Science Standards (NGSS) in order to establish a performance expectation that is relevant and accessible for students who participate in the alternate assessment, while maintaining the highest possible standards of rigor (the science test is thus dual-aligned to both the State Science Standards and the NGSS). Complexity is reduced by: 1) focusing on essential content; 2) simplifying the process verb; and, 3) eliminating inappropriate delimeters. For the alternate, all essentialized standards were written at three levels of complexity, which feeds the population of the Low, Medium, and High difficulty forms.
 Correspondingly, the development of items followed a staged process, where content standards were first identified, and then three versions of essentially the same item were developed to be of, theoretically, *low*, *medium*, and *high* difficulty. In science, key vocabulary is a critical component of demonstrating knowledge and all *high* items were written to include this vocabulary. However, this was not the case for the *low* or *medium* items and we therefore presumed, a priori, that the textual match of the *high* items with the content standards would be greater than the *low* or *medium* items.
 
-**Things to note in this section**
+The alternate assessments reflect patterns of emphasis that are supported by state educators as indicated by the following table that highlights the balance of standard representation by grade level for science on the alternate assessment. The 8th grade Science assessment has 48 items of progressive difficulty. All items contain a preamble, prompt, three answer choices (A, B, and C, arranged horizontally), and a simple graphic desing.
 
-* General look/feel and purpose of the test
-  + Accountability measure for SWSCD
-  + Number of items
-  + Item format
-* Target population
-* Key ways this test differs from the general statewide accountability measure, specifically related to alignment
-* Administration procedures
-  + QA's
-  + One on one
-* Maybe briefly note developmental process and/or some technical adequacy info.
+Alignment:
+Item structure and content is presented as a single, definitive problem, with one correct answer and no grammatical errors. 
+
+Accessibility:
+Items are accessible for SWSCDs in terms of presentation and response, consider sensory accessibility; auditory, visual, tactile. 18 pt font is used for all materials, simple, clear text and grraphics. Shading is used but not color, with appropriately used white space. Singular item format, reduced in depth, bredth, and complexity for cognitive accessiblity. Communication is streamlined for acessibility and supports are provided for verbal and visual familiarity.   
+
+Language:
+Simplified language, high-frequency (high familiarity) words used in all text. Concrete language, where feasible, avoiding words with multiple meanings. Active voice with limited sentence lenght, sentence structure utilizes baseline S-V-O approach. Clauses, superlative, and the use of negation are avoided. The text can be coveyed in other language formats (e.g., Spanish, Braille, signed languages, ect.)
+
+Bias and Sensitivity:
+Items were written to	ensure that they are free of bias in the following domains:Race-ethnicity, Gender, Sexual orientation, Age, Culture, Politics, Religion, Value systems, Socio-economic status, Region, and Stereotypes. Items are written with an appropriate balance of male/female names, as well as a variety of different ethnic names. When including reference to specific events or locations within the state, an appropriate balance of regional representation is used.
+
+* Administration procedures + QA's + One on one * 
+Maybe briefly note developmental process and/or some technical adequacy info.
 
 ## Analyses
 Our proposed approach consists of (a) modeling and identifying key sub-domains/topics within the statewide content standards based on frequency of word co-occurrence; (b) applying the model to new text, in the form of words represented in the test items through either the stem/prompt or the answer options; and (c) evaluating the overall mapping of items within the test to the modeled sub-domains/topics, including the relative representativeness of each sub-domain/topic within the test. We consider the evidence gained from these analyses as supplemental to formal alignment studies, and potentially useful as a diagnostic tool during test development.
