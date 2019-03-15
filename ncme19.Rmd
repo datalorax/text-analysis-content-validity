@@ -132,7 +132,7 @@ In this section, we describe the measures used for our specific application, as 
 
 ## Content Standards
 
-Science instruction and assessment in Oregon are based on the *Next Generation Science Standards* (NGSS), which were adopted statewide in 2014. The NGSS are are based on the Framework for K-12 Science Education developed by the National Research Council (NRC) and are built around Performance Expectations, rather than more narrowly-defined standards of academic content knowledge, in each of grades K-5, and grade bands 6-8 (middle school) and 9-12 (high school). NGSS Performance Expectations are situated within one of four Domains (Physical [PS], Life [LS], Earth/Space [ESS] and Engineering Design [ED]) and organized into Arrangement Clusters (groups of interrelated Performance Expectations, e.g., Earth’s Place in the Universe [cluster ESS1]). Together, Performance Expectations unify three dimensions of science learning, requiring that students understand and apply *science and engineering practices* as they master *disciplinary core ideas* and engage *crosscutting concepts*, which span science (@NRC15). We evaluate the textual congruence between the the middle school (Grades 6-8) NGSS Performance Expectations, and the Grade 8 Alternate Assessment based on Alternate Achievement Standards (AA-AAS) in Oregon, as described more fully below.
+Science instruction and assessment in Oregon are based on the *Next Generation Science Standards* (NGSS), which were adopted statewide in 2014. The NGSS are are based on the Framework for K-12 Science Education developed by the National Research Council (NRC) and are built around Performance Expectations, rather than more narrowly-defined standards of academic content knowledge, in each of grades K-5, and grade bands 6-8 (middle school) and 9-12 (high school). NGSS Performance Expectations are situated within one of four Domains (Physical [PS], Life [LS], Earth/Space [ESS] and Engineering Design [ED]) and organized into Arrangement Clusters (groups of interrelated Performance Expectations, e.g., Earth’s Place in the Universe [cluster ESS1]). Together, Performance Expectations unify three dimensions of science learning, requiring that students understand and apply *science and engineering practices* as they master *disciplinary core ideas* and engage *crosscutting concepts*, which span science (@nrc15). We evaluate the textual congruence between the the middle school (Grades 6-8) NGSS Performance Expectations, and the Grade 8 Alternate Assessment based on Alternate Achievement Standards (AA-AAS) in Oregon, as described more fully below.
 <!-- 
 Science Grade 8:
 Domain	
@@ -218,11 +218,85 @@ probs <- posteriors$topics %>%
 
 # Results
 
+Figure 1 displays the optimal number of topics to be extracted across each of the four criteria. As would be expected, the different criteria suggested differing numbers of topics. Relying only on the criteria suggested by @arun10 would lead us to the conclusion that, essentially, the more topics estimated the better the fit, while essentially the opposite conclusion would be reached if only evaluating the results relative to the criteria outlined by @deveaud14. The @cao09 and @griffiths04 criteria were more nuanced and suggested differing, but similar ranges of topics. After six topics, however, a marked increase in the @cao09 criteria was observed, indicating a poorer fit, while only a moderate increase (indicating a better fit) was observed with the @griffiths04 criteria. Taken together, these results suggested that between three [the minimum value for the @cao09 criteria] and six topics should be extracted (as displayed by the shaded rectangle in the background of Figure 1). Each of these topic solutions were therefore evaluated for substantive meaning.
+
+```{r n-topics, fig.cap = "Optimal Topic Selection. Optimal number of topics displayed according to four separate criteria. Shaded rectangle displayed the range in which topics were evaluated for substantive meaning. ", fig.width = 6.5, fig.height = 8}
+
+search_standards <- FindTopicsNumber(dtm, 
+                                     topics = 2:25,
+                                     metrics = c("Griffiths2004", 
+                                                 "CaoJuan2009", 
+                                                 "Arun2010", 
+                                                 "Deveaud2014"),
+                                     method = "Gibbs",
+                                     control = list(seed = 77),
+                                     mc.cores = 4L)
+
+stats_standards <- apply(search_standards[ ,-1], 
+      2, 
+      function(x) rescale(x, c(0, 1), range(x))) %>%
+  as_tibble() %>%
+  rowid_to_column("Topics") %>%
+  gather(metric, val, -Topics) %>%
+  mutate(criterion = ifelse(metric == "CaoJuan2009" |
+                            metric == "Arun2010",
+                            "min",
+                            "max"),
+        metric = case_when(metric == "Griffiths2004" ~ 
+                                        "Griffiths & Steyvers, 2004", 
+                           metric == "CaoJuan2009" ~ 
+                                        "Cao et al., 2009", 
+                           metric == "Arun2010" ~
+                                        "Arun 2010", 
+                           metric == "Deveaud2014" ~
+                                        "Deveaud et al., 2014"))
+
+p1 <- ggplot(filter(stats_standards, criterion == "min"),
+       aes(Topics, val)) +
+  annotate("rect",
+           xmin = 3, xmax = 6,
+           ymin = 0, ymax = 1,
+           fill = "magenta",
+           alpha = 0.2) +
+  geom_line(lwd = 1.2, 
+            color = "cornflowerblue") +
+  geom_point(color = "gray40") +
+  facet_wrap(~metric) +
+  labs(x = NULL,
+       y = NULL,
+       title = "Minimize") +
+  theme(plot.title = element_text(hjust = 0.5,
+                                  vjust = -3,
+                                  face = "bold"),
+        panel.spacing = unit(2, "lines"))
 
 
-**Substantive Discussion of why we settled on the number of topics we did here**
+p2 <- ggplot(filter(stats_standards, criterion == "max"),
+       aes(Topics, val)) +
+  annotate("rect",
+           xmin = 3, xmax = 6,
+           ymin = 0, ymax = 1,
+           fill = "magenta",
+           alpha = 0.2) +
+  geom_line(lwd = 1.2, 
+            color = "cornflowerblue") +
+  geom_point(color = "gray40") +
+  facet_wrap(~metric) +
+  labs(x = "Number of Topics",
+       y = NULL,
+       title = "Maximize") +
+  theme(plot.title = element_text(hjust = 0.5,
+                                  vjust = -3,
+                                  face = "bold"),
+        panel.spacing = unit(2, "lines"))
 
-In the full proposal, we will discuss in greater detail our modeling process  and how we arrived upon our seven topics. Due to space limitations here, we share only our preliminary results from that model.
+p1 / p2
+```
+
+**Shawn and/or Josh to provide substantive discussion of why we settled on the number of topics we did here**
+
+
+
 
 Figure 1 displays the overall content coverage of the test, separated by items that were theoretically designed to be of *Low*, *Medium*, and *High*  difficulty. Essentially, the average probability of items representing each of the seven topics is displayed on the log scale, specifically  $log(p(x_i + 1))$. The thick gray band represents the expected probability, if all topics were equally represented. Items in the low category, for  example, are estimated as slightly under-representing the heredity and engineering design topics, while over-representing motion and humans activity with earth. The medium items are somewhat problematic, with the Motion  topically highly over-represented, and Engineering Design, Heredity, and Humans all highly under-represented. Across item types, Heredity and Engineering  Design were universally under-represented. 
 
