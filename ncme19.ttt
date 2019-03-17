@@ -1,0 +1,22 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+\begin{center}
+\begin{threeparttable}
+\caption{\label{tab:unnamed-chunk-1}Substantive Labels Assigned to Final Topic Solution}
+\begin{tabular}{ll}
+\toprule
+Topic & \multicolumn{1}{c}{Substantive Label}\\
+\midrule
+1 & Analyzing data and using evidence to understand organisms and systems\\
+2 & Using scientific evidence to understand Earth systems\\
+3 & Energy\\
+4 & Genetic information\\
+5 & Scientific solutions\\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{center}
+\end{table*}
+\efloatseparator
+ 
