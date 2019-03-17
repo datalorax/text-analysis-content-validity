@@ -73,20 +73,21 @@ library(scales)
 library(patchwork)
 #devtools::install_github("dgrtwo/drlib")
 library(drlib)
-library(extrafont)
-font_import()
+#library(extrafont)
+#font_import()
 
-theme_set(theme_minimal(20) +
-            theme(strip.text.x = element_text(family = "Times New Roman"),
-                  plot.title = element_text(family = "Times New Roman"),
-                  axis.text = element_text(color = "gray20",
-                                           face = "plain",
-                                           family = "Times New Roman"),
-                  axis.title = element_text(color = "gray20",
-                                            family = "Times New Roman",
-                                            face = "plain"),
-                  legend.text = element_text(family = "Times New Roman"),
-                  legend.title = element_text(family = "Times New Roman")))
+theme_set(theme_minimal(20) )
+# +
+#             theme(strip.text.x = element_text(family = "Times New Roman"),
+#                   plot.title = element_text(family = "Times New Roman"),
+#                   axis.text = element_text(color = "gray20",
+#                                            face = "plain",
+#                                            family = "Times New Roman"),
+#                   axis.title = element_text(color = "gray20",
+#                                             family = "Times New Roman",
+#                                             face = "plain"),
+#                   legend.text = element_text(family = "Times New Roman"),
+#                   legend.title = element_text(family = "Times New Roman")))
 ```
 
 ```{r load_data}
