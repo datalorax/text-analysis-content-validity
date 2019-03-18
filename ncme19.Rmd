@@ -101,7 +101,7 @@ standards <- import(here("data", "8gradescience.xlsx"),
 webbwords <- import(here("data", "stopwords-webb.xlsx"),
                     setclass = "tbl_df")
 
-items <- import(here("data", "G8_Sci_Items.xlsx"),
+items <- import(here("data", "G8_Sci_Items.xlsx"), # shoot, this is ignored! Can you send to me?
                 setclass = "tbl_df") %>% 
   clean_names()
 ```
@@ -143,7 +143,7 @@ The goal of alignment is to “create a coherent educational system that conveys
 According to Kane (2006), content validity is necessarily based on judgments, is more subject to confirmation bias, and lacks the objectivity of other sources of validity evidence (such as criterion-related evidence). This paper adds to the literature on content-related validity evidence through the use of text mining. Specifically, content-related validity evidence is provided by the extent to which test items and content standards display *textual congruence*; that is, to what extent does the text within the items align with the text used in the content standards? 
 
 Some studies have examined how newer, computational methods can add content-related validity evidence. 
-XXX.
+XXX. In science education settings
 
 We use topic modeling, a text-based machine learning approach, to cluster groups of standards based on frequency of word co-occurrence. These clusters can then be evaluated for substantive meaning, and evaluated in relation to the standards themselves (i.e., whether the empirically-derived clusters match the standards domains or other standards groupings). The extent to which the text within individual test items corresponds with these clusters can be directly evaluated as an additional, alternative source of content-related validity evidence which can supplement, though not replace, information gained from alignment studies.
 
@@ -173,7 +173,7 @@ We evaluate the textual congruence between the Grade 8 *Next Generation Science 
  -->
 
 ## Data Sources
-
+Data sources include
 
 ## Measures
 Our application utilized the science portion of the Grade 8 statewide AA-AAS in Oregon, designed for students with the most significant cognitive disabilities [SWSCDs; @usdoe05]. The AA-AAS is an alternative assessment to the statewide general assessment, with up to 1% of students eligible for reporting purposes (note, there is a 1% reporting cap, not participation cap). SWSCDs are typically characterized by significantly below average general cognitive functioning. Commonly, this includes students with intelligence test scores two or more standard deviations below the mean on a standardized, individually administered intelligence test, occurring with commensurate deficits in adaptive behavior. Further, the cognitive disability must significantly impact the student's educational performance and ability to generalize learning from one setting to another. Students with the most significant cognitive disabilities in general, require highly specialized education and/or social, psychological, and medical services to access an educational program. These students may also rely on adults for personal care and have medical conditions that require physical/verbal supports, and assistive technology devices. These intensive and on-going supports and services are typically provided directly by educators and are delivered across all educational settings. Operationally, any student in Oregon with an individualized education program (IEP) is eligible to take the AA-AAS rather than the statewide general assessment, and the recommendation for the most appropriate assessment is guided by the IEP team.
