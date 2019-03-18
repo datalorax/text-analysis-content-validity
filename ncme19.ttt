@@ -9,7 +9,11 @@
 Topic & \multicolumn{1}{c}{Substantive Label}\\
 \midrule
 1 & Analyzing data and using evidence to understand organisms and systems\\
+<<<<<<< Updated upstream
 2 & Using scientific evidence to understand Earth systems\\
+=======
+2 & Using scientific evidence to understand natural selection\\
+>>>>>>> Stashed changes
 3 & Energy\\
 4 & Genetic information\\
 5 & Scientific solutions\\
