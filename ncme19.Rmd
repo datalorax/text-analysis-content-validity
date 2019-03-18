@@ -37,21 +37,20 @@ lineno            : no
 mask              : no
 
 abstract: |
-  The alignment of test items with content standards is a critical source of
-  content-related validity evidence within high-stakes testing and
-  accountability frameworks. Typically, alignment studies are conducted with
-  panels of experts providing qualitative judgments on the degree of alignment
-  with each item in the test and the representative content standards. Various
-  summary statistics are then calculated from these judgments [e.g.,
-  categorical concurrence, balance of representation; @webb99]. In this
-  paper, we propose an alternative approach that builds upon traditional methods 
-  for alignment but leverages the use of text-based machine learning procedures,
-  specifically topic modeling, to identify text-based clusters within the content
-  standards. The probability that each item from a statewide assessment aligns 
-  with each cluster/topic can then be estimated as an additional source of
-  content-related validity evidence. We discuss this approach, and show how
-  visualizations can be used to evaluate to overall coverage of the content 
-  standards by the test items.
+The alignment of test items with content standards is a critical source of
+content-related validity evidence within high-stakes testing and accountability
+frameworks. Typically, alignment studies are conducted with panels of experts
+providing qualitative judgments on the degree of alignment with each item in the
+test and the representative content standards, from which various summary
+statistics are then calculated from these judgments [e.g., categorical
+concurrence, balance of representation; @webb99]. In this paper, we propose an
+approach that builds upon traditional methods for alignment but leverages the
+use of text-based machine learning procedures, specifically topic modeling, to
+identify text-based clusters within the content standards. The probability that
+each item from a statewide assessment aligns with each cluster/topic can then be
+estimated as an additional source of content-related validity evidence. We
+discuss the utility of this approach, and show how visualizations can be used to
+evaluate to overall coverage of the content standards by the test items.
 class             : "man, fleqn, noextraspace"
 
 header-includes:
