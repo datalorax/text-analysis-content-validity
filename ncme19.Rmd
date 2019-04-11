@@ -143,7 +143,6 @@ As @kane06 describe, content validity is necessarily based on subjective judgmen
 We seek to address this issue through an initial exploration into the establishment of content-related validity evidence through the use of novel text-based, machine learning procedures. Specifically, we explore how content-related validity evidence is provided by the extent to which test items and content standards display *textual congruence*. The research question that guides this study, then, is: To what extent does the text within the items align with the text used in the content standards? In next following section, we review past research on the use of similar methods and describe their potential to be used as a part of evaluating (and establishing) content-related validity evidence.
 
 # Background
-
 A few recent studies have examined the use of computational methods for gathering validity evidence for a given measure. For example, @sherin13 used a simple Natural Language Processing technique to identify common groups of responses to transcribed interview answers about a scientific phenomenon. This work demonstrated the potential of computational methods to add to the overall construct validity evidence of a measure using different ways of carrying out research on complex phenomena and processes. In another study, @beggrow14 employed an approach similar to Sherin's to examine the alignment between groups of responses identified from the computational method and manual (human) codes of the same responses, finding that the computational approach could identify students’ conceptual understanding as veridically as human-coded responses, or responses from other data sources, such as audio data. Like Sherin’s study, @beggrow14 demonstrated that computational methods have a role in contributing to validity evidence, at least for student interview and written response data.
 
 Science instruction and assessment in Oregon are based on the *Next Generation Science Standards* (NGSS), which were adopted statewide in 2014. The NGSS are are based on the Framework for K-12 Science Education developed by the National Research Council (NRC) and are built around Performance Expectations, rather than more narrowly-defined standards of academic content knowledge, in each of grades K-5, and grade bands 6-8 (middle school) and 9-12 (high school). NGSS Performance Expectations are situated within one of four Domains (Physical [PS], Life [LS], Earth/Space [ESS] and Engineering Design [ED]) and organized into Arrangement Clusters (groups of interrelated Performance Expectations, e.g., Earth’s Place in the Universe [cluster ESS1]). Together, Performance Expectations unify three dimensions of science learning, requiring that students understand and apply *science and engineering practices* as they master *disciplinary core ideas* and engage *crosscutting concepts*, which span science [@nrc15]. 
@@ -171,7 +170,6 @@ In this paper, we explore the use of topic modeling (particularly LDA) as a sour
 In this section, we describe the measures used for our specific application, as well as the standards they were designed to measure. We then discuss our analysis (topic model) in detail, including how we evaluated the number of topics to be extracted from the standards, and how the results can be used to evaluate the overall textual congruence between the content standards and the test items.
 
 ## Topic Modeling
-
 <!-- Add cite(s) for topic modeling here? Jordan? Blei? -->
 
 We make use of topic modeling, a text-based, machine learning approach, to cluster groups of standards based on frequency of word co-occurrence. These clusters can then be evaluated for substantive meaning, and evaluated in relation to the standards themselves (i.e., whether the empirically-derived clusters match the standards domains or other standards groupings). The extent to which the text within individual test items corresponds with these clusters can be directly evaluated as an additional, alternative source of content-related validity evidence which can supplement, though not replace, information gained from alignment studies. Specifically, we do this through the evaluation of the textual congruence between the the middle school (Grades 6-8) NGSS Performance Expectations, and the Grade 8 Alternate Assessment based on Alternate Achievement Standards (AA-AAS) in Oregon, as described more fully below.
@@ -179,7 +177,6 @@ We make use of topic modeling, a text-based, machine learning approach, to clust
 <!-- Not sure the above transition works super well -->
 
 ## Data Sources
-
 Data for this study included the text from the middle school NGSS Performance Expectations (described above) and Oregon's AA-AAS (described below). The text of each of the NGSS Performance Expectations and each AA-AAS item and response option were entered into two spreadsheets. For the NGSS Performance Expectations, we processed the data from each spreadsheet into a document-term matrix, wherein each row represented a "document", which in our application was a given performance expectation, and the columns represented each term from the corpus of documents. The cells contained the frequencies of each term in each document.
 
 As part of data processing, we removed stop words (common words like "of", "a", "the", "and", "is", etc.) as represented within the *onix*, *SMART*, and *snowball* lexicons [@lewis04; @onix; @snowball], and implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02]. These  removals helped ensure the topics were clustered around content-related words, rather than specific verbs prevalent throughout the standards, or overly common words. The final document term matrix included 59 rows, one for each NGSS Performance Expectation, and 355 columns, one for each unique word represented in the content standards that was not a also a stop word or one of Webb's depth of knowledge verbs. A similar document-term matrix was pre-processed using the same steps as listed above for each test item, using all text represented within each item (i.e., item prompt and answer options). Importantly, however, no analyses were conducted on the document-term matrix for items. Rather, the document-term matrix for items was used only to make predictions for each item to the topics derived from the content standards.
@@ -304,7 +301,6 @@ papaja::apa_table(caption =
 
 ## Mapping Topics to Standards and Words to Topics
 
-
 ```{r finalized-model}
 tm_raw <- LDA(dtm, k = 5, control = list(seed = 1234))
 
@@ -358,9 +354,7 @@ ggplot(gammas, aes(topic, fct_reorder(document, assigned))) +
 
 ```
 
-
 The top 15 words within each topic are displayed in Figure 3, according to their estimated $\beta$ values. Note that in many instances there were ties among beta values around 15. Those selected for display were chosen randomly. For example, if the 13^th^ to 18^th^ words all had the same $\beta$ value, only the 13^th^ to 15^th^ would be displayed. Each topic has been labeled according to its identified substantive label. Note that roughly equivalent plots were used for each of the 3-6 topic solutions when arriving upon the final topic model through expert judgment.
-
 
 ```{r word-freq, fig.cap = "Beta Values. Highest probability of words generated by topic. Note the substantive labels were assigned post-hoc.", fig.width = 12, fig.height = 12}
 pd <- betas %>%
@@ -391,7 +385,6 @@ ggplot(pd, aes(reordered, beta)) +
 ```
 
 ## Predicting Items to Topics
-
 In addition to the topic-model providing information about the interrelated nature of the NGSS performance expectations, the finalized model was also used for predictive purposes. That is, new text was provided to the model, and topic-level predictions were made. Specifically, each word from the new text is assigned a probability that it was generated from each topic. We used this approach with text from the Grade 8 science items from the AA-AAS used in Oregon. Importantly, all text from a given item, including the item prompt and the item options, were used when making predictions. Prediction is a potentially valuable attribute in the alignment process because it can be utilized to not only predict probabilities of text used, but also to evaluate content coverage and representativeness within the assessment.
 
 ```{r radar-plot-data}
@@ -472,7 +465,6 @@ ggplot(aes(topic, probability, color = item)) +
 ```
 
 The model-based predictions from the text used within the items was also used to evaluate content coverage across the test items. In our application, test items were theoretically designed to be of *Low*, *Medium*, and *High*  difficulty, as discussed in the methods. We were therefore interested in whether the coverage of the derived topics was equal across each type of item. Figure 5 displays a summary of the overall topic coverage by item type. Figure 5 displays a summary of the overall topic coverage by item type. The average probability of items representing each of the five topics is displayed via radar plots and bar charts. In each display, the thick gray line represents the expected probability if all topics were equally represented (i.e., 20%). Items in the low category, for  example, were estimated as slightly under-representing all topics, with the exception of *Organisms and Systems*, which was highly over-represented. This same pattern was present for the items written to be of *Medium* difficulty, although the pattern was even more severe. For the *High* items, the *Genetic Information* topic was the most underrepresented, but overall the coverage was considerably better. Although the evidence was not definitive, this type of information could potentially be useful to guide subsequent investigations of content representativeness. 
-
 
 ```{r, fig.width = 6.5, fig.height = 8, fig.cap="Overall Content Coverage. Gray bands represent the expected probability of topics were equally distributed. Topics are over/underrepresented to the extent the bar/polygon extends above/below the line."}
 ref <- tibble(x = c(1:5, 1.05), y = rep(1/5), 6)
@@ -590,9 +582,7 @@ labs + radar_summary + bars_summary +
 
 ```
 
-
 # Discussion
-
 Content validity is critical to the overall evaluative judgment of the validity of a test for a given use [@kane06; @messick95] and is a core element examined in alignment studies. This paper introduced text mining procedures, specifically topic modeling [@mohr13], to evaluate the textual congruence between content standards and test items. This approach has potential to supplement the methods of current alignment studies by providing a triangulating source of content-related validity evidence. In addition, text mining holds potential as a means of learning more about the content standards themselves (i.e., identifying groups of standards through previously unobserved themes), test items, and the textual link between test items and standards, as part of the iterative assessment development process. 
 
 Information from topic modeling could be used to supplement data collected through formal alignment studies by triangulating evidence of the alignment for individual items. If the same information is provided by sources, it may help reinforce the overall substantive conclusions about particular items or the test as a whole. If, however, the evidence does not agree, then it may serve as a prompt to collect more data and conduct further investigations. In addition, the analyses could potentially inform item and test development *during* the developmental process. That is, the analysis could serve as a diagnostic tool to better understand the content coverage of a particular test and when key vocabulary may be missing from a particular item. From a cost-benefit perspective, it is much cheaper to conduct analyses of data in-house than to conduct formal alignment studies. Part of the benefit of an analytic approach is that the analyses could be conducted much more regularly to inform the iterative test documentation/validation process. 
