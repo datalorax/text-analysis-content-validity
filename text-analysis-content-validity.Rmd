@@ -1,6 +1,6 @@
 ---
-title: "Establishing Content-Related Validity Evidence Using Text-Based, Machine
-  Learning Procedures"
+title: "Evaluating Content-Related Validity Evidence Using a Text-Based, Machine
+  Learning Procedure"
 shorttitle: "Text Modeling Validity"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 
