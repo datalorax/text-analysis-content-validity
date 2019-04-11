@@ -98,13 +98,13 @@ standards <- import(here("data", "8gradescience.xlsx"),
 webbwords <- import(here("data", "stopwords-webb.xlsx"),
                     setclass = "tbl_df")
 
-items <- import(here("data", "G8_Sci_Items.xlsx"), # shoot, this is ignored! Can you send to me?
+items <- import(here("data", "G8_Sci_Items.xlsx"),
                 setclass = "tbl_df") %>% 
   clean_names()
 ```
 
 ```{r doc_term_matrices}
-# Create the document term matrix for standards
+# Create a document term matrix for standards
 dtm <- standards %>% 
   select(code, ngss_standard) %>% 
   unnest_tokens(word, ngss_standard) %>% 
