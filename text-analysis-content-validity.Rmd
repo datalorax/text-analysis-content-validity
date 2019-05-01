@@ -35,7 +35,7 @@ tablelist         : no
 footnotelist      : no
 lineno            : no
 mask              : no
-
+class             : "man, fleqn, noextraspace"
 abstract: |
   The alignment of test items with content standards is a critical source of
   content-related validity evidence within high-stakes testing and 
@@ -52,11 +52,12 @@ abstract: |
   validity evidence. We discuss the utility of this approach, and show how
   visualizations can be used to evaluate the overall coverage of the content
   standards by the test items.
-class             : "man, fleqn, noextraspace"
+output            : 
+  papaja::apa6_pdf:
+    keep_tex: true
 header-includes:
-    - \raggedbottom
-    - \setlength{\parskip}{0pt}
-output            : papaja::apa6_pdf
+  - \raggedbottom
+  - \setlength{\parskip}{0pt}
 ---
 
 ```{r setup, include=FALSE}
@@ -182,7 +183,7 @@ Topic models were trained on the text from the middle school NGSS Performance Ex
 The final document-term matrix included 59 rows, one for each NGSS Performance Expectation, and 355 columns, one for each unique word represented in the content standards that was not a stop word or one of Webb's depth of knowledge verbs. A similar document-term matrix was pre-processed using the same steps as listed above for the test items, using all text represented within each item (i.e., item prompt and three answer options) and each test item serving as a document. Importantly, however, no analyses were conducted on the document-term matrix for items. Rather, the document-term matrix for items was used only to make predictions for each item to the topics derived from the content standards.
 
 ## Measures
-Our application utilized the science portion of the Grade 8 statewide AA-AAS in Oregon, designed for students with the most significant cognitive disabilities [SWSCDs; @usdoe05]. The AA-AAS is an alternate assessment to the statewide general assessment, with up to 1% of students eligible for reporting purposes (note, there is a 1% reporting cap, not participation cap). SWSCDs are typically characterized by significantly below average general cognitive functioning. Commonly, this includes students with intelligence test scores two or more standard deviations below the mean on a standardized, individually administered intelligence test, occurring with commensurate deficits in adaptive behavior. Further, the cognitive disability must significantly impact the student's educational performance and ability to generalize learning from one setting to another. SWSCDs require highly specialized education and/or social, psychological, and medical services to access an educational program. These students may also rely on adults for personal care and have medical conditions that require physical/verbal supports, and assistive technology devices. These intensive and on-going supports and services are typically provided directly by educators and are delivered across all educational settings, including when administered assessments. Operationally, any student in Oregon with an individualized education program (IEP) is eligible to take the AA-AAS rather than the statewide general assessment, and the recommendation for the most appropriate assessment is guided by the IEP team.
+Our application utilized the science portion of the Grade 8 statewide AA-AAS in Oregon, designed for students with the most significant cognitive disabilities  [SWSCDs; @usdoe05]. The AA-AAS is an alternate assessment to the statewide general assessment, with up to 1% of students eligible for reporting purposes  (note, there is a 1% reporting cap, not participation cap). Oregon does not include disability type as part of the eligibility requirements for AA-AAS participation. Rather, any student with an individualized education program (IEP) is eligible to participate, and the recommendation for the most appropriate assessment is guided by the IEP team. SWSCDs who take the AA-AAS commonly score two or more standard deviations below the mean on a standardized intelligence tests and have commensurate deficits in adaptive behavior. The disability  must significantly impact students' learning and ability to generalize learning across settings. SWSCDs require highly specialized  services related to both their education and, often, social and medical needs. The majority of these supports are provided by educators across a variety of settings.
 
 Title 1 Federal Regulations published on December 9, 2003 [@usdoe03], prompted revisions to Oregon's AA-AAS to increase the  accessibility of items by reducing the depth, breadth, and complexity (RDBC) of the content standards (and thus, the associated test items). This essentialization process involved RDBC of the Common Core State Standards (CCSS; in English Language Arts and Mathematics) and the NGSS in order to establish a performance expectation that was relevant and accessible for SWSCDs, while maintaining the high standards of academic rigor. RDBC of content standards was achieved by (a) limiting the scope of content/verbs to (predominantly) *recall* and *application* based on Webb's Depth of Knowledge [webb02], (b) transforming complex process verbs to more basic verbs, and (c) eliminating developmentally inappropriate delimiters and intellectual operations. All essentialized standards were written at three levels of difficulty/cognitive complexity: *Low*, *Medium*, and *High*.
 
