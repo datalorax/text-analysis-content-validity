@@ -73,7 +73,7 @@ library(patchwork)
 #devtools::install_github("dgrtwo/drlib")
 library(drlib)
 library(extrafont)
-
+RNGkind(sample.kind = "Rounding")
 #font_import()
 
 theme_set(theme_minimal(20)  +
