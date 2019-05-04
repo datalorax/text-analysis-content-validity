@@ -4,28 +4,14 @@ shorttitle: "Text Modeling and Validity"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 
 author: 
-  - name          : "Daniel Anderson"
+  - name          : ""
     affiliation   : "1"
     corresponding : yes
-    email         : "daniela@uoregon.edu"
-    address       : "5262 University of Oregon"
-  - name          : "Brock Rowley"
-    affiliation   : "1"
-    email         : "brockr@uoregon.edu"
-  - name          : "P. Shawn Irvin"
-    affiliation   : "1"
-    email         : "pirvin@uoregon.edu"
-  - name          : "Joshua M. Rosenberg"
-    affiliation   : "2"
-    email         : "jmrosenberg@utk.edu"
-  - name          : "Sondra Stegenga"
-    affiliation   : "1"
-    email         : "sondras@uoregon.edu"
+    email         : ""
+    address       : ""
 affiliation:
   - id            : "1"
-    institution   : "University of Oregon"
-  - id            : "2"
-    institution   : "University of Tennessee, Knoxville"
+    institution   : ""
 
 bibliography      : refs.bib
 
