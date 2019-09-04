@@ -46,6 +46,10 @@ header-includes:
   - \setlength{\parskip}{0pt}
 ---
 
+```{r eval-false}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(rio)
@@ -55,12 +59,13 @@ library(tidytext)
 library(topicmodels)
 library(ldatuning)
 library(scales)
+#devtools::install_github("thomasp85/patchwork")
 library(patchwork)
 #devtools::install_github("dgrtwo/drlib")
 library(drlib)
 library(extrafont)
 RNGkind(sample.kind = "Rounding")
-#font_import()
+font_import()
 
 theme_set(theme_minimal(20)  +
   theme(strip.text.x = element_text(family = "Times New Roman"),
@@ -124,39 +129,138 @@ idtm <- items %>%
   cast_dtm(item_id, word, n)
 ```
 
-For the past two decades, the landscape of education has evolved through the passage of legislation aimed at improving student outcomes through standards-driven accountability such as the No Child Left Behind Act [@nclb02] and its more recent renewal as the Every Student Succeeds Act [see @mcguinn16]. This has led to a substantial increase in standardized educational assessment use. As part of this movement, an intensive focus on alignment has also emerged due to the need for congruence between assessments, standards, curricula, and instruction to accurately and effectively measure, evaluate, and impact student outcomes [e.g., @porter02]. 
+Validity evidence based on test content is a critical component of the "overall
+evaluative judgment" [@messick95, p. 741] of the validity of test scores for a
+given use, and is one of the five major sources of validity evidence
+outlined by the *Standards for Educational and Psychological Testing* 
+[@standards14]. Content-related validity evidence is generally defined by the
+definition, representation, and relevance of the domain, as well as the 
+appropriateness of the test developmental process [see @sireci98]. In 
+large-scale statewide accountability testing, the domain definition is largely 
+provided by the adopted statewide content standards, which are
+distilled into a set of test specifications. Domain representation and 
+relevance address similar issues, with the former indicating the degree to 
+which items within the domain are represented by the test items, including areas 
+of under- or over-representation, and the latter representing the degree to 
+which a given item is relevant to the domain. Finally, evidence of
+content-related validity can be strengthened by specific elements of the test
+development process, including interim reviews of items by content, measurement,
+and bias/sensitivity experts [@sireci14].
 
-The goal of alignment is to "create a coherent educational system that conveys a clear and unified message about expectations and goals" [@vockley09, p.8]. Alignment studies are commonly conducted with standards-based assessments as a means of evaluating content-related validity evidence, with panels of experts judging the linkage between the content represented in the standards and the content represented in the test items [@sireci07; @webb97]. Content-related validity evidence is one of the five major sources of validity evidence outlined by the *Standards for Educational and Psychological Testing* [@standards14] and is a critical component of the "overall evaluative judgment" [@messick95, p. 741] of the validity of test scores for a given use. However, alignment studies are difficult to design and execute even under ideal conditions. The number of participants, methodology used to build consensus among professional judgments, group dynamics, analyses, and costs associated with time and travel are all elements for consideration [@anderson15]. 
+In this paper, we discuss and illustrate a method for obtaining content-related 
+validity evidence using a text-based machine learning model trained on (i.e., 
+estimated from) a set of content standards. The method can be used both 
+diagnostically during test development and as a source of triangulating 
+confirmatory evidence within the overall content-related validity evidence 
+gathered for a given test. The method primarily addresses domain representation 
+and relevance, and we illustrate how visual displays of the information can 
+aid interpretation of findings. If used diagnostically, the method can also 
+provide evidence for developmental processes. In what follows,
+we first discuss empirical methods for gathering content-related validity 
+evidence before introducing the specifics of our proposed method. We then
+illustrate our approach using a statewide alternate assessment for students
+with significant cognitive disabilities.
 
-According to @kane06, content validity is necessarily based on judgments, is more subject to confirmation bias, and lacks the objectivity of other sources of validity evidence (such as criterion-related evidence). Ideally, content-experts would establish consensus about the alignment and content-representativeness of the items within a test to a given set of content standards. In practice, however, group dynamics can often play a role [as mentioned by @anderson15], and the evidence acquired may depend upon the specific group of experts providing the judgment. 
+## Validity Evidence Based on Test Content
+Empirical evaluations of content-related validity evidence for statewide
+accountability tests generally focus on domain representation and relevance 
+through alignment studies. Alignment studies typically include panels of experts 
+judging the alignment between the content represented within the test items and 
+the content represented in the corresponding content standards. Numerous methods for 
+evaluating item-standard alignment have been proposed, including the Achieve 
+model [@rothman02], the Surveys of Enacted Curriculum [SEC; @porter01], and 
+perhaps most prominent, the Webb model [@webb97]. For a review of these models, 
+see @sireci14. While each model differs from the others to some degree 
+(particularly the SEC model, which also considers the curriculum as part of the 
+overall systems-level alignment), they are fundamentally similar in that each
+model includes a panel of subject-matter experts evaluating items across a 
+number of dimensions with respect to the content standards. Analyses of the 
+resulting data are then used to provide both item- and test-level information 
+(i.e., domain representation). Alignment studies, however, are generally 
+difficult to design and execute. @bhola03 outline several challenges to
+alignment studies, including specificity in alignment criteria, training, and 
+representation of items within each performance classification (e.g., *Did Not 
+Meet*, *Nearly Meets*, *Meets*, or *Exceeds*). @anderson15 further discuss 
+challenges related to group dynamics, practical costs, and methods for 
+aggregating judgments across raters (i.e., group consensus, averages, or, as 
+the authors propose, latent trait methods).
 
-This paper adds to the literature on content-related validity evidence through
-an initial exploration into the use of a text-based machine learning algorithm.
-Specifically, we evaluate the *textual congruence* between a set of content
-standards and the text represented in the items of a high-stakes test used
-within a statewide accountability system. We view the evidence gained from these analyses as a triangulating and supplemental source of content-related validity evidence that may also be useful for diagnostic purposes during test development. In the following section, we review prior research using similar methods and describe the potential of these approaches in contributing to the evaluation of content-related validity evidence.
+Despite the challenges listed above, alignment studies provide a critical source
+of content-related validity evidence for large-scale testing programs, and help
+ensure that the tested content matches the content taught in schools. Expert
+judgment remains the fundamental means by which items are evaluated, and with
+good reason---features of the item judged holistically may be missed by 
+evaluating only specific features of the item. For example, while @anderson15 discussed
+how group dynamics  may influence alignment study results, the authors still
+opted for all items to be reviewed by experts. Rather than using a panel-based
+method, however, the authors used an online platform with judgments
+made independently. Yet, while expert judgment remains the gold-standard, other 
+sources of information can still add to the evidentiary base supporting 
+content-related validity. 
 
-# Background
-A few recent studies have examined the use of text-based computational
-approaches for gathering validity evidence for a given measure. For example,
-@sherin13 used a simple Natural Language Processing technique to identify common
-groups of responses to transcribed interview answers about a scientific
-phenomenon. @beggrow14 employed a similar approach to examine the alignment
-between groups of responses identified from a computational method and manual 
-(human) codes of the same responses, finding that the computational approach
-could identify students’ conceptual understanding as veridically as human-coded
-responses, or responses from other data sources, such as audio data. These
-studies demonstrate the potential of computational methods for contributing to
-the overall construct validity evidence of measures of complex phenomena and
-processes.
+We operate from a theoretical framework that assumes 
+the domain representativeness of a test, and to a lesser extent domain 
+relevance, can be estimated by evaluating the overlap 
+in text used in the test items and the content standards the test was designed
+to measure. In other words, subdomains within the content standards are assumed 
+to be defined by specific keywords. If we can identify these keywords, and which 
+keywords are most strongly associated with each subdomain, we can investigate 
+the relative representation of these keywords across the items in the test. We
+refer to this evaluation as *textual congruence* between the set of test items
+and the corresponding content standards. We evaluate textual congruence 
+through the application of a text-based machine learning model, specifically
+*topic modeling* estimated through latent Dirichlet allocation.
 
-Topic modeling, one such computational method, is a probabilistic method for identifying latent topics in text-based data. Its history stems from qualitative content analysis and latent semantic analysis [@mohr13]. Rather than the researcher predetermining the topics to be analyzed and coded, however, the topics emerge from corpora of text based on the frequency of co-occurrence (i.e., text-based correlations). Topic modeling has advanced the field of text analysis from identifying specified words through a deductive approach, where topics are pre-identified, to a more inductive approach where meaning is allowed to emerge through a corpus of texts [@mohr13]. 
+## A Text-Based Machine Learning Approach
+Topic modeling is a probabilistic machine learning model for identifying latent 
+topics (i.e., themes, subdomains) in text. Its history stems from qualitative 
+content analysis and latent semantic analysis [@mohr13]. Rather than the 
+researcher predetermining the topics to be analyzed and coded, however, the 
+topics emerge from corpora of text based on the frequency of co-occurrence 
+(i.e., text-based correlations). Topic modeling has advanced the field of text 
+analysis from identifying specified words through a deductive approach, where 
+topics are pre-identified, to a more inductive approach where meaning is allowed 
+to emerge [@mohr13]. 
 
 Topic modeling is still relatively new in the scheme of text-based analytic
-research. Blei and colleagues [@blei03] introduced Latent Dirichlet Analysis 
-(LDA) in 2003, which has become perhaps the most common topic modeling estimation procedure. Prior to LDA being introduced, inductive themes or latent meanings in text were achievable primarily through qualitative analysis [@nikolenko17]. Topic modeling, however, has potential in an array of contexts, including in combination with sentiment analysis for improved efficiency and accuracy of the sentiment related to consumer comments of products [@lin09], improved understanding of political themes across a range of documents [@hagen18], and the aggregation of results across scientific studies despite differences in terminology and fields of inquiry [@gefen17]. Topic modeling has even shown emerging potential to produce similar results to traditional qualitative frameworks, such as grounded theory, when utilizing a semi-supervised form of LDA in which researchers restricts potential topic assignment to predefined intervals [@nikolenko17]. The increasing accuracy of such techniques therefore provides support for potential use in expanded applications. 
+research. Blei and colleagues [@blei03] introduced latent Dirichlet allocation 
+(LDA) in 2003, which has become perhaps the most common topic modeling 
+estimation procedure. Prior to LDA being introduced, inductive or 
+latent themes in text were achievable primarily through qualitative analysis 
+[@nikolenko17]. Topic modeling, however, has potential in an array of contexts, 
+including in combination with sentiment analysis for improved efficiency and 
+accuracy of the sentiment related to consumer comments of products [@lin09], 
+improved understanding of political themes across a range of documents 
+[@hagen18], and the aggregation of results across scientific studies despite 
+differences in terminology and fields of inquiry [@gefen17]. Topic modeling has 
+even shown emerging potential to produce similar results to traditional 
+qualitative frameworks, such as grounded theory, when utilizing a 
+semi-supervised form of LDA in which researchers restrict potential topic 
+assignment to predefined intervals [@nikolenko17]. The increasing accuracy of 
+such techniques provides support for potential use in expanded applications. 
 
-In this paper, we explore the use of topic modeling with LDA estimation to evaluate the textual congruence between test items and content standards as a source of content-related validity evidence. We adopt a similar theoretical framework to alignment studies [@porter02; @webb97; @webb99], but from a text-based machine learning perspective, which may provide an additional triangulating source of  content-related validity evidence. Further, given that the analyses themselves are relatively fast and less cost- and labor-intensive than alignment studies, topic-modeling may be a viable source of diagnostic information during test and item development.
+We explore the use of topic modeling with LDA estimation to evaluate the 
+textual congruence between test items and content standards as a source of 
+content-related validity evidence. Specifically we train a topic model on
+the middle school *Next Generation Science Standards* (NGSS) to uncover latent
+themes/subdomains. Building the topic model 
+includes a number of decision points, most importantly the number of topics to
+be estimated, and we discuss the specifics of our model in detail in the Method
+section. However, once the model is built, the probability that any given text 
+is represented by each topic can be estimated. In other words, the model is 
+built from the content standards independent of the test items, and this model 
+is then used to estimate the textual congruence of the items and standards 
+(through model-based predictions using the item text). The relative 
+representation of the topics across the test items can then be evaluated, along 
+with the mapping of individual items to topics. An item found to not be 
+represented by any topic would have the probability spread equally across all 
+topics, which may be a candidate for further review and potential revisions 
+(although it is also possible that the item represents the standards in ways 
+outside of the text). These analyses 
+may provide additional triangulating information with expert judgments, but 
+perhaps more importantly, provide a viable source of diagnostic information 
+during test and item development given that the analyses themselves are 
+relatively fast and less cost- and labor-intensive than alignment studies.
 
 # Method 
 We evaluate the textual congruence between the middle school (Grades 6-8) Performance Expectations outlined by the *Next Generation Science Standards* (NGSS), and the Grade 8 Alternate Assessment based on Alternate Achievement Standards (AA-AAS) in Oregon, as described more fully below. In what follows, we describe our data sources, including the NGSS and AA-AAS, as well as our topic model. We specifically detail how we evaluated the number of topics to be extracted, and how the results can be used to evaluate the overall textual congruence between the test items and the content standards. Note that our specific application has some unique aspects related to the measure itself, but the methodology should readily extend to any situation in which an evaluation between a set of items and a set of content standards is needed.
@@ -301,7 +405,7 @@ ess2_4 <- filter(gammas, document == "S08ESS2.4")
 
 ```
 
-Figure \@ref(fig:heatmap) displays a heatmap of the $\gamma$ values across topics for each of the 59 performance expectations evaluated. Brighter colors represent a higher likelihood of the given topic being reflected by the given standard. For example, Performance Expectation ESS1.1 (bottom) is represented almost entirely (`r paste0(round(ess1_1$gamma[1], 2)*100, "%")`) by Topic 1: *Analyzing data and using evidence to understand organisms and systems*. Performance Expectation ESS2.4, however, is represented partially (`r paste0(round(ess2_4$gamma[1], 2)*100, "%")`) by Topic 1, and partially (`r paste0(round(ess2_4$gamma[2], 2)*100, "%")`) by Topic 2: *Using scientific evidence to understand Earth systems*. These heatmaps can assist in deriving substantive meaning from the topics, given that the performance expectations that predominately make up a topic can be investigated. Once substantive meaning is assigned, however, the topics can likewise help bring new meaning back to the performance expectations, as themes may emerge that were not otherwise  apparent. 
+Figure \@ref(fig:heatmap) displays a heatmap of the $\gamma$ values across topics for each of the 59 performance expectations evaluated. Brighter colors represent a higher likelihood of the given topic being reflected by the given standard. For example, Performance Expectation ESS1.1 (bottom) is represented almost entirely (`paste0(round(ess1_1$gamma[1], 2)*100, "%")`) by Topic 1: *Analyzing data and using evidence to understand organisms and systems*. Performance Expectation ESS2.4, however, is represented partially (`paste0(round(ess2_4$gamma[1], 2)*100, "%")`) by Topic 1, and partially (`paste0(round(ess2_4$gamma[2], 2)*100, "%")`) by Topic 2: *Using scientific evidence to understand Earth systems*. These heatmaps can assist in deriving substantive meaning from the topics, given that the performance expectations that predominately make up a topic can be investigated. Once substantive meaning is assigned, however, the topics can likewise help bring new meaning back to the performance expectations, as themes may emerge that were not otherwise  apparent.
 
 ```{r heatmap, fig.cap = "Heatmap of Gamma Values. Cells displayed in brighter colors have higher gamma values, representing a greater likelihood that the given topic is represented by the given standard.", fig.height = 7.5, fig.width = 6.5}
 gammas_max <- gammas %>%
