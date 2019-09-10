@@ -2,7 +2,7 @@
 title: "Evaluating Content-Related Validity Evidence Using a Text-Based, Machine Learning Procedure"
 shorttitle: "Text Modeling and Validity"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-
+keywords: Validity, Content, Text-Mining, Machine Learning, Textual Congruence
 author: 
   - name          : ""
     affiliation   : "1"
@@ -23,21 +23,26 @@ lineno            : no
 mask              : no
 class             : "man, fleqn, noextraspace"
 abstract: |
-  The alignment of test items with content standards is a critical source of
-  content-related validity evidence within high-stakes testing and 
-  accountability frameworks. Typically, alignment studies are conducted with
-  panels of experts providing qualitative judgments on the degree of alignment
-  with each item in the test and the representative content standards, from
-  which various summary statistics are then calculated [e.g., categorical
-  concurrence, balance of representation; @webb99]. In this paper, we propose an
-  approach that builds upon traditional methods for alignment by leveraging
-  text-based, machine learning procedures, specifically topic modeling, to
-  identify text-based clusters, or topics, within the content standards. The
-  probability that each item from a statewide assessment aligns with each
-  cluster/topic can then be estimated as an additional source of content-related
-  validity evidence. We discuss the utility of this approach, and show how
-  visualizations can be used to evaluate the overall coverage of the content
-  standards by the test items.
+  Validity evidence based on test-content is critical to meaningful 
+  interpretation of test scores. Within high-stakes testing and 
+  accountability frameworks, content-related validity evidence is typically 
+  gathered via alignment studies, with
+  panels of experts providing qualitative judgments on the degree to which
+  test items align with the representative content standards. Various summary 
+  statistics are then calculated [e.g., categorical concurrence, balance of 
+  representation; @webb99] to aid in decision making. In this paper, we propose 
+  an alternative approach for gathering content-related validity evidence that
+  capitalizes on the overlap in vocabulary used in test items and the 
+  corresponding content standards, which we define as *textual congruence*.
+  We use a text-based, machine learning model, specifically topic modeling, to
+  identify clusters of related content within the standards. This model then 
+  serves as the basis from which items are evaluated. We illustrate our method 
+  by building a model from the *Next Generation Science Standards*, 
+  with textual congruence evaluated against items within the Oregon statewide 
+  alternate assessment. We discuss the utility of this approach as a source of 
+  triangulating and diagnostic information and show how visualizations can be 
+  used to evaluate the overall coverage of the content standards across the 
+  test items.
 output            : 
   papaja::apa6_pdf:
     keep_tex: true
@@ -46,10 +51,6 @@ header-includes:
   - \setlength{\parskip}{0pt}
 ---
 
-```{r eval-false}
-knitr::opts_chunk$set(eval = FALSE)
-```
-
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(rio)
@@ -57,6 +58,7 @@ library(here)
 library(janitor)
 library(tidytext)
 library(topicmodels)
+#devtools::install_github("nikita-moor/ldatuning@c904f85c3fd0a247da918eb4fe5605931107a697")
 library(ldatuning)
 library(scales)
 #devtools::install_github("thomasp85/patchwork")
@@ -135,7 +137,7 @@ given use, and is one of the five major sources of validity evidence
 outlined by the *Standards for Educational and Psychological Testing* 
 [@standards14]. Content-related validity evidence is generally defined by the
 definition, representation, and relevance of the domain, as well as the 
-appropriateness of the test developmental process [see @sireci98]. In 
+appropriateness of the test development process [see @sireci98]. In 
 large-scale statewide accountability testing, the domain definition is largely 
 provided by the adopted statewide content standards, which are
 distilled into a set of test specifications. Domain representation and 
@@ -147,12 +149,11 @@ content-related validity can be strengthened by specific elements of the test
 development process, including interim reviews of items by content, measurement,
 and bias/sensitivity experts [@sireci14].
 
-In this paper, we discuss and illustrate a method for obtaining content-related 
+In this paper, we illustrate a method for obtaining content-related 
 validity evidence using a text-based machine learning model trained on (i.e., 
 estimated from) a set of content standards. The method can be used both 
-diagnostically during test development and as a source of triangulating 
-confirmatory evidence within the overall content-related validity evidence 
-gathered for a given test. The method primarily addresses domain representation 
+diagnostically during test development, and as a source of triangulating 
+confirmatory evidence. The method primarily addresses domain representation 
 and relevance, and we illustrate how visual displays of the information can 
 aid interpretation of findings. If used diagnostically, the method can also 
 provide evidence for developmental processes. In what follows,
@@ -166,34 +167,34 @@ Empirical evaluations of content-related validity evidence for statewide
 accountability tests generally focus on domain representation and relevance 
 through alignment studies. Alignment studies typically include panels of experts 
 judging the alignment between the content represented within the test items and 
-the content represented in the corresponding content standards. Numerous methods for 
-evaluating item-standard alignment have been proposed, including the Achieve 
-model [@rothman02], the Surveys of Enacted Curriculum [SEC; @porter01], and 
-perhaps most prominent, the Webb model [@webb97]. For a review of these models, 
-see @sireci14. While each model differs from the others to some degree 
-(particularly the SEC model, which also considers the curriculum as part of the 
-overall systems-level alignment), they are fundamentally similar in that each
-model includes a panel of subject-matter experts evaluating items across a 
-number of dimensions with respect to the content standards. Analyses of the 
-resulting data are then used to provide both item- and test-level information 
-(i.e., domain representation). Alignment studies, however, are generally 
-difficult to design and execute. @bhola03 outline several challenges to
-alignment studies, including specificity in alignment criteria, training, and 
-representation of items within each performance classification (e.g., *Did Not 
-Meet*, *Nearly Meets*, *Meets*, or *Exceeds*). @anderson15 further discuss 
-challenges related to group dynamics, practical costs, and methods for 
-aggregating judgments across raters (i.e., group consensus, averages, or, as 
-the authors propose, latent trait methods).
+the content represented in the corresponding content standards. Numerous methods 
+for evaluating item-standard alignment have been proposed, including the 
+*Achieve* model [@rothman02], the *Surveys of Enacted Curriculum* 
+[SEC; @porter01], and perhaps most prominent, the *Webb* model [@webb97]. For a
+review of these models, see @sireci14. While each model differs from the others
+to some degree (particularly the SEC model, which also considers the curriculum
+as part of the overall systems-level alignment), they are fundamentally similar
+in that each model includes panels of subject-matter experts evaluating items 
+across a number of dimensions with respect to the content standards. Analyses 
+of the resulting data are then used to provide both item- and test-level
+information (i.e., domain representation). Alignment studies, however, are
+generally difficult to design and execute. @bhola03 outline several challenges,
+including specificity in alignment criteria, training, and representation of
+items within each performance classification (e.g., *Did Not Meet*, *Nearly 
+Meets*, *Meets*, or *Exceeds*). @anderson15 further discuss challenges related 
+to group dynamics, practical costs, and methods for aggregating judgments 
+across raters (i.e., group consensus, averages, or, as the authors propose,
+latent trait methods).
 
 Despite the challenges listed above, alignment studies provide a critical source
-of content-related validity evidence for large-scale testing programs, and help
+of content-related validity evidence for large-scale testing programs and help
 ensure that the tested content matches the content taught in schools. Expert
 judgment remains the fundamental means by which items are evaluated, and with
 good reason---features of the item judged holistically may be missed by 
-evaluating only specific features of the item. For example, while @anderson15 discussed
-how group dynamics  may influence alignment study results, the authors still
-opted for all items to be reviewed by experts. Rather than using a panel-based
-method, however, the authors used an online platform with judgments
+evaluating only specific features of the item. For example, while @anderson15
+discussed the influence of group dynamics, the authors still
+opted for all items to be reviewed by experts. Rather than using panel-based
+methods, however, they used an online platform with judgments
 made independently. Yet, while expert judgment remains the gold-standard, other 
 sources of information can still add to the evidentiary base supporting 
 content-related validity. 
@@ -216,25 +217,49 @@ Topic modeling is a probabilistic machine learning model for identifying latent
 topics (i.e., themes, subdomains) in text. Its history stems from qualitative 
 content analysis and latent semantic analysis [@mohr13]. Rather than the 
 researcher predetermining the topics to be analyzed and coded, however, the 
-topics emerge from corpora of text based on the frequency of co-occurrence 
+topics emerge from a text corpus based on the frequency of word co-occurrence 
 (i.e., text-based correlations). Topic modeling has advanced the field of text 
 analysis from identifying specified words through a deductive approach, where 
 topics are pre-identified, to a more inductive approach where meaning is allowed 
 to emerge [@mohr13]. 
 
 Topic modeling is still relatively new in the scheme of text-based analytic
-research. Blei and colleagues [@blei03] introduced latent Dirichlet allocation 
+research. @blei03 introduced latent Dirichlet allocation 
 (LDA) in 2003, which has become perhaps the most common topic modeling 
 estimation procedure. Prior to LDA being introduced, inductive or 
 latent themes in text were achievable primarily through qualitative analysis 
-[@nikolenko17]. Topic modeling, however, has potential in an array of contexts, 
-including in combination with sentiment analysis for improved efficiency and 
-accuracy of the sentiment related to consumer comments of products [@lin09], 
-improved understanding of political themes across a range of documents 
-[@hagen18], and the aggregation of results across scientific studies despite 
-differences in terminology and fields of inquiry [@gefen17]. Topic modeling has 
-even shown emerging potential to produce similar results to traditional 
-qualitative frameworks, such as grounded theory, when utilizing a 
+[@nikolenko17]. Topic modeling, however, has potential in an array of contexts. 
+@quinn10, for example, analyzed text data transcribed from over 118,000 
+political speeches from 1997 to 2004 to investigate the relative attention 
+given to specific topics in political discourse in the United States. Similarly, 
+@jelveh18 estimated a topic model on text from over 80,000 economics papers. 
+Estimates of the political ideology of the manuscript authors
+were then linked with these data to evaluate if their political ideology related 
+to their academic writing, finding "a robust correlation between patterns of 
+academic writing and political behavior" (p. 29). The scale of these 
+investigations necessitated an automated procedure, as manual coding  of these
+papers would not be feasible.
+
+Topic models models are estimated from a *document-term matrix*, in which the 
+columns represent each unique term from the corpus, the rows represent each 
+"document" evaluated, and the cells represent the counts of each word within 
+each document. The documents represent discretized instances of the overall 
+corpus, such as a collection of blog posts or newspaper articles. @quinn10, 
+for example, treated the text from each political speech as a document, while 
+@jelveh18 treated each economic paper as a document. LDA is guided by the 
+principle that "every document is a mixture of topics...[and] every topic is a 
+mixture of words" [@silge17, p. 90]. For example, when evaluating political 
+ideologies, @jelveh18 estimated a set of topics from all the words represented 
+across the economic papers, but then inspected the relative distribution of 
+these topics across papers. The relative proportion of topics within a document
+were then linked back to the authors, and used to predict their political 
+leanings (estimated through campaign contributions and petition signings). 
+Other examples include in combination with sentiment analysis for improved 
+efficiency and accuracy of the sentiment related to consumer comments of 
+products [@lin09], and the aggregation of results across scientific studies 
+despite differences in terminology and fields of inquiry [@gefen17]. Topic 
+modeling has even shown emerging potential to produce similar results to 
+traditional qualitative frameworks, such as grounded theory, when utilizing a 
 semi-supervised form of LDA in which researchers restrict potential topic 
 assignment to predefined intervals [@nikolenko17]. The increasing accuracy of 
 such techniques provides support for potential use in expanded applications. 
@@ -243,63 +268,61 @@ We explore the use of topic modeling with LDA estimation to evaluate the
 textual congruence between test items and content standards as a source of 
 content-related validity evidence. Specifically we train a topic model on
 the middle school *Next Generation Science Standards* (NGSS) to uncover latent
-themes/subdomains. Building the topic model 
-includes a number of decision points, most importantly the number of topics to
-be estimated, and we discuss the specifics of our model in detail in the Method
-section. However, once the model is built, the probability that any given text 
-is represented by each topic can be estimated. In other words, the model is 
+themes/subdomains. Topic model estimation requires a number of decision points,
+most importantly the number of topics to be estimated. We discuss the specifics
+of our model in detail in the Method section. Once the model is built, the 
+probability that *any* given text was generated by each topic can be estimated. 
+In other words, the model is 
 built from the content standards independent of the test items, and this model 
 is then used to estimate the textual congruence of the items and standards 
 (through model-based predictions using the item text). The relative 
 representation of the topics across the test items can then be evaluated, along 
-with the mapping of individual items to topics. An item found to not be 
-represented by any topic would have the probability spread equally across all 
-topics, which may be a candidate for further review and potential revisions 
-(although it is also possible that the item represents the standards in ways 
-outside of the text). These analyses 
-may provide additional triangulating information with expert judgments, but 
-perhaps more importantly, provide a viable source of diagnostic information 
-during test and item development given that the analyses themselves are 
-relatively fast and less cost- and labor-intensive than alignment studies.
+with the mapping of individual items to topics. These analyses 
+may provide triangulating information with expert judgments, but 
+perhaps more importantly, provide a source of diagnostic information 
+during test and item development. For example, items found to have no text 
+conforming with any topic could be flagged for further review, which may 
+identify out-of-scope items (e.g., aligned to a different grade level) before 
+reaching a full alignment review (although it is also possible that the item 
+represents the standards in ways outside of the text). Similarly, the relative 
+representation of topics across the items could be evaluated, with the test 
+refined to ensure a roughly equal inclusion of all areas represented in the
+standards.
 
 # Method 
-We evaluate the textual congruence between the middle school (Grades 6-8) Performance Expectations outlined by the *Next Generation Science Standards* (NGSS), and the Grade 8 Alternate Assessment based on Alternate Achievement Standards (AA-AAS) in Oregon, as described more fully below. In what follows, we describe our data sources, including the NGSS and AA-AAS, as well as our topic model. We specifically detail how we evaluated the number of topics to be extracted, and how the results can be used to evaluate the overall textual congruence between the test items and the content standards. Note that our specific application has some unique aspects related to the measure itself, but the methodology should readily extend to any situation in which an evaluation between a set of items and a set of content standards is needed.
+We evaluate the textual congruence of the middle school (Grades 6-8) Performance Expectations, which are the content standards outlined by the *Next Generation Science Standards* (NGSS), and the Grade 8 Alternate Assessment based on Alternate Achievement Standards (AA-AAS) in Oregon, as described more fully below. In what follows, we describe our data sources, including the NGSS and AA-AAS, as well as our topic model. We specifically detail how we evaluated the number of topics to be extracted and how the results can be used to evaluate the overall textual congruence between the test items and the content standards. Note that our specific application has some unique aspects related to the measure itself, but the methodology should readily extend to any situation in which an evaluation between a set of items and a set of content standards is needed.
 
 ## Data Sources
-The NGSS are based on the *Framework for K-12 Science Education* [@nrcframework12] and are built around Performance Expectations, rather than more narrowly-defined standards of academic content knowledge, in each of grades K-5 and grade bands 6-8 (middle school) and 9-12 (high school). NGSS Performance Expectations are situated within one of four Domains (Physical [PS], Life [LS], Earth/Space [ESS], and Engineering Design [ED]) and organized into Arrangement Clusters (groups of interrelated Performance Expectations, e.g., Earth’s Place in the Universe [cluster ESS1]). Together, Performance Expectations unify three dimensions of science learning, requiring that students understand and apply *science and engineering practices* as they master *disciplinary core ideas* and engage *crosscutting concepts*, which span science broadly [@nrc15]. 
+The NGSS are based on the *Framework for K-12 Science Education* [@nrcframework12] and are built around Performance Expectations in each of grades K-5 and grade bands 6-8 (middle school) and 9-12 (high school). NGSS Performance Expectations are situated within one of four Domains (Physical [PS], Life [LS], Earth/Space [ESS], and Engineering Design [ED]) and organized into Arrangement Clusters (groups of interrelated Performance Expectations, e.g., Earth’s Place in the Universe [cluster ESS1]). Together, Performance Expectations unify three dimensions of science learning, requiring that students understand and apply *science and engineering practices* as they master *disciplinary core ideas* and engage *crosscutting concepts*, which span science broadly [@nrc15]. 
 
-Topic models were trained on the text from the middle school NGSS Performance Expectations. A document-term matrix was first produced, wherein each row represented a "document", which in our application was a given Performance Expectation, and the columns represented each unique term from the corpus of documents. The cells contained the frequencies of each term in each document. As part of data processing, we removed stop words (common words like "of", "a", "the", "and", "is") as represented within the *onix*, *SMART*, and *snowball* lexicons [@lewis04; @onix; @snowball] and implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02]. These removals helped ensure the topics were clustered around content-related words, rather than overly common words or specific verbs prevalent throughout the standards. 
+We created two document-term matrices, with one representing the content standards (and each NGSS Performance Expectation represented as a document) and one representing the text from items (item stems and answer options). The document term-matrix for the content standards was used to train (estimate) the topic model, as described more fully below, while the document-term matrix for items was used to evaluate the textual congruence between the items and the estimated topics using the fitted model. The document-term matrix for items was unique to this specific test, and any evaluation of other tests would require the creation of a new item-level document-term matrix; however, the document-term matrix for the content standards could be applied to any test. 
 
-The final document-term matrix included 59 rows, one for each NGSS Performance Expectation, and 355 columns, one for each unique word represented in the content standards that was not a stop word or one of Webb's depth of knowledge verbs. A similar document-term matrix was pre-processed using the same steps as listed above for the test items, using all text represented within each item (i.e., item prompt and three answer options) and each test item serving as a document. Importantly, however, no analyses were conducted on the document-term matrix for items. Rather, the document-term matrix for items was used only to make predictions for each item to the topics derived from the content standards.
+As part of data processing, we removed stop words (common words like "of", "a", "the", "and", "is") as represented within the *onix*, *SMART*, and *snowball* dictionaries [see @lewis04; @onix; @snowball] and implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02]. Although preliminary models included Webb's words, the words associated with scientific concepts (e.g., evidence, genetic, mass, motion) became conflated with common scientific verbs (e.g., design, describe, interpret, analyze) making the individual topics more difficult to discern. We therefore opted to keep the model as focused on the content as possible by removing these words.
+
+The final document-term matrix included 59 rows, one for each NGSS Performance Expectation, and 355 columns, one for each unique word represented in the content standards that was not a stop word or one of Webb's depth of knowledge verbs. A similar document-term matrix was pre-processed using the same steps as listed above for the test items, using all text represented within the test items and each item serving as a document. Importantly, however, no analyses were conducted on the document-term matrix for items. Rather, the document-term matrix for items was used only to make predictions for each item to the topics derived from the content standards.
 
 ## Measures
-Our application utilized the science portion of the Grade 8 statewide AA-AAS in Oregon, designed for students with the most significant cognitive disabilities  [SWSCDs; @usdoe05]. The AA-AAS is an alternate assessment to the statewide general assessment, with up to 1% of students eligible for reporting purposes  (note, there is a 1% reporting cap, not participation cap). Oregon does not include disability type as part of the eligibility requirements for AA-AAS participation. Rather, any student with an individualized education program (IEP) is eligible to participate, and the recommendation for the most appropriate assessment is guided by the IEP team. SWSCDs who take the AA-AAS commonly score two or more standard deviations below the mean on a standardized intelligence tests and have commensurate deficits in adaptive behavior. The disability  must significantly impact students' learning and ability to generalize learning across settings. SWSCDs require highly specialized  services related to both their education and, often, social and medical needs. The majority of these supports are provided by educators across a variety of settings.
+Our application utilized the science portion of the Grade 8 statewide AA-AAS in Oregon, designed for students with the most significant cognitive disabilities  [SWSCDs; @usdoe05]. The AA-AAS is an alternate assessment to the statewide general assessment, with up to 1% of students eligible for reporting purposes.  Any student with an individualized education program (IEP) is eligible to participate, and the recommendation for the most appropriate assessment is guided by the IEP team. SWSCDs who take the AA-AAS commonly score two or more standard deviations below the mean on standardized intelligence tests and have commensurate deficits in adaptive behavior. The disability  must significantly impact students' learning and ability to generalize learning across settings. SWSCDs require highly specialized  services related to both their education and, often, social and medical needs. 
 
-Title 1 Federal Regulations published on December 9, 2003 [@usdoe03], prompted revisions to Oregon's AA-AAS to increase the  accessibility of items by reducing the depth, breadth, and complexity (RDBC) of the content standards (and thus, the associated test items). This essentialization process involved RDBC of the Common Core State Standards (CCSS; in English Language Arts and Mathematics) and the NGSS in order to establish a performance expectation that was relevant and accessible for SWSCDs, while maintaining the high standards of academic rigor. RDBC of content standards was achieved by (a) limiting the scope of content/verbs to (predominantly) *recall* and *application* based on Webb's Depth of Knowledge [webb02], (b) transforming complex process verbs to more basic verbs, and (c) eliminating developmentally inappropriate delimiters and intellectual operations. All essentialized standards were written at three levels of difficulty/cognitive complexity: *Low*, *Medium*, and *High*.
+The Grade 8 AA-AAS in Oregon included 48 items, with 36 used in operational reporting for accountability and 12 used in ongoing field-testing efforts to revise and improve the test annually. Text was included in our analyses from all 48 items. We included both operational and field test items because we wanted to apply the algorithm diagnostically. Items found to not have any overlap in words from any of the generated topics could be flagged for further evaluation, and we wanted to flag both operational and in-development items that had this characteristic. The Oregon AA-AAS is individually administered, with a qualified assessor providing the assessment with IEP-designated supports, and scored using a standardized protocol, with all responses scored dichotomously (correct/incorrect). Students responded to each item through a set of student materials using response modalities commensurate with their IEP and abilities (e.g., verbal, non-verbal, gesturing). 
 
-<!-- The RDBC process was in like 2013-14 though... This makes it sound like it was back in like 2004 -->
-
-The Grade 8 AA-AAS in Oregon included 48 items, with 36 used in operational reporting for accountability and 12 used in ongoing field-testing efforts to revise and improve the test annually. Text was included in our analyses from all 48 items. The Oregon AA-AAS is individually administered, with a qualified assessor providing the assessment with IEP-designated supports, and scored using a standardized protocol, with all responses scored dichotomously (correct/incorrect). Students responded to each item through a set of student materials using response modalities commensurate with their IEP and abilities (e.g., verbal, non-verbal, gesturing). 
-
-## Analyses
-Our process included (a) using topic modeling to identify key domains/topics within the statewide content standards based on frequency of word co-occurrence; (b) applying the model to new text, in the form of words represented in the test items through either the stem/prompt or the answer options; and (c) evaluating the overall mapping of items within the test items to the modeled domains/topics, including the relative representativeness of each domain/topic within the test. The number of topics was determined through a combination of statistical analyses and expert judgment. The evidence gained from these analyses can then supplement formal alignment studies, while also potentially being useful as a diagnostic tool during test development.
+## Procedure and Analyses
+Our process included (a) using topic modeling to identify key subdomains/topics within the statewide content standards based on frequency of word co-occurrence; (b) applying the model to new text, in the form of words represented in the test items through either the stem/prompt or the answer options; and (c) evaluating the overall mapping of items within the test items to the modeled subdomains/topics, including the relative representativeness of each subdomain/topic within the test. The number of topics was determined through a combination of statistical analyses and expert judgment.
 
 ### Topic modeling
-Topic modeling is akin to exploratory factor analysis (EFA), where latent variables (topics) are estimated based on the probability that the words within the topic will co-occur [see @mohr13]. As mentioned above, Latent Dirichlet Allocation (LDA), introduced by @blei03, is perhaps the most common estimation procedure for topic models and was the approach used here. LDA is guided by the principles that "every document is a mixture of topics...[and] every topic is a mixture of words" [@silge17, p. 90]. This implies that each document includes different proportions of each modeled topic (including 0% or 100%), and, while the words within a given topic will generally be unique, words can be shared between topics. LDA simultaneously estimates both the mixture of topics within a document and the mixture of words within a topic. The $\beta$ matrix reports  the estimated probability that each word belongs to (or was generated by) a given topic, while the $\gamma$ matrix reports on the probability that each topic is represented within a given document. The "documents" typically represent discretized instances of the overall corpus, such as a collection of blog posts or newspaper articles. As mentioned previously, we treated each NGSS Performance Expectation as a document and evaluated the representativeness of topics within each standard. For example, in a two-topic solution, hypothetical Performance Expectation 1 may be composed of 25% Topic 1 and 75% Topic 2, while hypothetical Performance Expectation 2 is composed of 98% Topic 1 and 2% topic 2. Each topic is then represented by the corpora of words, with each word having a different modeled probability of having been generated by the corresponding topic. Post-hoc substantive labels are generally assigned to topics through expert evaluation of the top $n$ words within each topic (typically 10-20 words), based on the $\beta$ matrix. 
+Topic modeling is akin to exploratory factor analysis (EFA), where latent variables (topics) are estimated based on the probability that the words within the topic will co-occur [see @mohr13]. As mentioned above, latent Dirichlet allocation (LDA), introduced by @blei03, is perhaps the most common estimation procedure for topic models and was the approach used here. LDA simultaneously estimates both the mixture of topics within a document and the mixture of words within a topic. The $\beta$ matrix reports the estimated probability that each word belongs to (or was generated by) a given topic, while the $\gamma$ matrix reports on the probability that each topic is represented within a given document. For example, in a two-topic solution, hypothetical Performance Expectation 1 may be composed of 25% Topic 1 and 75% Topic 2, while hypothetical Performance Expectation 2 is composed of 98% Topic 1 and 2% topic 2. Each topic is then represented by the corpora of words, with each word having a different modeled probability of having been generated by the corresponding topic. Post-hoc substantive labels are generally assigned to topics through expert evaluation of the top $n$ words within each topic (typically 10-20 words), based on the $\beta$ matrix. 
 
-As with EFA, perhaps the most difficult aspect of topic modeling is determining the number of topics (latent factors) to extract, which must be determined *a priori*. Models with different numbers of topics can provide different results and different conclusions about the underlying text. In our application, we relied on a combination of statistical evidence with expert judgment[^1]. From a statistical point of view, we relied upon four tests, as delineated by @arun10, @cao09, @deveaud14, and @griffiths04. Briefly, the method outlined by @arun10 is based on the KL-Divergence of two salient distributions, viewing LDA as a matrix factorization procedure, with the goal of minimizing this value. The @cao09 method relies on topic density through average cosine similarity (minimized), while the @deveaud14 method uses a similar approach but relies on the Jensen-Shannon distance between topic distributions (maximized). Finally, the method proposed by @griffiths04 uses Gibbs sampling with the posterior sampled such that the harmonic mean of the sampled log-likelihoods is maximized. See @houliu18 for a discussion on the performance of these various indicators. We used these tests to evaluate the fit of models with 2 to 25 topics.
+As with EFA, perhaps the most difficult aspect of topic modeling is determining the number of topics (latent factors) to extract, which must be determined *a priori*. Models with different numbers of topics can provide different results and different conclusions about the underlying text. In our application, we relied on a combination of statistical evidence with expert judgment. From a statistical view, we relied upon four measures of model fit, as delineated by @arun10, @cao09, @deveaud14, and @griffiths04. Each of these are *relative* indicators of model fit (similar to information criteria) and the "best" model  can only be determined by comparing competing models. Briefly, the method outlined by @arun10 is based on the KL-Divergence of two salient distributions, viewing LDA as a matrix factorization procedure, with the goal of minimizing this value. The @cao09 method relies on topic density through average cosine similarity (minimized), while the @deveaud14 method uses a similar approach but relies on the Jensen-Shannon distance between topic distributions (maximized). Finally, the method proposed by @griffiths04 uses Gibbs sampling with the posterior sampled such that the harmonic mean of the sampled log-likelihoods is maximized. See @houliu18 for a discussion on the performance of these various indicators. We evaluated models with 2 to 25 topics for each model fit indicator.
 
-[^1]: It is important to note that we consider the topic model preliminary and exploratory, and we welcome feedback and critique from the field. All code used to estimate the models (and produce this manuscript) will be made publicly available upon publication via a GitHub repository.
-
-Following the evaluation of topics, we found a range of topics which appeared to reasonably minimize or maximize each of the criteria (as displayed in the Results section). These topics were then reviewed for substantive meaning and a final topic model was arrived upon through independent evaluations of the topic solutions by two science content experts. This model then represented our final trained model. The probability that each AA-AAS test item was represented by each topic was then estimated. The model was therefore trained on the words within the standards, and we evaluated whether the words used in the items corresponded with the identified topics.
+Following the evaluation of topics, we found a range of topics which appeared to reasonably minimize or maximize each of the criteria (as displayed in the Results section). These topics were then reviewed for substantive meaning and a final topic model was arrived upon through independent evaluations of the topic solutions by two science content experts. This model then represented our final trained model. The probability that each AA-AAS test item was represented by each topic was then estimated. The model was therefore trained on the words within the standards and we evaluated whether the words used in the items corresponded with the identified topics.
 
 Topics were estimated using the *textmodeling* package [@grun11], while the evaluation of the number of topics to extract was conducted with the *ldatuning* package [@nikita16], both of which are extensions to the R statistical computing environment [@r]. Data were prepared using the *tidyverse* suite of packages [@wickham17], with all plots produced using the *ggplot2* package [@wickham16].
 
 # Results
-In this section, we first discuss the selection of the optimal number of topics. We then discuss the mapping of topics to standards, and words to topics. Finally, we present the results of the trained model to the items within the Grade 8 Science portion of the AA-AAS in Oregon, and specifically delineate the results by whether they were written to be of *low*, *medium*, or *high* difficulty. 
+In this section, we first discuss the selection of the optimal number of topics. We then discuss the mapping of topics to standards, and words to topics. Finally, we present the results of the trained model to the items within the Grade 8 Science portion of the AA-AAS in Oregon and specifically delineate the results by whether they were written to be of *low*, *medium*, or *high* difficulty. 
 
 ## Number of Topics
-Figure \@ref(fig:n-topics) displays the optimal number of topics to be extracted across each of the four criteria. As would be expected, the different criteria suggested differing numbers of topics. Relying only on the criteria suggested by @arun10 would lead us to the conclusion that, essentially, the more topics estimated the better the fit, while the opposite conclusion would be reached if only evaluating the results relative to the criteria outlined by @deveaud14. The @cao09 and @griffiths04 criteria appeared more nuanced and suggested differing, but similar ranges of topics. After six topics, however, a marked increase in the @cao09 criteria was observed, indicating a poorer fit, while only a moderate increase (indicating a better fit) was observed with the @griffiths04 criteria. Taken together, these results suggested that between three [the minimum value for the @cao09 criteria] and six topics should be extracted (as displayed by the shaded rectangle in the background of Figure 1). Each topic solution (3-6) was therefore evaluated based upon expert judgment for substantive meaning.
+Figure \@ref(fig:n-topics) displays the optimal number of topics to be extracted across each of the four criteria. As would be expected, the different criteria suggested differing numbers of topics. Relying only on the criteria suggested by @arun10 would lead us to the conclusion that, essentially, the more topics estimated the better the fit, while the opposite conclusion would be reached if only evaluating the results relative to the criteria outlined by @deveaud14. The @cao09 and @griffiths04 criteria were more nuanced and suggested differing, but similar ranges of topics. After seven topics, however, a marked increase in the @cao09 criteria was observed, indicating a poorer fit, while only a moderate increase (indicating a better fit) was observed with the @griffiths04 criteria. Taken together, these results suggested that between three [the minimum value for the @cao09 criteria] and seven topics should be extracted (as displayed by the shaded rectangle in the background of Figure \@ref(fig:n-topics)). Each topic solution (3-7) was therefore evaluated based upon expert judgment for substantive meaning.
 
 ```{r n-topics, fig.cap = "Optimal Topic Selection. Optimal number of topics displayed according to four separate criteria. Shaded rectangle displayed the range in which topics were evaluated for substantive meaning. ", fig.width = 6.5, fig.height = 8}
 
@@ -313,11 +336,10 @@ search_standards <- FindTopicsNumber(dtm,
                                      control = list(seed = 77),
                                      mc.cores = 4L)
 
-stats_standards <- apply(search_standards[ ,-1], 
-      2, 
-      function(x) rescale(x, c(0, 1), range(x))) %>%
-  as_tibble() %>%
-  rowid_to_column("Topics") %>%
+stats_standards <- search_standards %>% 
+  as_tibble() %>% 
+  mutate_if(is.double, rescale) %>% 
+  rename("Topics" = "topics") %>%
   gather(metric, val, -Topics) %>%
   mutate(criterion = ifelse(metric == "CaoJuan2009" |
                             metric == "Arun2010",
@@ -335,7 +357,7 @@ stats_standards <- apply(search_standards[ ,-1],
 p1 <- ggplot(filter(stats_standards, criterion == "min"),
        aes(Topics, val)) +
   annotate("rect",
-           xmin = 2.6, xmax = 6.4,
+           xmin = 2.6, xmax = 7.4,
            ymin = 0, ymax = 1,
            fill = "magenta",
            alpha = 0.2) +
@@ -344,19 +366,20 @@ p1 <- ggplot(filter(stats_standards, criterion == "min"),
   geom_point(color = "gray40",
              size = 2) +
   facet_wrap(~metric) +
-  labs(x = NULL,
-       y = NULL,
+  scale_x_continuous("", limits = c(0, 25)) +
+  labs(y = "Scaled criteria values",
        title = "Minimize") +
   theme(plot.title = element_text(hjust = 0.5,
-                                  vjust = -3,
+                                  vjust = -2.5,
                                   face = "bold"),
-        panel.spacing = unit(2, "lines"))
+        panel.spacing = unit(2, "lines"),
+        plot.margin = margin(t = 0, b = -0.5, unit = "cm"))
 
 
 p2 <- ggplot(filter(stats_standards, criterion == "max"),
        aes(Topics, val)) +
   annotate("rect",
-           xmin = 2.6, xmax = 6.4,
+           xmin = 2.6, xmax = 7.4,
            ymin = 0, ymax = 1,
            fill = "magenta",
            alpha = 0.2) +
@@ -365,20 +388,21 @@ p2 <- ggplot(filter(stats_standards, criterion == "max"),
   geom_point(color = "gray40",
              size = 2) +
   facet_wrap(~metric) +
-  labs(x = "Number of Topics",
-       y = NULL,
+  scale_x_continuous("Number of Topics", limits = c(0, 25)) +
+  labs(y = "Scaled criteria values",
        title = "Maximize") +
   theme(plot.title = element_text(hjust = 0.5,
-                                  vjust = -3,
+                                  vjust = -2.5,
                                   face = "bold"),
-        panel.spacing = unit(2, "lines"))
+        panel.spacing = unit(2, "lines"),
+        plot.margin = margin(t = 0, unit = "cm"))
 
 p1 / p2
 ```
 
-Two science content experts with strong science education expertise and familiarity with the NGSS evaluated the 3-6 topic solution models independently for substantive meaning. Differences in labels assigned to topics were resolved through post-hoc collaboration. In general, the content experts began with a three-topic solution and first considered each word within a given topic individually, including their acceptation and known use within the NGSS. Second, the two experts considered their combined meaning within each extracted topic as being a representation of a possible construct (or topic of study) in the broad field of science, while noting the $\beta$ value for each word, and gave each topic a substantive scientific name (see Figure \@ref(fig:word-freq)). Third, and finally, the experts examined each named topic for independence, overlap, and stability across solutions. This process was applied for each topic-solution set between three to six topic solutions.The substantive names between each competing topic-solution were compared for independence, overlap, and stability (i.e., did each topic in the lower solution remain, were new topics created that were independent of others and that had substantive scientific meaning). 
+Two science content experts with strong science education expertise and familiarity with the NGSS evaluated the 3-7 topic solution models independently for substantive meaning. Differences in labels assigned to topics were resolved through post-hoc collaboration. In general, the content experts began with a three-topic solution and first considered each word within a given topic individually, including their acceptation and known use within the NGSS. Second, the two experts considered their combined meaning within each extracted topic as being a representation of a possible construct (or topic of study) in the broad field of science, while noting the $\beta$ value for each word, and gave each topic a substantive scientific name (see Figure \@ref(fig:word-freq)). Third, and finally, the experts examined each named topic for independence, overlap, and stability across solutions. This process was applied for each topic-solution set between three to seven topic solutions.  
 
-The content experts independently settled on the five-topic solution as best representing the data. Increasing the number of topics from three to four and from four to five led to the addition of substantively new and meaningful topics with little overlap amongst other topics. However, adding a sixth topic led to substantive overlap with at least two other extracted topics, and thus, the five-topic solution was deemed most appropriate. Table \@ref(tab:tbl) displays substantive labels  determined by the two content experts for each of the topics derived from the final (five-topic) model.
+The content experts independently settled on the five-topic solution as best representing the data, and their justifications were similar, as determined through collaborative de-briefings following their evaluation. Increasing the number of topics from three to four and from four to five led to the addition of substantively new and meaningful topics with little overlap amongst other topics. However, adding a sixth topic led to substantive overlap with at least two other extracted topics, and thus, the five-topic solution was deemed most appropriate. Table \@ref(tab:tbl) displays substantive labels  determined by the two content experts for each of the topics derived from the final (five-topic) model.
 
 ```{r tbl, results = "asis"}
 tibble(Topic = 1:5,
@@ -402,12 +426,11 @@ gammas <- tidy(tm_raw, "gamma")
 
 ess1_1 <- filter(gammas, document == "S08ESS1.1")
 ess2_4 <- filter(gammas, document == "S08ESS2.4")
-
 ```
 
-Figure \@ref(fig:heatmap) displays a heatmap of the $\gamma$ values across topics for each of the 59 performance expectations evaluated. Brighter colors represent a higher likelihood of the given topic being reflected by the given standard. For example, Performance Expectation ESS1.1 (bottom) is represented almost entirely (`paste0(round(ess1_1$gamma[1], 2)*100, "%")`) by Topic 1: *Analyzing data and using evidence to understand organisms and systems*. Performance Expectation ESS2.4, however, is represented partially (`paste0(round(ess2_4$gamma[1], 2)*100, "%")`) by Topic 1, and partially (`paste0(round(ess2_4$gamma[2], 2)*100, "%")`) by Topic 2: *Using scientific evidence to understand Earth systems*. These heatmaps can assist in deriving substantive meaning from the topics, given that the performance expectations that predominately make up a topic can be investigated. Once substantive meaning is assigned, however, the topics can likewise help bring new meaning back to the performance expectations, as themes may emerge that were not otherwise  apparent.
+Figure \@ref(fig:heatmap) displays a heatmap of the $\gamma$ values across topics for each of the 59 performance expectations evaluated. Brighter colors represent a higher likelihood of the given topic being reflected by the given standard. For example, Performance Expectation ESS1.1 (bottom) is represented almost entirely (`r paste0(round(ess1_1$gamma[1], 2)*100, "%")`) by Topic 1: *Analyzing data and using evidence to understand organisms and systems*. Performance Expectation ESS2.4, however, is represented partially (`r paste0(round(ess2_4$gamma[1], 2)*100, "%")`) by Topic 1, and partially (`r paste0(round(ess2_4$gamma[2], 2)*100, "%")`) by Topic 2: *Using scientific evidence to understand Earth systems*. These heatmaps can assist in deriving substantive meaning from the topics, given that the performance expectations that predominately make up a topic can be investigated. Once substantive meaning is assigned, however, the topics can likewise help bring new meaning back to the performance expectations, as themes may emerge that were not otherwise  apparent.
 
-```{r heatmap, fig.cap = "Heatmap of Gamma Values. Cells displayed in brighter colors have higher gamma values, representing a greater likelihood that the given topic is represented by the given standard.", fig.height = 7.5, fig.width = 6.5}
+```{r heatmap, fig.cap = "Heatmap of Gamma Values. Cells displayed in brighter colors have higher gamma values, representing a greater likelihood that the given topic is represented by the given standard. Actual gamma values displayed in all non-zero cells.", fig.height = 7.5, fig.width = 6.5}
 gammas_max <- gammas %>%
   group_by(document) %>%
   filter(gamma == max(gamma)) %>%
@@ -417,9 +440,20 @@ gammas_max <- gammas %>%
 gammas <- left_join(gammas, gammas_max) %>%
   mutate(document = gsub("^S08", "", document))
 
+
+text <- gammas %>% 
+  mutate(gamma = round(gamma, 2),
+         col   = ifelse(gamma > 0.7, "black", "white")) %>% 
+  filter(gamma > 0) %>% 
+  mutate(gamma = str_pad(gamma, 4, "both", "0"))
+
 ggplot(gammas, aes(topic, fct_reorder(document, assigned))) +
   geom_tile(aes(fill = gamma),
                 color = "gray40") +
+  geom_text(aes(label = gamma, color = col),
+            data = text,
+            size = 2) +
+  scale_color_identity() +
   scale_fill_viridis_c(name = "\n\u03B3", 
                        option = "magma",
                        guide = guide_colorbar(
@@ -446,7 +480,7 @@ ggplot(gammas, aes(topic, fct_reorder(document, assigned))) +
         legend.key.width = unit(1.2, "cm"))
 ```
 
-The top 15 words within each topic are displayed in Figure \@ref(fig:word-freq), according to their estimated $\beta$ values. Note that in many instances there were ties among beta values around 15. Those selected for display were chosen randomly. For example, if the 13^th^ to 18^th^ words all had the same $\beta$ value, only the 13^th^ to 15^th^ would be displayed based on a random selection of that $\beta$ value range. Each topic has been labeled according to its identified substantive label. Note that roughly equivalent plots were used for each of the 3-6 topic solutions when arriving upon the final topic model through expert judgment.
+The top 15 words within each topic are displayed in Figure \@ref(fig:word-freq), according to their estimated $\beta$ values. Note that in many instances there were ties among beta values around 15. Those selected for display were chosen randomly. For example, if the 13^th^ to 18^th^ words all had the same $\beta$ value, only the 13^th^ to 15^th^ would be displayed based on a random selection of that $\beta$ value range. Each topic has been labeled according to its identified substantive label. Note that roughly equivalent plots were used for each of the 3-7 topic solutions when arriving upon the final topic model through expert judgment. As can be seen, some words were represented across multiple topics (e.g., *evidence* is most strongly associated with the *Organisms and Systems* topic, but is represented in the top 15 words in every topic outside of *Scientific and Technological Solutions*). These are generally words that represent cross-cutting concepts in science. These words could be removed to increase the distinction between each topic, but this would come with the cost of not representing the standards, or the intent of the standards, as well (i.e., cross-cutting concepts are a key feature of the NGSS). We therefore opted to keep these words in the model. It is also worth mentioning that the model is estimated with every word including a beta value for every topic. The distinguishing characteristic of a topic is provided by the relative weight assigned to the topic across all words (through the beta values).
 
 ```{r word-freq, fig.cap = "Beta Values. Highest probability of words generated by topic. Note the substantive labels were assigned post-hoc. ", fig.width = 12, fig.height = 12}
 pd <- betas %>%
@@ -494,7 +528,7 @@ ggplot(pd, aes(reordered, beta)) +
 ```
 
 ## Predicting Items to Topics
-In addition to the topic-model providing information about the interrelated nature of the NGSS performance expectations, the final, selected model was also used *predictively*. That is, new text was provided to the model, and topic-level predictions were made. Specifically, each word from the new text was assigned a probability that it was generated from each topic. We used this approach with text from the Grade 8 science items from the Oregon AA-AAS. Importantly, all text from a given item, including the item prompt and the item options, were used when making predictions. These predictions can then be used to evaluate content coverage within the assessment (i.e., coverage of the identified topics).
+In addition to the topic model providing information about the interrelated nature of the NGSS performance expectations, the final, selected model was also used *predictively*. That is, new text was provided to the model, and topic-level predictions were made. Specifically, each word from the new text was assigned a probability that it was generated from each topic. We used this approach with text from the Grade 8 science items from the Oregon AA-AAS. Importantly, all text from a given item, including the item prompt and the item options, were used when making predictions. These predictions were then used to evaluate content coverage within the assessment (i.e., coverage of the identified topics).
 
 ```{r radar-plot-data}
 # Predict the topic for each item
@@ -530,7 +564,7 @@ probs <- posteriors$topics %>%
 
 ```
 
-Figure \@ref(fig:radar-plots-items) displays the probability of the text used within a random sample of nine items being generated from each of the five modeled topics. Random items 2, 5, and 7 all did not include any text that could be classified by our model, and the probability was equally distributed across the five topics. Note that this was expected, and is likely to be a more commonly observed outcome when working with data from AA-AAS assessment systems, given the inherently limiting RDBC process discussed above that intentionally limits textual density within items (particularly for items designed to be of *Low* difficulty). The equal spread of probability across topics is therefore not an indication that the items did not align with the content standards, but rather that the text represented in the item (if any) was not represented within our model. Random Items 4, 6, and 8 all clearly aligned with a single topic, while Random Items 1, 3, and 9 had probabilities split between two topics. Mapping these topics back to the standards they composed therefore provided additional information about the items and their linkage to the content standards.
+Figure \@ref(fig:radar-plots-items) displays the probability of the text used within a random sample of nine items being generated from each of the five modeled topics. Random items 2, 5, and 7 all did not include any text that could be classified by our model, and the probability was equally distributed across the five topics. Note that this was expected, and is likely to be a more commonly observed outcome when working with data from AA-AAS assessment systems that intentionally limit textual density within items. The equal spread of probability across topics is therefore not an indication that the items did not align with the content standards, but rather that the text represented in the item (if any) was not represented within our model. Regardless, these are examples of items that could be flagged for further review. Random Items 4, 6, and 8 all clearly aligned with a single topic, while Random Items 1, 3, and 9 had probabilities split between two topics. Mapping these topics back to the standards they composed therefore provided additional information about the items and their linkage to the content standards.
 
 ```{r radar-plots-items, fig.width = 6.5, fig.height = 8, fig.cap = "Probability of topics by item. Random sample of nine items displayed."}
 set.seed(3)
@@ -573,7 +607,7 @@ ggplot(aes(topic, probability, color = item)) +
         strip.text = element_text(size=10))
 ```
 
-The model-based predictions from the text used within the items were also used to evaluate content coverage across the test items. In our application, test items were theoretically designed to be of *Low*, *Medium*, and *High* difficulty, as discussed in the methods. We were therefore interested in whether the coverage of the derived topics was equal across each type of item. Figure \@ref(fig:radar-plots-coverage) displays a summary of the overall topic coverage by item type, with the average probability of items representing each of the five topics displayed via radar plots and bar charts. In each display, the thick gray line represents the expected probability if all topics were equally represented (i.e., 20%). Items in the *Low* category, for example, were estimated as slightly under-representing all topics, with the exception of *Organisms and Systems*, which was highly over-represented. This same pattern was present for the items written to be of *Medium* difficulty, although the pattern was even more severe. For the *High* items, the *Genetic Information* topic was the most underrepresented, but overall the coverage was considerably better. Although the evidence was not definitive, this type of information could be useful to guide subsequent investigations of content representativeness. 
+The model-based predictions from the text used within the items were also used to evaluate content coverage across the test items. In our application, test items were theoretically designed to be of *Low*, *Medium*, and *High* difficulty. We were therefore interested in whether the coverage of the derived topics was equal across each type of item. Figure \@ref(fig:radar-plots-coverage) displays a summary of the overall topic coverage by item type, with the average probability of items representing each of the five topics displayed via radar plots and bar charts. In each display, the thick gray line represents the expected probability if all topics were equally represented (i.e., 20%). Items in the *Low* category, for example, were estimated as slightly under-representing all topics, with the exception of *Organisms and Systems*, which was highly over-represented. This same pattern was present for the items written to be of *Medium* difficulty, although the pattern was even more severe. For the *High* items, the *Genetic Information* topic was the most underrepresented, but overall the coverage was considerably better. Although the evidence was not definitive, this type of information could be useful to guide subsequent investigations of content representativeness. 
 
 ```{r radar-plots-coverage, fig.width = 6.5, fig.height = 8, fig.cap="Overall Content Coverage. Gray bands represent the expected probability of topics were equally distributed. Topics are over/underrepresented to the extent the bar/polygon extends above/below the line."}
 ref <- tibble(x = c(1:5, 1.05), y = rep(1/5), 6)
@@ -692,27 +726,29 @@ labs + radar_summary + bars_summary +
 ```
 
 # Discussion
-Content validity is critical to the overall evaluative judgment of the validity of a test for a given use [@kane06; @messick95] and is a core element examined in alignment studies. This paper introduced a text-based, machine learning method, specifically topic modeling [@mohr13], to evaluate the textual congruence between content standards and test items. This approach has the potential to supplement the methods of current alignment and content-related validity studies by providing a triangulating source of evidence. Text mining also holds potential as a means of learning more about the content standards themselves (i.e., identifying groups of standards through previously unobserved themes), test items, and the textual link between standards and test items, as part of the iterative assessment development and refinement process.
+Validity based on test content is critical to the overall evaluative judgment of the validity of a test for a given use [@kane06; @messick95] and is a core element examined in alignment studies. This paper introduced a text-based, machine learning method, specifically topic modeling [@mohr13], to evaluate the textual congruence between content standards and test items. This approach has the potential to supplement the methods of current alignment and content-related validity studies by providing a triangulating source of evidence. Text mining also holds potential as a means of learning more about the content standards themselves (i.e., identifying groups of standards through previously unobserved themes), test items, and the textual link between standards and test items, as part of the iterative assessment development and refinement process.
 
-The nature of the topics identified in this analysis is substantively noteworthy. The middle school NGSS curriculum standards are expressed through 59 Performance Expectations that served as one of the primary data sources for this study. These Performance Expectations are based upon (and include each of) the three dimensions of the standards: (a) Scientific and engineering practices, (b) cross-cutting concepts, and (c) disciplinary core ideas [@nrcframework12]. Interestingly, and perhaps appropriately given how the tri-dimensional Performance Expectations were designed to be implemented in science classrooms [@nrc15], the topics we identified reflected a blend of domains (PS, LS, ESS, and ED) and/or dimensions. For example, Topic 1 seemed to emphasize analyzing data (one of the scientific and engineering practices) to understand organisms (a topic reflected in multiple disciplinary core ideas) and systems (a focus of both disciplinary core ideas and cross-cutting concepts). Topic 2 (Using scientific evidence to understand Earth systems) exhibited a similar blend of the three dimensions of the standards. Topic 3, was largely focused on energy, which is reflected in both disciplinary core ideas and cross-cutting concepts. Even Topic 4, which was nearly exclusively focused on genetic information, was strongly associated with the term *evidence*, which is a core part of a scientific and engineering practice. Thus, the topics reflected the way in which the Performance Expectations were intended to blend the three-dimensional framework upon which the NGSS are based. The five extracted topics usefully summarize Performance Expectations that are highly variable in terms of the scientific content they emphasize and the outcomes they target (i.e., a deeper understanding of a disciplinary core ideas; the capacity to engage in a scientific and engineering practice).
+The nature of the topics identified in this analysis is substantively noteworthy. The middle school NGSS curriculum standards are expressed through 59 Performance Expectations that served as one of the primary data sources for this study. These Performance Expectations are based upon (and include each of) the three dimensions of the standards: (a) Scientific and engineering practices, (b) cross-cutting concepts, and (c) disciplinary core ideas [@nrcframework12]. Interestingly, and perhaps appropriately given how the tri-dimensional Performance Expectations were designed to be implemented in science classrooms [@nrc15], the topics we identified reflected a blend of domains (PS, LS, ESS, and ED) and/or dimensions. For example, Topic 1 seemed to emphasize analyzing data (one of the scientific and engineering practices) to understand organisms (a topic reflected in multiple disciplinary core ideas) and systems (a focus of both disciplinary core ideas and cross-cutting concepts). Topic 2 (*Using Scientific Evidence to Understand Earth Systems*) exhibited a similar blend of the three dimensions of the standards. Topic 3, was largely focused on energy, which is reflected in both disciplinary core ideas and cross-cutting concepts. Even Topic 4, which was nearly exclusively focused on genetic information, was strongly associated with the term *evidence*, which is a core part of a scientific and engineering practice. Thus, the topics reflected the way in which the Performance Expectations were intended to blend the three-dimensional framework upon which the NGSS are based. The five extracted topics usefully summarize Performance Expectations that are highly variable in terms of the scientific content they emphasize and the outcomes they target (i.e., a deeper understanding of disciplinary core ideas; the capacity to engage in a scientific and engineering practice).
 
-Information from topic modeling could be used to supplement data collected through formal alignment studies by triangulating evidence of the alignment for individual items. If the same information was provided by such separate sources, it may help reinforce the overall substantive conclusions about particular items or the test as a whole. If, however, the evidence did not agree, then it may serve as a prompt to collect additional data and conduct further investigations. In addition, the analyses could potentially inform item and test development *during* the developmental process. That is, the analysis could serve as a diagnostic tool to better understand the content coverage of a particular test and when key vocabulary may be missing from a particular item. From a time- and cost-benefit perspective, it is more efficient and cheaper to conduct analyses of data in-house, especially during early phases of development and refinement, than to conduct (post-hoc) formal alignment studies. Part of the benefit of an analytic approach is that the analyses could be conducted much more regularly to inform a truly iterative test documentation and validation process. 
+Information from topic modeling could be used to supplement data collected through formal alignment studies by triangulating evidence of the alignment for individual items. If the same information was provided by such separate sources, it may help reinforce the overall substantive conclusions about particular items or the test as a whole. If, however, the evidence did not agree, then it may serve as a prompt to collect additional data and conduct further investigations, perhaps with an additional subject-matter expert. In addition, the analyses could potentially inform item and test development *during* the developmental process. That is, the analysis could serve as a diagnostic tool to better understand the content coverage of a particular test and when key vocabulary may be missing from a particular item. From a time- and cost-benefit perspective, it is more efficient and cheaper to conduct analyses of data in-house, especially during early phases of development and refinement, than to conduct (post-hoc) formal alignment studies. Part of the benefit of an analytic approach is that the analyses could be conducted much more regularly to inform a truly iterative test documentation and validation process. 
 
 ## Limitations and Future Directions
-There are several limitations to the approach discussed in this paper that should be kept in mind. First, the results depend highly upon the chosen topic model, including both the number of topics and the substantive meaning assigned to the topics. We view the topic model used here as preliminary, and in need of further external validation. We have therefore published figures similar to Figures \@ref(fig:heatmap) and \@ref(fig:word-freq) for topic solutions between 2 to 16 topics within a GitHub repository that houses all the code for our analyses[^2]. Ideally, the topic model itself could be refined over time, perhaps through a semi-supervised approach to topic modeling [@lu08], that would place predefined constraints on topic assignment based on expert consensus across the field. By making all of our work public, we hope to encourage collaboration and potentially "crowdsource" an optimal model - an approach that has been successfully applied in other fields [e.g., @arganda15; @bentzien13]. Once the model reached a stable point, an Application Programming Interface (API) could be created such that test developers could submit the text from their items and obtain immediate feedback, perhaps in a similar form to the results provided here. The API could be hosted on a secure website or, alternatively, the model itself could be shared through an R package or similar outlet.
+There are several limitations to the approach discussed in this paper that should be kept in mind. First, the results depend highly upon the chosen topic model, including both the number of topics and the substantive meaning assigned to the topics. We view the topic model used here as preliminary, and in need of further external validation. We have therefore published figures similar to Figures \@ref(fig:heatmap) and \@ref(fig:word-freq) for topic solutions between 2 to 16 topics within a GitHub repository that houses all the code for our analyses[^1]. Ideally, the topic model itself could be refined over time, perhaps through a semi-supervised approach to topic modeling [@lu08], that would place predefined constraints on topic assignment based on expert consensus across the field. By making all of our work public, we hope to encourage collaboration and potentially "crowdsource" an optimal topic model to represent the NGSS---an approach that has been successfully applied in other fields [e.g., @arganda15; @bentzien13]. In our study, we built a preliminary model using text from the NGSS. We then evaluated the Oregon alternate assessment against this model. However, the topic model could be used with the text from *any* test items written to measure the NGSS. In our approach, two expert reviewers came to consensus on a five-topic solution. It is possible, however, that alternative content experts may have arrived at different conclusions. Including as many voices in the conversation as possible may help reach a general consensus among the field, and models could be constructed as a general-purpose tool for any test developer writing test items to the given standards. A general training (perhaps through an online module) may first need to be provided to the subject matter experts providing input to ensure they understand the tool they are helping to develop, its purpose, and how their input may influence the final model. Once some form of consensus was reached, an online Application Programming Interface (API) could even be created so test developers could submit the text from their items and obtain immediate feedback, perhaps in a similar form to the results provided here. The API could be hosted on a secure website or, alternatively, the model itself could be shared through an R package or similar outlet.
 
-[^2]: The repository is currently set as private for peer-review purposes, but will be made public upon publication.
+[^1]: The repository is currently set as private for peer-review purposes, but will be made public upon publication.
 
-It is also the case that some items, by design in testing contexts like AA-AAS, have little to no text. In this case, our model essentially fails, because it cannot relate the item to any topic, and the probability is equally dispersed across the topics. We view these cases as a flag for further review. In other words, the item may align well with the content standards and contribute meaningfully toward the content-related validity evidence of the test, but not include any text. A more long-term solution would be to utilize other areas of machine learning, such as image recognition. This would include first creating a dataset with items with no text, and providing the standard(s) with which the item was judged as being aligned (through expert judgment). The algorithm could then begin to learn how different image features relate to item alignment. Again, however, this would require the algorithm being iteratively trained, with different algorithms being needed for different content areas. Expert consensus would again need to be established as a source of validity evidence for the algorithm itself. However, if text mining could be used in combination with image recognition (and the image recognition algorithm could be used to learn the topics, so the algorithms would work together), a more powerful content-related validity evidence system could be established. We again, however, would view such a system as diagnostic and a source of triangulating evidence, with human judgment ultimately being the "gold standard". 
+It is also the case that some items, by design in testing contexts like AA-AAS, have little to no text. In this case, our model essentially fails, because it cannot relate the item to any topic, and the probability is equally dispersed across the topics. We view these cases as a flag for further review. In other words, the item may align well with the content standards and contribute meaningfully toward the content-related validity evidence of the test, but not include any text. A more long-term solution would be to utilize other areas of machine learning, such as image recognition. This would include first creating a dataset with items with no text, and providing the standard(s) with which the item was judged as being aligned (through expert judgment). The algorithm could then begin to learn how different image features relate to item alignment. Again, however, this would require the algorithm being iteratively trained, with different algorithms being needed for different content areas. Expert consensus would again need to be established as a source of validity evidence for the algorithm itself. However, if text mining could be used in combination with image recognition, a more powerful content-related validity evidence system could be established. We again, however, would view such a system as diagnostic and a source of triangulating evidence, with human judgment ultimately maintained as the "gold standard". 
 
-Readers may consider what value the topics add in terms of summarizing the Performance Expectations. As noted above, the middle school NGSS Performance Expectations are already grouped into 12 Arrangement Clusters across the four domains. These arrangement clusters represent a more fine-grained description of  performance expectation groupings (relative to the five topics we identified) and are based upon pre-defined and theoretical criteria. These theoretical considerations could potentially be useful within a semi-supervised LDA application. The topics we identified were based solely on the co-occurrence of words within the Performance Expectations, but then reviewed post-hoc for substantive and theoretical meaning. These are alternative approaches to the same basic goal. The topics identified, however, did reflect the contents of the Performance Expectations in a succinct but comprehensive way.
+Along these lines, the extent to which textual congruence established through topic modeling methods correlates with human-based judgments is not yet clear. Although not a clear one-to-one correspondence, it would be helpful to understand how, for example, estimates of categorical concurrence from Webb's model correspond with topic representation [see @webb97]. As mentioned, we view topic modeling as potentially being beneficial as an *additional* source of content-related validity evidence, as well as a useful diagnostic tool during item development. However, understanding how model-based predictions do or do not align with human judgments may help refine the model while also providing a source of validity evidence for its use.
 
-Finally, our specific application utilized the NGSS content standards and a science test. In some ways, science is "easy" to evaluate linkage between tests and items, because key vocabulary must be represented in each. It therefore remains to be seen how this approach would work with other highly-assessed content areas like English language arts and math. Reading would seem to follow rather naturally; for example if a standard discussed verbs, an item may ask students to identify the verb within a sentence. Because the word "verb" would occur in both, the match would be found. However, there are other instances where the mapping between the text used in content standards and items may be disparate, yet aligned. Mathematics may be particularly tricky but, again, more research would be needed. For example, the mathematical symbols themselves could be treated as "words". For topics such as geometry, the image recognition approach discussed above may be more appropriate. 
+Readers may consider what value the topics add in terms of summarizing the Performance Expectations. As previously noted, the middle school NGSS Performance Expectations are already grouped into 12 Arrangement Clusters across the four domains. These arrangement clusters represent a more fine-grained description of  performance expectation groupings (relative to the five topics we identified) and are based upon pre-defined and theoretical criteria. These theoretical considerations could potentially be useful within a semi-supervised LDA application. The topics we identified were based solely on the co-occurrence of words within the Performance Expectations, but then reviewed post-hoc for substantive and theoretical meaning. These are alternative approaches to the same basic goal. The topics identified, however, did reflect the content of the Performance Expectations in a succinct and comprehensive way. It is also worth mentioning that our approach does not provide a clear linking between an item and an individual performance expectations. That is, the specificity of the information provided is at the topic (subdomain) level, rather than to a specific skill. This is helpful for evaluating the relative representation of these topics across the test items, but may be less helpful for a specific item. However, if a given item is found to not be represented by *any* of the topics, it may warrant further investigation. While features outside of text (e.g., graphics) could relate to the content standards, flagging these items for further review may help detect items in need of revision before going to full alignment panel reviews.
+
+Finally, our specific application utilized the NGSS content standards and a science test. In some ways, science is "easy" to evaluate linkage between tests and items, because key vocabulary must be represented in each. It therefore remains to be seen how this approach would work with other highly-assessed content areas like English language arts and mathematics. Reading would seem to follow rather naturally; for example, if a standard discussed verbs, an item may ask students to identify the verb within a sentence. Because the word "verb" would occur in both, the match would be found. However, there are other instances where the mapping between the text used in content standards and items may be disparate, yet aligned. Mathematics also includes many keywords (e.g., area, measure, multiply) that may be helpful in classifying items, but the mathematical symbols themselves could also be useful by simply treating these symbols as "words" and evaluating their co-occurrence. For topics such as geometry, the image recognition approach discussed above may also be helpful. However, further research is needed to better understand how the method would generalize to other content areas, as well as different grades within a content area. It is possible, for instance, that the method would work well in mathematics for primary grade content, but not middle or high school content. 
 
 ## Conclusion
-Topic modeling Latent Dirichlet Allocation is one of several text-mining procedures that could provide additional information and context to content-related validity studies. The results could also be used diagnostically during item development to help identify areas of under- and over-representation, and particular items that may be missing critical vocabulary. If such an method were applied in operational use, however, it would be critical to communicate the shortcomings of the approach with stakeholders, and that the results not be relied upon in isolation. Attaching numbers and probabilities to words and items may communicate a more "objective" approach, but as discussed above, this is not necessarily the case. As a general diagnostic tool, and as a supplemental source of evidence, however, we believe the approach discussed here holds considerable promise. The practical costs associated with alignment studies are high. Ideally, the alignment study should essentially provide confirmatory evidence, while ad-hoc text analyses could serve as a more diagnostic and exploratory. 
+Topic modeling with latent Dirichlet allocation is one of several text-mining procedures that could provide additional information and context to content-related validity studies. The results could also be used diagnostically during item development to help identify areas of under- and over-representation, and particular items that may be missing critical vocabulary. If such an method were applied in operational use, however, it would be critical to communicate the shortcomings of the approach with stakeholders, and that the results not be relied upon in isolation. Attaching numbers and probabilities to words and items may communicate a more "objective" approach, but as discussed above, this is not necessarily the case. As a general diagnostic tool, and as a supplemental source of evidence, however, we believe the approach discussed here holds considerable promise. The practical costs associated with alignment studies are high and should ideally provide confirmatory evidence, while ad-hoc text analyses could serve a more diagnostic and exploratory role. 
 
-The gathering of content-related validity evidence is dominated by a single method - alignment studies. Machine learning approaches may help to broaden the evidential base. In some cases, specifically in the early grades (pre-K; K-2) tests may not have content standards, and the approach discussed here may seem infeasible. However, formal alignment studies are also challenging, if not impossible, at these levels and, while predictions may not be able to be made toward topics represented in content standards, much could be learned by mining the items themselves and evaluating the topics therein. In sum, while the work presented here is preliminary, text mining and topic modeling as a whole hold considerable promise for the field of measurement and psychometric research, specifically as an alternative means to gathering validity evidence.
+The gathering of content-related validity evidence is dominated by a single method---alignment studies. Machine learning approaches may help to broaden the evidential base. In some cases, specifically in the early grades (pre-K; K-2) tests may not have content standards, and the approach discussed here may seem infeasible. However, formal alignment studies are also challenging, if not impossible, at these levels and, while predictions may not be able to be made toward topics represented in content standards, much could be learned by mining the items themselves and evaluating the topics therein. In sum, while the work presented here is preliminary, text mining and topic modeling as a whole hold considerable promise for the field of measurement and psychometric research, specifically as an alternative means to gathering validity evidence.
 
 \newpage
 # References
