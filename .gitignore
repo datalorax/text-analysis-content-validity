@@ -1,3 +1,4 @@
+*.fdb_latexmk
 *.ttt
 # PDF
 text-analysis-content-validity.pdf
@@ -77,5 +78,6 @@ vignettes/*.pdf
 rsconnect/
 # item file
 data/G8_Sci_Items.xlsx
+data/ex-align-data/*
 .Rproj.user
 text-analysis-content-validity.Rproj
