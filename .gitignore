@@ -81,3 +81,9 @@ data/G8_Sci_Items.xlsx
 data/ex-align-data/*
 .Rproj.user
 text-analysis-content-validity.Rproj
+
+# ignore revisions summary tables
+revisions/*
+
+# ignore submission specific docs
+submission/*
