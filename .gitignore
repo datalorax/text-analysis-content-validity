@@ -1,7 +1,7 @@
 *.fdb_latexmk
 *.ttt
 # PDF
-text-analysis-content-validity.pdf
+#text-analysis-content-validity.pdf
 # tex files
 *.tex
 *.aux
