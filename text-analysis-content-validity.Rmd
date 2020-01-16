@@ -14,7 +14,7 @@ author:
     email         : "brockr@uoregon.edu"
   - name          : "Sondra Stegenga"
     affiliation   : "2"
-    email         : "sondras@uoregon.edu"
+    email         : "sondra.stegenga@utah.edu"
   - name          : "P. Shawn Irvin"
     affiliation   : "1"
     email         : "pirvin@uoregon.edu"
@@ -70,10 +70,14 @@ if(install) {
   # install.packages("remotes")
   # and run the below. If you are still having issues, see https://stackoverflow.com/questions/17082341/installing-older-version-of-r-package
 
+  # install rmarkdown version
+  remotes::install_github("rstudio/rmarkdown@d4d2a8fbc71c321baf55840e9967d438ab2f2c0a")
+
   # install papaja version
   remotes::install_github("crsh/papaja@346e37b7e16c1186f8899c01b4961acf46b1914a")
-
-  # install ggplot2 version
+  remotes::install_github("crsh/rmdfiltr@d31bffe480f2820394f1c3f9c689d706b44b3b37")
+ 
+   # install ggplot2 version
   remotes::install_github("tidyverse/ggplot2@fb731913c57ee5fe972b836bc8989403bf2ab65f")
 
   # install magrittr version
@@ -394,7 +398,7 @@ The NGSS are based, in part, on the *Framework for K-12 Science Education* [@nrc
 
 Two document-term matrices were created, with one representing the content standards (with each NGSS Performance Expectation served as a document) and one representing the text from items (item stems and answer options). The document term-matrix for the content standards was used to train (estimate) the topic model, as described more fully below, while the document-term matrix for items was used to evaluate the textual congruence between the items and the estimated topics using the fitted model. The document-term matrix for items was unique to this specific test, and any evaluation of other tests would require the creation of a new item-level document-term matrix; however, the document-term matrix for the content standards could be applied to any test. 
 
-As part of data processing, we removed stop words (common words like "of", "a", "the", "and", "is") as represented within the *onix*, *SMART*, and *snowball* dictionaries [see @lewis04; @onix; @snowball] and implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02]. Although preliminary models included Webb's words, the words associated with scientific concepts (e.g., evidence, genetic, mass, motion) became conflated with common scientific verbs (e.g., design, describe, interpret, analyze) making the individual topics more difficult to discern. We therefore opted to keep the model as focused on the content as possible by removing these words.
+As part of data processing, we removed stop words (common words like "of", "a", "the", "and", "is") as represented within the *onix*, *SMART*, and *snowball* dictionaries [see @lewis04; @onix; @snowball] and implemented in the *tidytext* R package [@silge16]. Additionally, we removed verbs associated with Webb's depth of knowledge levels [@webb02], given their proliferation throughout the content standards. Although preliminary models included Webb's words, the topics were difficult to identify and interpret because of the over-representation of these words within in each topic, rather than words relating to scientific concepts (e.g., evidence, genetic, mass, motion). We therefore opted to keep the model as focused on the content as possible by removing these process words (e.g., design, describe, interpret, analyze).
 
 The final document-term matrix included 59 rows, one for each NGSS Performance Expectation, and 355 columns, one for each unique word represented in the content standards that was not a stop word or one of Webb's depth of knowledge verbs. A similar document-term matrix was pre-processed using the same steps as listed above for the test items, using all text represented within the test items and each item serving as a document. Importantly, however, no analyses were conducted on the document-term matrix for items. Rather, the document-term matrix for items was used only to make predictions for each item to the topics derived from the content standards.
 
@@ -415,9 +419,9 @@ As with EFA, perhaps the most difficult aspect of topic modeling is determining 
 
 Following the evaluation of topics, we found a range of topics which appeared to reasonably minimize or maximize each of the criteria (as displayed in the Results section). These topics were then reviewed for substantive meaning and a final topic model was arrived upon through independent evaluations of the topic solutions by two science content SMEs. This model then represented our final trained model. The probability that each AA-AAS test item was represented by each topic was then estimated. The model was therefore trained on the words within the standards and we evaluated whether the words used in the items corresponded with the identified topics.
 
-To evaluate the correspondence between the topic model results and SME ratings, we first estimated the mean SME rating for each item. Topics were then linked to these data via the standard the item was designed to measure, providing a link between SME ratings and the modeled topics (with the topic to standard link identified by the highest $\gamma$ value for a given standard across topics). Topic predictions were then made for each item, which estimated the probability that the text from the given item was generated by each topic. Finally, these data were linked with the SME ratings via the item ID and the topic, resulting in a final dataset that included an item ID, the standard the item was designed to measure and its associated topic, as well as the mean SME alignment rating and the probability the item was generated by the given topic.
+To evaluate the correspondence between the topic model results and SME ratings, we first estimated the mean SME rating for each item. Topics were then linked to these data via the standard the item was designed to measure, providing a link between SME ratings and the modeled topics (with the topic to standard link identified by the highest $\gamma$ value for a given standard across topics). Topic predictions were then made for each item, which estimated the probability that the text from the given item was generated by each topic. Finally, these data were linked with the SME ratings via the item ID and the topic, resulting in a final dataset that included an item ID, the standard the item was designed to measure and its associated topic, as well as the mean SME alignment rating and the probability the item was generated by the given topic. Given that the standard the item was judged as aligning with was used to link standards and topics, all topic-level predictions corresponded to the given standards. In other words, it would not be possible for a model-based prediction to be made for a given item to a topic not including the standard for the given item.
 
-We anticipated that multiple items would not include any text related to the modeled topics, leading to no topic-level prediction for the given item (i.e., equal/uniform topic probability). We were therefore primarily interested in the correspondence between model-based predictions and SME ratings when a prediction was made. However, we also hypothesized that when a topic-level prediction could not be made (given the text represented in the item), these items would have lower alignment ratings, on average, than those in which a topic prediction could be made. We evaluated this relation using a logistic regression model, with the alignment rating (collapsed from a three-point scale to a dichotomous yes/no rating) serving as the outcome, and a dichotomous indicator of whether or not a topic-level prediction was made by the model serving as the primary predictor variable of interest. We also included a set of fixed effects to control for the specific rater providing the rating (i.e., the outcome included all ratings across raters, rather than the mean rating, and we therefore included *rater* as a set of control variables).
+We anticipated that multiple items would not include any text related to the modeled topics, leading to no topic-level prediction for the given item (i.e., equal/uniform topic probability). We were therefore primarily interested in the correspondence between model-based predictions and SME ratings when a prediction was made. However, we also hypothesized that when a topic-level prediction could not be made (given the text represented in the item), these items would have lower alignment ratings, on average, than those in which a topic prediction could be made. We evaluated this relation using a logistic regression model, with the alignment rating (collapsed from a three-point scale to a dichotomous yes/no rating) serving as the outcome, and a dichotomous indicator of whether or not a topic-level prediction was made by the model serving as the primary predictor variable of interest. We also included a set of fixed effects to control for the specific rater providing the rating (i.e., the outcome included all ratings across raters, rather than the mean rating, and we therefore included *rater* as a set of control variables). The three point alignment scale was collapsed with a rating of 2 (on the 0-2 scale) representing alignment, and ratings of 0 or 1 representing non-alignment.
 
 Topics were estimated using the *textmodeling* package [@grun11], while the evaluation of the number of topics to extract was conducted with the *ldatuning* package [@nikita16], both of which are extensions to the R statistical computing environment [@r]. Data were prepared using the *tidyverse* suite of packages [@wickham17], with all plots produced using the *ggplot2* package [@wickham16].
 
@@ -593,13 +597,12 @@ pd <- betas %>%
   slice(1:15) %>%
   ungroup() %>%
   mutate(topic = factor(topic, 
-                            levels = 1:6,
+                            levels = 1:5,
                             labels = c("Organisms & Systems",
                                        "Earth Systems",
                                        "Energy",
                                        "Genetic Information",
-                                       "Scientific and \nTechnological Solutions",
-                                       "other")),
+                                       "Scientific and \nTechnological Solutions")),
          reordered = reorder_within(term, beta, topic))
 
 ggplot(pd, aes(reordered, beta)) +
@@ -830,42 +833,38 @@ post <- semi_join(post, post_max_prob) %>%
 
 align_topics <- left_join(mean_alignment, post)
 
-text_annos <- data.frame(val = c(0.23, 0.37, 0.77, 0.50), 
-                         y = c(10.5, 2.75, 6, 1),
+text_annos <- data.frame(x = c(1.97, 1.7), 
+                         y = c(4.5, 1.6),
                          anno = c(
-                          "TM probability", 
-                          "Average SME rating",
-                          "TM", 
-                          "SME"),
-                         prediction = c(
-                          rep("No Prediction", 2),
-                          rep("Prediction Made", 2)), 
-                         type = c("probability", "mean_align"))
+                          "Prediction Made", 
+                          "No Prediction Made"))
 
-densities <- align_topics %>%
-  drop_na(prediction) %>%
-  mutate(mean_align = scales::rescale(mean_align)) %>%
-  gather(type, val, mean_align, probability) %>%
-ggplot(aes(val)) +
-  geom_density(aes(fill = type),
-               alpha = 0.8,
-               color = "white") +
-  facet_wrap(~prediction) +
-  labs(x = "Mean Rating/Probability",
-       y = "Density",
-       title = "Distribution of topic probabilities and alignment ratings") +
-  scale_fill_brewer(palette = "Set2") +
-  scale_color_brewer(palette = "Set2") +
-  guides(fill = "none", color = "none") +
-  geom_text(aes(y = y, label = anno, color = type), text_annos, 
-            hjust = 0,
-            family = "Times New Roman",
-            size = 4) +
-  theme(panel.spacing = unit(2, "lines"),
+densities <- align_topics %>% 
+  drop_na(prediction) %>% 
+  rename(Prediction = prediction) %>% 
+ggplot(aes(mean_align, fill = Prediction)) +
+  geom_density(alpha = 0.3, color = "white") +
+  geom_label(aes(x, y, label = anno), text_annos,
+            inherit.aes = FALSE,
+            label.size = 0,
+            label.padding = unit(0.1, "mm"),
+            hjust = "right",
+            color = "gray40",
+            family = "Times New Roman") +
+  colorblindr::scale_fill_OkabeIto() +
+  labs(x = "SME expert average rating",
+       y = "Probability density",
+       title = "SME densities by topic prediction") +
+  guides(fill = "none") +
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 8),
         plot.title = element_text(size = 12, hjust = 0.5, vjust = -1),
-        strip.text = element_text(size=10),
-        plot.margin = margin(l = 0, r = 0, b = 0, t = 0, unit = "cm"))
-
+        # legend.position = c(0.1, -0.12),
+        # legend.direction = "horizontal",
+        # legend.text = element_text(size = 8),
+        # legend.title = element_text(size = 10),
+        # legend.key.size = unit(0.2, "cm"),
+        plot.margin = margin(l = 0, r = 0, b = 0, t = -0.5, unit = "cm"))
 
 set.seed(3)
 samp <- probs %>% 
@@ -902,17 +901,16 @@ ggplot(aes(topic, probability, color = item)) +
   theme(axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
         axis.text.x = element_text(size = 8),
-        plot.title = element_text(size = 12, hjust = 0.5, vjust = -1),
+        plot.title = element_text(size = 12, hjust = 0.5, vjust = -1.5),
         panel.spacing.x = unit(2, "cm"),
         panel.spacing.y = unit(0, "cm"),
         strip.text = element_text(size=10),
-        plot.margin = margin(l = 0, r = 0, b = 0, t = 0, unit = "cm"))
+        plot.margin = margin(l = -0.5, r = -0.5, b = 0, t = -0.5, unit = "cm"))
 
-item_radar_plots / densities
+item_radar_plots / densities +
+  plot_layout(heights = 2, 1)
 
 align_model_d <- left_join(alignment, select(align_topics, item_id, prediction))
-
-
 
 align_model_d <- align_model_d %>% 
   mutate(aligned = ifelse(alignment == 2, 1, 0),
@@ -952,7 +950,7 @@ gammas %>%
 ## Correspondence with alignment study results
 Finally, we investigated the correspondence between the topic-level predictions from the text-based model and alignment results from SME. The top panel of Figure \@ref(fig:densities) displays topic-level predictions for each of 6 randomly selected items. Notice that a clear topic prediction was made for Items 1, 3, and 4, while no prediction was made for Items 2 and 5: These latter items are examples where the items did not include any text that could be classified by our model, and the probability was equally distributed across the five topics. Finally, Item 6 was split evenly between two topics, with no clear prediction made. 
 
-The bottom panel of Figure \@ref(fig:densities) displays overlapping (kernel density) distributions for items when estimated by the mean SME ratings (green distribution) versus topic model probabilities (orange distribution), with separate panels by whether or not a topic-level prediction was made by the model (note, the mean values were rescaled to have a minimum value of zero and a maximum value of 1.0). As can be seen, the topic-level probability distribution closely mirrored the SME ratings when a topic-level prediction was made (e.g., Items 1, 3, and 4). When a topic-level prediction was not made (e.g., Items 2, 5, and 6), the distributions were not closely aligned and, as would be expected, the distribution centered on 0.20, although there were also a few items around 0.5 (e.g., Item 6). Importantly, as displayed by the average SME rating distribution, a number of items were judged as having adequate alignment despite no topic-level prediction being made. Items without a topic-level prediction may therefore be candidates for further review, but only these follow-up reviews would be likely to indicate lack of alignment for individual items. On average, however, items *with* topic-level predictions were `r round(exp(coef(m_binom)["predictionPrediction Made"]), 2)` times more likely to be rated as aligned to the content standards by SMEs, which was significant (`r binom_report`). 
+The bottom panel of Figure \@ref(fig:densities) displays overlapping (kernel density) distributions of the average SME ratings, separated by whether a topic-level prediction was made by the model. As can be seen, many items were rated with an average of 2.0, the highest possible alignment rating, regardless of whether a topic-level prediction was or was not made. However, the distribution of SME ratings when a prediction was made for the item (e.g., Items 1, 3 and 4) had considerably more density at this upper extreme, while simultaneously having less density at all other values. In other words, if a prediction was made for a given item it was more likely to have an average SME rating of 2.0, relative to items for which a prediction was not made (e.g., Items 2, 5, and 6), while also being less likely to have any lower value. Importantly, however, a number of items were still judged as having adequate alignment despite no topic-level prediction being made. Items without a topic-level prediction may therefore be candidates for further review, but only these follow-up reviews would be likely to indicate lack of alignment for individual items. The logistic regression model indicated that, on average, items *with* topic-level predictions were `r round(exp(coef(m_binom)["predictionPrediction Made"]), 2)` times more likely to be rated as aligned to the content standards by SMEs, which was significant (`r binom_report`). 
 
 # Discussion
 Validity based on test content is critical to the overall evaluative judgment of the validity of a test for a given use [@kane06; @messick95] and is a core element examined in alignment studies. This paper introduced a text-based, machine learning method, specifically topic modeling [@mohr13], to evaluate the textual congruence between content standards and test items. This approach has the potential to supplement the methods of current alignment and content-related validity studies by providing a triangulating source of evidence, demonstrating the utility of machine learning methods (topic modeling) alongside more traditional approaches, as highlighted by others [@nelson17]. Text mining also holds potential as a means of learning more about the content standards themselves (i.e., identifying groups of standards through previously unobserved themes), test items, and the textual link between standards and test items, as part of the iterative assessment development and refinement process.
@@ -962,18 +960,13 @@ The nature of the topics identified in this analysis is substantively noteworthy
 Information from topic modeling could be used to supplement data collected through formal alignment studies by providing a source of triangulating evidence for individual items. If the same information was provided by such separate sources, it may help reinforce the overall substantive conclusions about particular items or the test as a whole. If, however, the evidence did not agree, then it may serve as a prompt to collect additional data and conduct further investigations, perhaps with an additional SME. In addition, the analyses could potentially inform item and test development *during* the developmental process. That is, the analysis could serve as a diagnostic tool to better understand the content coverage of a particular test and when key vocabulary may be missing from a particular item. Topics are composed of groups of content standards (as shown in Figure \@ref(fig:heatmap)), and a lack of representation for a given topic therefore represents a lack of representation for these standards. Using topic models as a source of diagnostic information would likely prompt item writers to include vocabulary directly corresponding with standards associated within specific topics. This may not always be desirable, however (i.e., when items are targeted at the lower tail of the ability distribution), and would likely need to be incorporated as part of item writer trainings. This also reinforces that the evidence obtained from text analyses is likely best thought of as complementary and supplemental, rather than as a replacement for any existing methods. From a time- and cost-benefit perspective, however, it is more efficient and cheaper to conduct analyses of data in-house, especially during early phases of development and refinement, than to conduct (post-hoc) formal alignment studies. Part of the benefit of an analytic approach is that the analyses could be conducted much more regularly to inform a truly iterative test documentation and validation process. 
 
 ## Limitations and Future Directions
-There are several limitations to the approach discussed in this paper that should be kept in mind. First, the results depend highly upon the chosen topic model, including both the number of topics and the substantive meaning assigned to the topics. We view the topic model used here as preliminary, and in need of further external validation. We have therefore published figures similar to Figures \@ref(fig:heatmap) and \@ref(fig:word-freq) for topic solutions between 2 to 16 topics within a GitHub repository that houses all the code for our analyses[^1]. Ideally, the topic model itself could be refined over time with input from SMEs in the field. By making all of our work public, we hope to encourage collaboration and potentially "crowdsource" an optimal topic model to represent the NGSS---an approach that has been successfully applied in other fields [e.g., @arganda15; @bentzien13]. 
+There are several limitations to the approach discussed in this paper that should be kept in mind. First, the results depend highly upon the chosen topic model, including the number of topics extracted, stop words removed, and the substantive meaning assigned to the topics. We view the topic model used here as preliminary, and in need of further external validation. We have therefore published figures similar to Figures \@ref(fig:heatmap) and \@ref(fig:word-freq) for topic solutions between 3 to 16 topics within a GitHub repository that houses all the code for our analyses[^1]. Ideally, the topic model itself could be refined over time with input from SMEs in the field. By making all of our work public, we hope to encourage collaboration and potentially "crowdsource" an optimal topic model to represent the NGSS---an approach that has been successfully applied in other fields [e.g., @arganda15; @bentzien13]. 
 
 In our study, we built a  model using text from the NGSS and evaluated items from the Oregon alternate assessment against this model. However, the topic model could be used with the text from *any* test items written to measure the NGSS. While our two SMEs came to consensus on a five-topic solution, it is possible, that alternative SMEs may have arrived at different conclusions. Including as many voices in the conversation as possible may help reach a general consensus among the field, and models could be constructed as a general-purpose tool for any test developer writing test items to the given standards. A general training (perhaps through an online module) may first need to be provided to the SMEs providing input to ensure they understand the tool (algorithm) they are helping to develop, its purpose, and how their input may influence the final model. Once consensus was reached, an online Application Programming Interface (API) could be created so test developers could submit the text from their items and obtain immediate feedback, perhaps in a similar form to the results provided here. The API could be hosted on a secure website or, alternatively, the model itself could be shared through an R package or similar outlet.
 
 [^1]: The repository is currently set as private for peer-review purposes but will be made public upon publication.
 
-\newpage
-
 It is also the case that some items, by design in testing contexts like AA-AAS, have little to no text. In this case, our model essentially fails, because it cannot relate the item to any topic, and the probability is equally dispersed across topics. We view these cases as items to be flagged for further review. While our results indicated that these items were, on average, significantly less likely to be rated as aligned, not all of these items received poor alignment ratings. A more long-term solution would be to utilize other areas of machine learning, such as image recognition. This would include first creating a dataset with items with no text, and providing the standard(s) with which the item was judged as being aligned (through SME judgment). The algorithm could then begin to learn how different image features relate to item alignment. Again, however, this would require the algorithm being iteratively trained, with different algorithms being needed for different content areas. SME consensus would again need to be established as a source of validity evidence for the algorithm itself. However, if text mining could be used in combination with image recognition, a more powerful content-related validity evidence system could be established. We again, however, would view such a system as diagnostic and a source of triangulating evidence, with human judgment ultimately maintained as the "gold standard". 
-<!-- 
-Readers may consider what value the topics add in terms of summarizing the Performance Expectations. As previously noted, the middle school NGSS Performance Expectations are already grouped into 12 Arrangement Clusters across the four domains. These arrangement clusters represent a more fine-grained description of Performance Expectation groupings (relative to the five topics we identified) and are based upon pre-defined and theoretical criteria. These theoretical considerations could potentially be useful within a semi-supervised LDA application. The topics we identified were based solely on the co-occurrence of words within the Performance Expectations, which were reviewed post-hoc for substantive and theoretical meaning. These are alternative approaches to the same basic goal. The topics identified, however, did reflect the content of the Performance Expectations in a succinct and comprehensive way. It is also worth mentioning that our approach does not provide a clear linking between an item and an individual Performance Expectation. That is, the specificity of the information provided is at the topic (subdomain) level, rather than to a specific Performance Expectation. This is helpful for evaluating the relative representation of  topics across the test items, but may be less helpful for a specific item (outside of cases when no topic-level prediction is made, in which case the item could be flagged for further review). 
- -->
 
 Finally, our specific application utilized the NGSS content standards and a science test. In some ways, science is "easy" to evaluate the linkage between tests and items, because key vocabulary must be represented in each. It therefore remains to be seen how this approach would work with other highly-assessed content areas like English language arts and mathematics. Reading would seem to follow rather naturally; for example, if a standard discussed verbs, an item may ask students to identify the verb within a sentence. Because the word "verb" would occur in both, the match would be found. However, there are other instances where the mapping between the text used in content standards and items may be disparate, yet aligned. Mathematics also includes many keywords (e.g., area, measure, multiply) that may be helpful in classifying items, but the mathematical symbols themselves could also be useful by simply treating these symbols as "words" and evaluating their co-occurrence. For topics such as geometry, an image recognition approach such as discussed above may also be helpful. However, further research is needed to better understand how the method would generalize to other content areas, as well as different grades within a content area. It is possible, for instance, that the method would work well in mathematics for primary grade content, but not middle or high school content. 
 
