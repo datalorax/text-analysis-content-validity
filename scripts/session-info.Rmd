@@ -1,0 +1,44 @@
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE,
+                      message = FALSE)
+```
+
+# Environment
+The manuscript was rendered using following:
+
+```{r}
+library(pander)
+library(sessioninfo)
+pander(session_info()[[1]])
+```
+
+# Load libraries
+The following libraries were used in the manuscript. Please see the Rmd file for code to download/install specific versions.
+
+
+```{r load, options}
+library(papaja)
+library(ggplot2)
+library(magrittr)
+library(tidyr)
+library(dplyr)
+library(stringr)
+library(purrr)
+library(readxl)
+library(here)
+library(janitor)
+library(tidytext)
+library(topicmodels)
+library(ldatuning)
+library(scales)
+library(patchwork)
+library(drlib)
+library(textstem)
+library(extrafont)
+```
+
+Including dependencies, the following table displays all packages used.
+
+```{r full-libraries}
+knitr::kable(session_info()[[2]])
+```
